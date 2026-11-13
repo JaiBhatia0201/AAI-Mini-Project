@@ -1,0 +1,30 @@
+{
+  "dataset_name": "GATE CSE Flagship Adaptive Learning Dataset",
+  "version": "1.0.0",
+  "generated_at": "2026-11-14T01:12:00+05:30",
+  "exam_name": "GATE CSE",
+  "max_score": 100.0,
+  "counts": {
+    "subjects": 8,
+    "topics": 40,
+    "prerequisite_edges": 40,
+    "learning_resources": 160,
+    "questions": 240,
+    "student_profiles": 4,
+    "parent_teacher_accounts": 1,
+    "historical_assessments": 5,
+    "mastery_snapshots": 40
+  },
+  "provenance": "Curated academic syllabus/textbook metadata (NPTEL, MIT OCW, standard CS/Math references) paired with schema-consistent synthetic learner histories and domain-authored questions.",
+  "files": [
+    "README.md",
+    "dataset_manifest.json",
+    "sample_syllabi/gate_cse_syllabus.pdf",
+    "syllabus_graph.json",
+    "learning_resources.json",
+    "question_bank.json",
+    "student_profiles.json",
+    "assessment_attempts.json",
+    "mastery_history.json"
+  ]
+}

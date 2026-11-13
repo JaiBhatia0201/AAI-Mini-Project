@@ -1,0 +1,386 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R] /Count 7 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 4211 >>
+stream
+BT /F2 15 Tf 54 740.0 Td (GATE CSE 2026 - Comprehensive Examination Syllabus) Tj ET
+BT /F2 10.5 Tf 54 715.0 Td (Computer Science Core & Engineering Mathematics \(Maximum Score: 100\)) Tj ET
+BT /F2 13 Tf 54 686.5 Td (DBMS \(CS Core\)) Tj ET
+BT /F2 10.5 Tf 54 663.5 Td (Unit 1: Data Modeling & Relational Algebra: ER Model & Relational Algebra) Tj ET
+BT /F2 10.5 Tf 54 646.0 Td ([DBMS-01]) Tj ET
+BT /F2 9.2 Tf 54 629.5 Td (  Subtopics: Entity-Relationship Diagrams, Weak Entities & Cardinality, Selection, Projection) Tj ET
+BT /F2 9.2 Tf 54 614.3 Td (  & Joins, Relational Division & Tuple Safety) Tj ET
+BT /F2 9 Tf 54 599.1 Td (  Prerequisites: DM-02 | Difficulty: 2/5 | Weightage: 4.0%) Tj ET
+BT /F1 9 Tf 54 584.1 Td (  Covers conceptual modeling via ER/EER diagrams \(strong/weak entities, participation,) Tj ET
+BT /F1 9 Tf 54 570.1 Td (  cardinality ratios\) and mapping schemas to relational tables. Relational algebra operators) Tj ET
+BT /F1 9 Tf 54 556.1 Td (  \(select, project, union, set difference, Cartesian product, natural join, division\) provide) Tj ET
+BT /F1 9 Tf 54 542.1 Td (  the formal query foundation.) Tj ET
+BT /F2 10.5 Tf 54 522.1 Td (Unit 2: Query Languages: SQL & Tuple Relational Calculus [DBMS-02]) Tj ET
+BT /F2 9.2 Tf 54 504.6 Td (  Subtopics: GROUP BY & HAVING Clauses, Three-Valued NULL Semantics, Correlated & Nested) Tj ET
+BT /F2 9.2 Tf 54 489.4 Td (  Subqueries, Safe Tuple Relational Calculus) Tj ET
+BT /F2 9 Tf 54 474.2 Td (  Prerequisites: DBMS-01 | Difficulty: 3/5 | Weightage: 4.5%) Tj ET
+BT /F1 9 Tf 54 459.2 Td (  SQL DDL/DML querying with joins, outer joins, nested IN/ANY/ALL subqueries, aggregation with) Tj ET
+BT /F1 9 Tf 54 445.2 Td (  GROUP BY/HAVING, and SQL three-valued logic \(TRUE, FALSE, UNKNOWN\) under NULL values, paired) Tj ET
+BT /F1 9 Tf 54 431.2 Td (  with safe Tuple Relational Calculus formulations.) Tj ET
+BT /F2 10.5 Tf 54 411.2 Td (Unit 3: Schema Refinement: Normalization & Functional Dependencies [DBMS-03]) Tj ET
+BT /F2 9.2 Tf 54 393.7 Td (  Subtopics: Attribute Closure & Candidate Keys, Armstrong Axioms & Canonical Cover, Lossless) Tj ET
+BT /F2 9.2 Tf 54 378.5 Td (  Join & Dependency Preservation, 1NF, 2NF, 3NF & BCNF Decomposition) Tj ET
+BT /F2 9 Tf 54 363.3 Td (  Prerequisites: DBMS-01 | Difficulty: 3/5 | Weightage: 4.5%) Tj ET
+BT /F1 9 Tf 54 348.3 Td (  Formal schema design using functional dependencies \(FDs\), Armstrong inference rules, minimal) Tj ET
+BT /F1 9 Tf 54 334.3 Td (  canonical cover, prime vs non-prime attributes, candidate key discovery, lossless-join) Tj ET
+BT /F1 9 Tf 54 320.3 Td (  testing \(Heath theorem\), and decompositions into 3NF and BCNF.) Tj ET
+BT /F2 10.5 Tf 54 300.3 Td (Unit 4: Transaction Management: Transactions & Concurrency Control [DBMS-04]) Tj ET
+BT /F2 9.2 Tf 54 282.8 Td (  Subtopics: ACID Properties & Recoverability, Conflict & View Serializability, Strict) Tj ET
+BT /F2 9.2 Tf 54 267.6 Td (  Two-Phase Locking & Deadlocks, Timestamp Ordering & ARIES Recovery) Tj ET
+BT /F2 9 Tf 54 252.4 Td (  Prerequisites: DBMS-02, DBMS-03 | Difficulty: 4/5 | Weightage: 4.0%) Tj ET
+BT /F1 9 Tf 54 237.4 Td (  Transaction atomicity, isolation, durability, precedence-graph conflict serializability,) Tj ET
+BT /F1 9 Tf 54 223.4 Td (  cascadeless and recoverable schedules, locking protocols \(2PL, Strict 2PL\), Thomas write) Tj ET
+BT /F1 9 Tf 54 209.4 Td (  rule, and WAL/ARIES crash recovery.) Tj ET
+BT /F2 10.5 Tf 54 189.4 Td (Unit 5: Storage & Indexing: File Organization & B/B+ Tree Indexing [DBMS-05]) Tj ET
+BT /F2 9.2 Tf 54 171.9 Td (  Subtopics: Primary, Clustering & Secondary Indexes, Sparse vs Dense Indexing, B-Tree & B+) Tj ET
+BT /F2 9.2 Tf 54 156.7 Td (  Tree Node Order & Splits, Static & Extendible Hashing) Tj ET
+BT /F2 9 Tf 54 141.5 Td (  Prerequisites: DBMS-03 | Difficulty: 4/5 | Weightage: 3.0%) Tj ET
+BT /F1 9 Tf 54 126.5 Td (  Disk block storage, primary/clustering/secondary indexes, B-tree vs B+ tree structural) Tj ET
+BT /F1 9 Tf 54 112.5 Td (  equations for internal order and leaf capacity, sequential leaf scan performance, and) Tj ET
+BT /F1 9 Tf 54 98.5 Td (  dynamic extendible hashing directory doubling.) Tj ET
+BT /F2 13 Tf 54 78.5 Td (Operating Systems \(CS Core\)) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 4481 >>
+stream
+BT /F2 10.5 Tf 54 740.0 Td (Unit 1: Process Management: Processes, Threads & CPU Scheduling [OS-01]) Tj ET
+BT /F2 9.2 Tf 54 722.5 Td (  Subtopics: Process States & PCB Context Switch, User vs Kernel Threads & fork\(\), FCFS, SJF,) Tj ET
+BT /F2 9.2 Tf 54 707.3 Td (  SRTF & Round Robin, Multilevel Feedback & Priority Inversion) Tj ET
+BT /F2 9 Tf 54 692.1 Td (  Prerequisites: None | Difficulty: 2/5 | Weightage: 4.5%) Tj ET
+BT /F1 9 Tf 54 677.1 Td (  Process lifecycle, PCB context switching, POSIX fork\(\) execution trees, shared vs private) Tj ET
+BT /F1 9 Tf 54 663.1 Td (  thread state \(stack/registers vs heap\), and preemptive/non-preemptive CPU scheduling metrics) Tj ET
+BT /F1 9 Tf 54 649.1 Td (  \(turnaround, waiting, response time\).) Tj ET
+BT /F2 10.5 Tf 54 629.1 Td (Unit 2: Concurrency: Process Synchronization & Semaphores [OS-02]) Tj ET
+BT /F2 9.2 Tf 54 611.6 Td (  Subtopics: Critical Section Requirements, Peterson's Software Solution, Counting & Binary) Tj ET
+BT /F2 9.2 Tf 54 596.4 Td (  Semaphores, Classic Producer-Consumer & Readers-Writers) Tj ET
+BT /F2 9 Tf 54 581.2 Td (  Prerequisites: OS-01 | Difficulty: 4/5 | Weightage: 4.5%) Tj ET
+BT /F1 9 Tf 54 566.2 Td (  Race conditions, Mutual Exclusion, Progress, and Bounded Waiting criteria; hardware atomic) Tj ET
+BT /F1 9 Tf 54 552.2 Td (  primitives \(TestAndSet, CompareAndSwap\), semaphore wait/signal invariants, and) Tj ET
+BT /F1 9 Tf 54 538.2 Td (  deadlock/starvation pitfalls in classic synchronization problems.) Tj ET
+BT /F2 10.5 Tf 54 518.2 Td (Unit 3: Deadlocks: Deadlocks & Resource Allocation [OS-03]) Tj ET
+BT /F2 9.2 Tf 54 500.7 Td (  Subtopics: Coffman Four Necessary Conditions, Resource Allocation Graphs \(RAG\), Deadlock) Tj ET
+BT /F2 9.2 Tf 54 485.5 Td (  Prevention via Resource Ordering, Banker's Safety Algorithm & Bounds) Tj ET
+BT /F2 9 Tf 54 470.3 Td (  Prerequisites: OS-02 | Difficulty: 3/5 | Weightage: 3.5%) Tj ET
+BT /F1 9 Tf 54 455.3 Td (  Analysis of Mutual Exclusion, Hold-and-Wait, No Preemption, and Circular Wait; cycle) Tj ET
+BT /F1 9 Tf 54 441.3 Td (  detection in single vs multi-instance RAGs; worst-case pigeonhole deadlock-free resource) Tj ET
+BT /F1 9 Tf 54 427.3 Td (  bounds; and Banker's algorithm safety sequence verification.) Tj ET
+BT /F2 10.5 Tf 54 407.3 Td (Unit 4: Primary Memory: Memory Management & Paging [OS-04]) Tj ET
+BT /F2 9.2 Tf 54 389.8 Td (  Subtopics: Contiguous Allocation & Fragmentation, Paging & Address Bit Splitting, TLB) Tj ET
+BT /F2 9.2 Tf 54 374.6 Td (  Effective Memory Access Time, Hierarchical & Inverted Page Tables) Tj ET
+BT /F2 9 Tf 54 359.4 Td (  Prerequisites: OS-01 | Difficulty: 3/5 | Weightage: 4.0%) Tj ET
+BT /F1 9 Tf 54 344.4 Td (  Logical-to-physical address translation, elimination of external fragmentation via paging,) Tj ET
+BT /F1 9 Tf 54 330.4 Td (  TLB hit-ratio EMAT calculations, multi-level page table sizing, and inverted page tables) Tj ET
+BT /F1 9 Tf 54 316.4 Td (  indexed by physical frame.) Tj ET
+BT /F2 10.5 Tf 54 296.4 Td (Unit 5: Virtual Memory & Storage: Virtual Memory, Page Replacement & File Systems) Tj ET
+BT /F2 10.5 Tf 54 278.9 Td ([OS-05]) Tj ET
+BT /F2 9.2 Tf 54 262.4 Td (  Subtopics: Demand Paging & Page Fault Latency, FIFO, Optimal & LRU Replacement, Belady's) Tj ET
+BT /F2 9.2 Tf 54 247.2 Td (  Anomaly & Thrashing, UNIX Inode Structure & Disk Scheduling) Tj ET
+BT /F2 9 Tf 54 232.0 Td (  Prerequisites: OS-04 | Difficulty: 4/5 | Weightage: 4.0%) Tj ET
+BT /F1 9 Tf 54 217.0 Td (  Demand paging, working-set thrashing control, stack vs non-stack replacement algorithms) Tj ET
+BT /F1 9 Tf 54 203.0 Td (  \(Belady's anomaly in FIFO vs LRU/OPT\), page-fault rate constraints on EMAT, and) Tj ET
+BT /F1 9 Tf 54 189.0 Td (  multi-indirect UNIX inode maximum file capacity.) Tj ET
+BT /F2 13 Tf 54 169.0 Td (Computer Networks \(CS Core\)) Tj ET
+BT /F2 10.5 Tf 54 146.0 Td (Unit 1: Layering & Framing: OSI/TCP-IP & Data Link Framing/CRC [CN-01]) Tj ET
+BT /F2 9.2 Tf 54 128.5 Td (  Subtopics: OSI vs TCP/IP Protocol Responsibilities, Byte & Bit Stuffing Framing, CRC) Tj ET
+BT /F2 9.2 Tf 54 113.3 Td (  Polynomial Error Detection, Stop-and-Wait, GBN & Selective Repeat ARQ) Tj ET
+BT /F2 9 Tf 54 98.1 Td (  Prerequisites: None | Difficulty: 3/5 | Weightage: 4.0%) Tj ET
+BT /F1 9 Tf 54 83.1 Td (  Layered network architecture, HDLC bit stuffing, modulo-2 polynomial CRC checksum) Tj ET
+BT /F1 9 Tf 54 69.1 Td (  generation, bandwidth-delay product, and utilization/sequence-width formulas for) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 10 0 R >>
+endobj
+10 0 obj
+<< /Length 4358 >>
+stream
+BT /F1 9 Tf 54 740.0 Td (  Stop-and-Wait, Go-Back-N \(2^k - 1\), and Selective Repeat \(2^\(k-1\)\).) Tj ET
+BT /F2 10.5 Tf 54 720.0 Td (Unit 2: Medium Access & Switching: MAC Protocols, CSMA/CD & Ethernet Switching) Tj ET
+BT /F2 10.5 Tf 54 702.5 Td ([CN-02]) Tj ET
+BT /F2 9.2 Tf 54 686.0 Td (  Subtopics: Pure vs Slotted ALOHA Throughput, CSMA/CD Collision Detection & Min Frame Size,) Tj ET
+BT /F2 9.2 Tf 54 670.8 Td (  Binary Exponential Backoff, Self-Learning Switches vs Hubs & Domains) Tj ET
+BT /F2 9 Tf 54 655.6 Td (  Prerequisites: CN-01 | Difficulty: 3/5 | Weightage: 3.5%) Tj ET
+BT /F1 9 Tf 54 640.6 Td (  Random-access MAC protocols \(ALOHA throughput 18.4%/36.8%\), Ethernet CSMA/CD minimum frame) Tj ET
+BT /F1 9 Tf 54 626.6 Td (  length constraint L >= BW * RTT, exponential backoff bounds, and separating collision vs) Tj ET
+BT /F1 9 Tf 54 612.6 Td (  broadcast domains across hubs, switches, and routers.) Tj ET
+BT /F2 10.5 Tf 54 592.6 Td (Unit 3: Network Addressing: IPv4 Addressing, Subnetting & CIDR [CN-03]) Tj ET
+BT /F2 9.2 Tf 54 575.1 Td (  Subtopics: Classless CIDR Prefix & Host Counts, Route Aggregation & Supernetting, Longest) Tj ET
+BT /F2 9.2 Tf 54 559.9 Td (  Prefix Match Forwarding, VLSM Subnetting & IP Fragmentation) Tj ET
+BT /F2 9 Tf 54 544.7 Td (  Prerequisites: CN-02 | Difficulty: 4/5 | Weightage: 4.5%) Tj ET
+BT /F1 9 Tf 54 529.7 Td (  IPv4 header fields, CIDR subnet masks, usable host counts, non-overlapping VLSM allocation,) Tj ET
+BT /F1 9 Tf 54 515.7 Td (  supernet route summarization, router longest-prefix matching, and 8-byte aligned IP) Tj ET
+BT /F1 9 Tf 54 501.7 Td (  fragmentation offsets across MTU boundaries.) Tj ET
+BT /F2 10.5 Tf 54 481.7 Td (Unit 4: Routing Algorithms: Routing Protocols - RIP, OSPF & BGP [CN-04]) Tj ET
+BT /F2 9.2 Tf 54 464.2 Td (  Subtopics: Distance Vector \(Bellman-Ford\) & RIP, Count-to-Infinity & Split Horizon,) Tj ET
+BT /F2 9.2 Tf 54 449.0 Td (  Link-State \(Dijkstra\) & OSPF Areas, Path-Vector BGP & Transport Encapsulation) Tj ET
+BT /F2 9 Tf 54 433.8 Td (  Prerequisites: CN-03 | Difficulty: 5/5 | Weightage: 4.5%) Tj ET
+BT /F1 9 Tf 54 418.8 Td (  Intra-AS and inter-AS routing protocols: Bellman-Ford distance vector updates,) Tj ET
+BT /F1 9 Tf 54 404.8 Td (  count-to-infinity mitigations \(Split Horizon / Poison Reverse\), OSPF link-state flooding and) Tj ET
+BT /F1 9 Tf 54 390.8 Td (  Dijkstra SPF, and BGP AS-PATH loop prevention.) Tj ET
+BT /F2 10.5 Tf 54 370.8 Td (Unit 5: Transport Protocols: Transport Layer - TCP Congestion Control & UDP) Tj ET
+BT /F2 10.5 Tf 54 353.3 Td ([CN-05]) Tj ET
+BT /F2 9.2 Tf 54 336.8 Td (  Subtopics: TCP 3-Way Handshake & State Machine, Flow Control \(rwnd\) vs Congestion Window) Tj ET
+BT /F2 9.2 Tf 54 321.6 Td (  \(cwnd\), Slow Start, AIMD & Fast Recovery, Sequence Wrap-Around & UDP Semantics) Tj ET
+BT /F2 9 Tf 54 306.4 Td (  Prerequisites: CN-03, CN-04 | Difficulty: 4/5 | Weightage: 4.5%) Tj ET
+BT /F1 9 Tf 54 291.4 Td (  Connection-oriented reliable transport vs connectionless UDP, sliding-window flight cap) Tj ET
+BT /F1 9 Tf 54 277.4 Td (  min\(rwnd, cwnd\), TCP Reno response to 3 duplicate ACKs vs timeouts, Slow Start exponential) Tj ET
+BT /F1 9 Tf 54 263.4 Td (  doubling, AIMD linear growth, and 32-bit sequence wraparound.) Tj ET
+BT /F2 13 Tf 54 243.4 Td (Theory of Computation \(CS Core\)) Tj ET
+BT /F2 10.5 Tf 54 220.4 Td (Unit 1: Finite Automata: Deterministic & Non-Deterministic Finite Automata) Tj ET
+BT /F2 10.5 Tf 54 202.9 Td ([TOC-01]) Tj ET
+BT /F2 9.2 Tf 54 186.4 Td (  Subtopics: DFA State Design & Modular Arithmetic, NFA Subset Construction & Epsilon Closure,) Tj ET
+BT /F2 9.2 Tf 54 171.2 Td (  Myhill-Nerode Equivalence & Minimization, Product Automata for Set Operations) Tj ET
+BT /F2 9 Tf 54 156.0 Td (  Prerequisites: DM-02 | Difficulty: 3/5 | Weightage: 4.0%) Tj ET
+BT /F1 9 Tf 54 141.0 Td (  Formal DFA/NFA definitions, subset construction \(2^n worst-case state blowup\), product DFA) Tj ET
+BT /F1 9 Tf 54 127.0 Td (  constructions for union/intersection, and Myhill-Nerode distinguishability classes for) Tj ET
+BT /F1 9 Tf 54 113.0 Td (  minimal state counts.) Tj ET
+BT /F2 10.5 Tf 54 93.0 Td (Unit 2: Regular Languages: Regular Expressions & Pumping Lemma [TOC-02]) Tj ET
+BT /F2 9.2 Tf 54 75.5 Td (  Subtopics: Regex Algebra & Kleene Equivalence, Closure Properties of Regular Sets, Pumping) Tj ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 12 0 R >>
+endobj
+12 0 obj
+<< /Length 4484 >>
+stream
+BT /F2 9.2 Tf 54 740.0 Td (  Lemma Contradiction Proofs, Identifying Subtly Regular vs Non-Regular Languages) Tj ET
+BT /F2 9 Tf 54 724.8 Td (  Prerequisites: TOC-01 | Difficulty: 4/5 | Weightage: 4.0%) Tj ET
+BT /F1 9 Tf 54 709.8 Td (  Algebraic equivalences of regular expressions, closure under Boolean and rational) Tj ET
+BT /F1 9 Tf 54 695.8 Td (  operations, and applying the Pumping Lemma carefully as a necessary condition to prove) Tj ET
+BT /F1 9 Tf 54 681.8 Td (  languages non-regular.) Tj ET
+BT /F2 10.5 Tf 54 661.8 Td (Unit 3: Context-Free Languages: Context-Free Grammars & Pushdown Automata [TOC-03]) Tj ET
+BT /F2 9.2 Tf 54 644.3 Td (  Subtopics: Parse Trees & Grammar Ambiguity, Chomsky Normal Form \(2n - 1 Steps\), DPDA vs NPDA) Tj ET
+BT /F2 9.2 Tf 54 629.1 Td (  Expressive Power, CFL & DCFL Closure Properties) Tj ET
+BT /F2 9 Tf 54 613.9 Td (  Prerequisites: TOC-02 | Difficulty: 4/5 | Weightage: 4.0%) Tj ET
+BT /F1 9 Tf 54 598.9 Td (  CFGs, ambiguity detection, CNF conversion and derivation length bounds, pushdown automata) Tj ET
+BT /F1 9 Tf 54 584.9 Td (  determinism gap \(palindromes\), and failure of CFL closure under intersection and complement) Tj ET
+BT /F1 9 Tf 54 570.9 Td (  \(unlike DCFL complement closure\).) Tj ET
+BT /F2 10.5 Tf 54 550.9 Td (Unit 4: Computability: Turing Machines & Undecidability [TOC-04]) Tj ET
+BT /F2 9.2 Tf 54 533.4 Td (  Subtopics: Single vs Multi-Tape TM Equivalence, Decidable \(Recursive\) vs RE Languages,) Tj ET
+BT /F2 9.2 Tf 54 518.2 Td (  Halting Problem & Diagonalization, Mapping Reducibility & Non-RE Proofs) Tj ET
+BT /F2 9 Tf 54 503.0 Td (  Prerequisites: TOC-03 | Difficulty: 5/5 | Weightage: 4.0%) Tj ET
+BT /F1 9 Tf 54 488.0 Td (  Church-Turing computability equivalence, recursive vs recursively enumerable) Tj ET
+BT /F1 9 Tf 54 474.0 Td (  characterization \(L and complement both RE\), undecidability of A_TM / HALT_TM / EQ_CFG, and) Tj ET
+BT /F1 9 Tf 54 460.0 Td (  mapping reduction contrapositives.) Tj ET
+BT /F2 10.5 Tf 54 440.0 Td (Unit 5: Decidability & Complexity: Rice's Theorem & Complexity Basics [TOC-05]) Tj ET
+BT /F2 9.2 Tf 54 422.5 Td (  Subtopics: Semantic vs Syntactic TM Properties, Trivial vs Non-Trivial Language Properties,) Tj ET
+BT /F2 9.2 Tf 54 407.3 Td (  P, NP & Polynomial Verification, NP-Completeness & co-NP Implications) Tj ET
+BT /F2 9 Tf 54 392.1 Td (  Prerequisites: TOC-04 | Difficulty: 5/5 | Weightage: 3.0%) Tj ET
+BT /F1 9 Tf 54 377.1 Td (  Applying Rice's theorem strictly to non-trivial semantic properties of L\(M\) while) Tj ET
+BT /F1 9 Tf 54 363.1 Td (  recognizing decidable bounded/syntactic checks, alongside fundamental P, NP, NP-complete) Tj ET
+BT /F1 9 Tf 54 349.1 Td (  reductions, and co-NP collapse theorems.) Tj ET
+BT /F2 13 Tf 54 329.1 Td (Discrete Mathematics \(Engineering Mathematics\)) Tj ET
+BT /F2 10.5 Tf 54 306.1 Td (Unit 1: Mathematical Logic: Propositional & Predicate Logic [DM-01]) Tj ET
+BT /F2 9.2 Tf 54 288.6 Td (  Subtopics: Logical Equivalences & Contrapositives, Tautologies & Satisfiability Counting,) Tj ET
+BT /F2 9.2 Tf 54 273.4 Td (  Nested Quantifier Negation, Modus Ponens, Tollens & Resolution) Tj ET
+BT /F2 9 Tf 54 258.2 Td (  Prerequisites: None | Difficulty: 2/5 | Weightage: 4.0%) Tj ET
+BT /F1 9 Tf 54 243.2 Td (  Truth tables, tautologies, CNF/DNF, logical inference chains, and precise handling of) Tj ET
+BT /F1 9 Tf 54 229.2 Td (  universal/existential quantifier scope and negation in first-order predicate logic.) Tj ET
+BT /F2 10.5 Tf 54 209.2 Td (Unit 2: Set Theory & Order: Sets, Relations, Partial Orders & Lattices [DM-02]) Tj ET
+BT /F2 9.2 Tf 54 191.7 Td (  Subtopics: Equivalence Relations & Bell Partitions, Counting Reflexive & Symmetric) Tj ET
+BT /F2 9.2 Tf 54 176.5 Td (  Relations, Partial Orders & Hasse Diagrams, Meet, Join & Lattice Complements) Tj ET
+BT /F2 9 Tf 54 161.3 Td (  Prerequisites: DM-01 | Difficulty: 3/5 | Weightage: 4.0%) Tj ET
+BT /F1 9 Tf 54 146.3 Td (  Binary relation properties, counting relations via adjacency matrices, equivalence class) Tj ET
+BT /F1 9 Tf 54 132.3 Td (  partitions \(Stirling/Bell numbers\), poset extremal elements, and algebraic lattice bounds.) Tj ET
+BT /F2 10.5 Tf 54 112.3 Td (Unit 3: Combinatorics: Functions & Counting Combinatorics [DM-03]) Tj ET
+BT /F2 9.2 Tf 54 94.8 Td (  Subtopics: Pigeonhole Principle Bounds, Injective, Surjective & Bijective Counts,) Tj ET
+BT /F2 9.2 Tf 54 79.6 Td (  Stars-and-Bars Integer Solutions, Derangements & Inclusion-Exclusion) Tj ET
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 14 0 R >>
+endobj
+14 0 obj
+<< /Length 4497 >>
+stream
+BT /F2 9 Tf 54 740.0 Td (  Prerequisites: DM-02 | Difficulty: 3/5 | Weightage: 4.0%) Tj ET
+BT /F1 9 Tf 54 725.0 Td (  Counting principles, bijections, onto-function enumeration, multiset combinations with) Tj ET
+BT /F1 9 Tf 54 711.0 Td (  repetition, inclusion-exclusion counting, and derangement recurrences.) Tj ET
+BT /F2 10.5 Tf 54 691.0 Td (Unit 4: Graph Theory: Graph Theory - Connectivity, Trees & Planarity [DM-04]) Tj ET
+BT /F2 9.2 Tf 54 673.5 Td (  Subtopics: Degree Sum & Handshaking Lemma, Trees & Cayley's Spanning Tree Formula, Euler) Tj ET
+BT /F2 9.2 Tf 54 658.3 Td (  Circuits vs Hamiltonian Paths, Planar Euler Formula & Chromatic Bounds) Tj ET
+BT /F2 9 Tf 54 643.1 Td (  Prerequisites: DM-02, DM-03 | Difficulty: 3/5 | Weightage: 4.5%) Tj ET
+BT /F1 9 Tf 54 628.1 Td (  Fundamental undirected graph invariants, tree characterizations, Eulerian degree criteria,) Tj ET
+BT /F1 9 Tf 54 614.1 Td (  planar embedding equation V - E + F = 2, bipartite/odd-cycle coloring, and Cayley's n^\(n-2\)) Tj ET
+BT /F1 9 Tf 54 600.1 Td (  labeled tree count.) Tj ET
+BT /F2 10.5 Tf 54 580.1 Td (Unit 5: Algebra: Algebraic Structures - Groups & Boolean Algebra [DM-05]) Tj ET
+BT /F2 9.2 Tf 54 562.6 Td (  Subtopics: Group Axioms & Subgroup Orders \(Lagrange\), Cyclic Groups & Euler Totient) Tj ET
+BT /F2 9.2 Tf 54 547.4 Td (  Generators, Abelian Group Classification, Boolean Algebraic Identities & Self-Duals) Tj ET
+BT /F2 9 Tf 54 532.2 Td (  Prerequisites: DM-02 | Difficulty: 4/5 | Weightage: 3.0%) Tj ET
+BT /F1 9 Tf 54 517.2 Td (  Finite group theory \(order, cyclic generators, Lagrange divisibility, abelian classification) Tj ET
+BT /F1 9 Tf 54 503.2 Td (  up to isomorphism\) and Boolean algebra laws including self-dual function enumeration.) Tj ET
+BT /F2 13 Tf 54 483.2 Td (Linear Algebra \(Engineering Mathematics\)) Tj ET
+BT /F2 10.5 Tf 54 460.2 Td (Unit 1: Matrix Fundamentals: Matrices, Determinants & Rank [LA-01]) Tj ET
+BT /F2 9.2 Tf 54 442.7 Td (  Subtopics: Row/Column Rank & Outer Products, Determinant Scaling & Skew-Symmetry, Idempotent) Tj ET
+BT /F2 9.2 Tf 54 427.5 Td (  & Nilpotent Trace Properties, Sylvester Rank Inequality) Tj ET
+BT /F2 9 Tf 54 412.3 Td (  Prerequisites: None | Difficulty: 2/5 | Weightage: 3.5%) Tj ET
+BT /F1 9 Tf 54 397.3 Td (  Core matrix invariants: determinant multilinear scaling, rank bounds on sums and products) Tj ET
+BT /F1 9 Tf 54 383.3 Td (  \(Sylvester inequality\), trace-rank relations for projection/idempotent matrices, and) Tj ET
+BT /F1 9 Tf 54 369.3 Td (  odd-order skew-symmetric determinants.) Tj ET
+BT /F2 10.5 Tf 54 349.3 Td (Unit 2: Linear Systems: Systems of Linear Equations [LA-02]) Tj ET
+BT /F2 9.2 Tf 54 331.8 Td (  Subtopics: Rouche-Capelli Consistency Criterion, Homogeneous Nullity & Free Variables,) Tj ET
+BT /F2 9.2 Tf 54 316.6 Td (  Parametric Infinite vs No Solution Cases, Overdetermined & Full-Rank Uniqueness) Tj ET
+BT /F2 9 Tf 54 301.4 Td (  Prerequisites: LA-01 | Difficulty: 2/5 | Weightage: 3.5%) Tj ET
+BT /F1 9 Tf 54 286.4 Td (  Augmented matrix rank testing for existence and uniqueness of Ax = b, homogeneous solution) Tj ET
+BT /F1 9 Tf 54 272.4 Td (  space dimensionality via Rank-Nullity, and full-rank invertibility implications.) Tj ET
+BT /F2 10.5 Tf 54 252.4 Td (Unit 3: Vector Spaces: Vector Spaces, Basis & Dimension [LA-03]) Tj ET
+BT /F2 9.2 Tf 54 234.9 Td (  Subtopics: Linear Independence & Spanning Sets, Subspace Closure Criteria, Four Fundamental) Tj ET
+BT /F2 9.2 Tf 54 219.7 Td (  Orthogonal Subspaces, Subspace Intersection Dimension & Projections) Tj ET
+BT /F2 9 Tf 54 204.5 Td (  Prerequisites: LA-02 | Difficulty: 3/5 | Weightage: 3.5%) Tj ET
+BT /F1 9 Tf 54 189.5 Td (  Abstract vector spaces over R, basis tests via determinants, fundamental subspace) Tj ET
+BT /F1 9 Tf 54 175.5 Td (  orthogonality \(NullSpace perp RowSpace\), Grassmann intersection formula, and orthogonal) Tj ET
+BT /F1 9 Tf 54 161.5 Td (  projection matrices.) Tj ET
+BT /F2 10.5 Tf 54 141.5 Td (Unit 4: Spectral Theory: Eigenvalues, Eigenvectors & Diagonalization [LA-04]) Tj ET
+BT /F2 9.2 Tf 54 124.0 Td (  Subtopics: Trace & Determinant Vieta Identities, Spectral Theorem for Symmetric Matrices,) Tj ET
+BT /F2 9.2 Tf 54 108.8 Td (  Algebraic vs Geometric Multiplicity, Cayley-Hamilton Matrix Polynomials) Tj ET
+BT /F2 9 Tf 54 93.6 Td (  Prerequisites: LA-03 | Difficulty: 4/5 | Weightage: 4.0%) Tj ET
+BT /F1 9 Tf 54 78.6 Td (  Characteristic polynomials, eigenvalue transformations for A^k + cI, real symmetric) Tj ET
+endstream
+endobj
+15 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 16 0 R >>
+endobj
+16 0 obj
+<< /Length 4336 >>
+stream
+BT /F1 9 Tf 54 740.0 Td (  orthogonal diagonalizability, defective non-diagonalizable Jordan blocks \(AM > GM\), and) Tj ET
+BT /F1 9 Tf 54 726.0 Td (  Cayley-Hamilton inverse derivation.) Tj ET
+BT /F2 10.5 Tf 54 706.0 Td (Unit 5: Factorizations: LU Decomposition & Positive Definite Matrices [LA-05]) Tj ET
+BT /F2 9.2 Tf 54 688.5 Td (  Subtopics: Principal Minor Condition for LU, Positive Definiteness & Sylvester Criterion,) Tj ET
+BT /F2 9.2 Tf 54 673.3 Td (  Cholesky & Gram Matrix B^T B, Computational Complexity of Reuse) Tj ET
+BT /F2 9 Tf 54 658.1 Td (  Prerequisites: LA-04 | Difficulty: 4/5 | Weightage: 3.0%) Tj ET
+BT /F1 9 Tf 54 643.1 Td (  Gaussian elimination without pivoting via non-zero leading minors, symmetric) Tj ET
+BT /F1 9 Tf 54 629.1 Td (  positive-definiteness via positive eigenvalues or Sylvester minors, Cholesky L*L^T) Tj ET
+BT /F1 9 Tf 54 615.1 Td (  factorization, and O\(n^2\) back-substitution reuse.) Tj ET
+BT /F2 13 Tf 54 595.1 Td (Calculus \(Engineering Mathematics\)) Tj ET
+BT /F2 10.5 Tf 54 572.1 Td (Unit 1: Differential Foundations: Limits, Continuity & Differentiability [CAL-01]) Tj ET
+BT /F2 9.2 Tf 54 554.6 Td (  Subtopics: Standard Trigonometric & Exponential Limits, L'Hopital's Rule & Indeterminate) Tj ET
+BT /F2 9.2 Tf 54 539.4 Td (  Forms, Left/Right Derivative Corners \(|x|\), Squeeze Theorem & Differentiable Discontinuous) Tj ET
+BT /F2 9.2 Tf 54 524.2 Td (  Derivatives) Tj ET
+BT /F2 9 Tf 54 509.0 Td (  Prerequisites: None | Difficulty: 2/5 | Weightage: 3.0%) Tj ET
+BT /F1 9 Tf 54 494.0 Td (  Evaluating 0/0, inf/inf, and 1^inf indeterminate limits via algebraic limits, L'Hopital, and) Tj ET
+BT /F1 9 Tf 54 480.0 Td (  series expansion; distinguishing continuity from differentiability.) Tj ET
+BT /F2 10.5 Tf 54 460.0 Td (Unit 2: Theorems & Optimization: Mean Value Theorems & Maxima/Minima [CAL-02]) Tj ET
+BT /F2 9.2 Tf 54 442.5 Td (  Subtopics: Rolle's & Lagrange Mean Value Theorems, Global Extrema on Closed Intervals,) Tj ET
+BT /F2 9.2 Tf 54 427.3 Td (  Derivative Bounds & Root Counting, Second Derivative Concavity Test) Tj ET
+BT /F2 9 Tf 54 412.1 Td (  Prerequisites: CAL-01 | Difficulty: 3/5 | Weightage: 3.5%) Tj ET
+BT /F1 9 Tf 54 397.1 Td (  Existence of stationary/mean-value points under Rolle and Lagrange MVTs, bounding function) Tj ET
+BT /F1 9 Tf 54 383.1 Td (  growth via f'\(x\), counting real roots monotonically, and optimizing on bounded domains.) Tj ET
+BT /F2 10.5 Tf 54 363.1 Td (Unit 3: Series & Multivariable: Taylor Series & Partial Derivatives [CAL-03]) Tj ET
+BT /F2 9.2 Tf 54 345.6 Td (  Subtopics: Maclaurin & Taylor Polynomial Coefficients, Partial Derivatives & Directional) Tj ET
+BT /F2 9.2 Tf 54 330.4 Td (  Gradients, Euler's Homogeneous Function Theorem, 2D Hessian Discriminant & Saddle Points) Tj ET
+BT /F2 9 Tf 54 315.2 Td (  Prerequisites: CAL-02 | Difficulty: 3/5 | Weightage: 3.5%) Tj ET
+BT /F1 9 Tf 54 300.2 Td (  Taylor/Maclaurin series expansions \(e^x, sin x, cos x\), directional derivative maximization) Tj ET
+BT /F1 9 Tf 54 286.2 Td (  along grad\(f\), Euler's homogeneous theorem, and classifying local extrema vs saddle points) Tj ET
+BT /F1 9 Tf 54 272.2 Td (  via Hessian tests.) Tj ET
+BT /F2 10.5 Tf 54 252.2 Td (Unit 4: Single-Variable Integration: Definite Integrals & Fundamental Theorem) Tj ET
+BT /F2 10.5 Tf 54 234.7 Td ([CAL-04]) Tj ET
+BT /F2 9.2 Tf 54 218.2 Td (  Subtopics: Odd/Even Interval Symmetry, Fundamental Theorem & Leibniz Rule, King's Property) Tj ET
+BT /F2 9.2 Tf 54 203.0 Td (  Integral Tricks, Beta/Gamma & Piecewise Integrals) Tj ET
+BT /F2 9 Tf 54 187.8 Td (  Prerequisites: CAL-01 | Difficulty: 3/5 | Weightage: 3.0%) Tj ET
+BT /F1 9 Tf 54 172.8 Td (  Symmetry shortcuts on [-a, a], differentiating integrals with variable limits via Leibniz) Tj ET
+BT /F1 9 Tf 54 158.8 Td (  rule, reflection property f\(a-x\), and evaluating polynomial-power integrals via Beta/Gamma) Tj ET
+BT /F1 9 Tf 54 144.8 Td (  functions.) Tj ET
+BT /F2 10.5 Tf 54 124.8 Td (Unit 5: Improper & Multiple Integrals: Improper Integrals & Multiple Integrals) Tj ET
+BT /F2 10.5 Tf 54 107.3 Td ([CAL-05]) Tj ET
+BT /F2 9.2 Tf 54 90.8 Td (  Subtopics: p-Integral Convergence Criteria, Iterated Double Integrals & Fubini Order, Polar) Tj ET
+BT /F2 9.2 Tf 54 75.6 Td (  Coordinate Jacobian \(r dr dtheta\), Reversing Limits of Integration) Tj ET
+endstream
+endobj
+17 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 18 0 R >>
+endobj
+18 0 obj
+<< /Length 4066 >>
+stream
+BT /F2 9 Tf 54 740.0 Td (  Prerequisites: CAL-03, CAL-04 | Difficulty: 4/5 | Weightage: 3.0%) Tj ET
+BT /F1 9 Tf 54 725.0 Td (  Convergence at zero and infinity for 1/x^p, Gaussian integral evaluation via polar) Tj ET
+BT /F1 9 Tf 54 711.0 Td (  transformation Jacobian, and exchanging x/y integration bounds on triangular domains.) Tj ET
+BT /F2 13 Tf 54 691.0 Td (Probability & Statistics \(Engineering Mathematics\)) Tj ET
+BT /F2 10.5 Tf 54 668.0 Td (Unit 1: Foundations: Sample Spaces, Axioms & Conditional Probability [PS-01]) Tj ET
+BT /F2 9.2 Tf 54 650.5 Td (  Subtopics: Kolmogorov Axioms & Union Bounds, Conditional Probability Conditioning,) Tj ET
+BT /F2 9.2 Tf 54 635.3 Td (  Multiplication Rule Without Replacement, Pairwise vs Mutual Independence) Tj ET
+BT /F2 9 Tf 54 620.1 Td (  Prerequisites: DM-03 | Difficulty: 2/5 | Weightage: 4.0%) Tj ET
+BT /F1 9 Tf 54 605.1 Td (  Probability axioms, inclusion-exclusion, conditioning sample spaces, sequential dependent) Tj ET
+BT /F1 9 Tf 54 591.1 Td (  draws without replacement, and counterexamples distinguishing pairwise from mutual) Tj ET
+BT /F1 9 Tf 54 577.1 Td (  independence.) Tj ET
+BT /F2 10.5 Tf 54 557.1 Td (Unit 2: Bayesian Reasoning: Bayes Theorem & Total Probability [PS-02]) Tj ET
+BT /F2 9.2 Tf 54 539.6 Td (  Subtopics: Law of Total Probability Partitions, Prior, Likelihood & Posterior Updating,) Tj ET
+BT /F2 9.2 Tf 54 524.4 Td (  Base-Rate Fallacy in Medical Diagnostics, Conditional Independence Naive Bayes) Tj ET
+BT /F2 9 Tf 54 509.2 Td (  Prerequisites: PS-01 | Difficulty: 3/5 | Weightage: 4.5%) Tj ET
+BT /F1 9 Tf 54 494.2 Td (  Partitioning sample spaces via Total Probability and inverting conditional likelihoods via) Tj ET
+BT /F1 9 Tf 54 480.2 Td (  Bayes' Theorem to compute posterior beliefs across diagnostic tests, urns, and) Tj ET
+BT /F1 9 Tf 54 466.2 Td (  multi-evidence classification.) Tj ET
+BT /F2 10.5 Tf 54 446.2 Td (Unit 3: Random Variables: Random Variables, PMF/PDF & CDF [PS-03]) Tj ET
+BT /F2 9.2 Tf 54 428.7 Td (  Subtopics: CDF Axioms & Right-Continuity, Continuous PDF Normalization, Point Probabilities) Tj ET
+BT /F2 9.2 Tf 54 413.5 Td (  & Interval Integration, Monotonic RV Transformations & Medians) Tj ET
+BT /F2 9 Tf 54 398.3 Td (  Prerequisites: PS-02, CAL-04 | Difficulty: 3/5 | Weightage: 4.0%) Tj ET
+BT /F1 9 Tf 54 383.3 Td (  Discrete PMFs and continuous PDFs, computing interval probabilities from CDF differences) Tj ET
+BT /F1 9 Tf 54 369.3 Td (  F\(b\)-F\(a\), and deriving transformed distribution PDFs via CDF inversion.) Tj ET
+BT /F2 10.5 Tf 54 349.3 Td (Unit 4: Probability Distributions: Standard Distributions - Binomial, Poisson,) Tj ET
+BT /F2 10.5 Tf 54 331.8 Td (Normal, Exponential [PS-04]) Tj ET
+BT /F2 9.2 Tf 54 315.3 Td (  Subtopics: Binomial & Geometric Discrete Models, Poisson Rare-Event & Additive Closure,) Tj ET
+BT /F2 9.2 Tf 54 300.1 Td (  Exponential Memoryless Lifetime, Normal Standardization & Empirical Rule) Tj ET
+BT /F2 9 Tf 54 284.9 Td (  Prerequisites: PS-03 | Difficulty: 4/5 | Weightage: 4.0%) Tj ET
+BT /F1 9 Tf 54 269.9 Td (  Moments and physical interpretations of Bernoulli, Binomial, Geometric, Poisson \(additive) Tj ET
+BT /F1 9 Tf 54 255.9 Td (  under independence\), memoryless Exponential, and Gaussian Normal distributions.) Tj ET
+BT /F2 10.5 Tf 54 235.9 Td (Unit 5: Moments & Limit Theorems: Expectation, Variance, Covariance & Central) Tj ET
+BT /F2 10.5 Tf 54 218.4 Td (Limit Theorem [PS-05]) Tj ET
+BT /F2 9.2 Tf 54 201.9 Td (  Subtopics: Linearity of Expectation \(Always Holds\), Variance of Sums & Covariance,) Tj ET
+BT /F2 9.2 Tf 54 186.7 Td (  Uncorrelated vs Independent RVs, Central Limit Theorem & Chebyshev Bounds) Tj ET
+BT /F2 9 Tf 54 171.5 Td (  Prerequisites: PS-04 | Difficulty: 4/5 | Weightage: 4.0%) Tj ET
+BT /F1 9 Tf 54 156.5 Td (  Expectation linearity without independence, Var\(aX+bY\) with covariance cross-terms,) Tj ET
+BT /F1 9 Tf 54 142.5 Td (  zero-covariance dependent variables \(X, X^2\), Chebyshev tail bounds, and CLT sample-mean) Tj ET
+BT /F1 9 Tf 54 128.5 Td (  convergence.) Tj ET
+endstream
+endobj
+xref
+0 19
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000155 00000 n 
+0000000225 00000 n 
+0000000300 00000 n 
+0000000436 00000 n 
+0000004699 00000 n 
+0000004835 00000 n 
+0000009368 00000 n 
+0000009505 00000 n 
+0000013916 00000 n 
+0000014054 00000 n 
+0000018591 00000 n 
+0000018729 00000 n 
+0000023279 00000 n 
+0000023417 00000 n 
+0000027806 00000 n 
+0000027944 00000 n 
+trailer
+<< /Size 19 /Root 1 0 R >>
+startxref
+32063
+%%EOF

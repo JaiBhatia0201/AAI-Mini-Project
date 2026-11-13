@@ -1,0 +1,1095 @@
+{
+  "syllabus_id": "gate_cse_flagship_2026",
+  "title": "GATE CSE Complete Core & Engineering Mathematics",
+  "exam_name": "GATE CSE",
+  "max_score": 100.0,
+  "subjects": [
+    "DBMS",
+    "Operating Systems",
+    "Computer Networks",
+    "Theory of Computation",
+    "Discrete Mathematics",
+    "Linear Algebra",
+    "Calculus",
+    "Probability & Statistics"
+  ],
+  "topics": [
+    {
+      "topic_id": "DBMS-01",
+      "order_index": 1,
+      "subject": "DBMS",
+      "category": "CS Core",
+      "unit": "Unit 1: Data Modeling & Relational Algebra",
+      "title": "ER Model & Relational Algebra",
+      "subtopics": [
+        "Entity-Relationship Diagrams",
+        "Weak Entities & Cardinality",
+        "Selection, Projection & Joins",
+        "Relational Division & Tuple Safety"
+      ],
+      "raw_excerpt": "Covers conceptual modeling via ER/EER diagrams (strong/weak entities, participation, cardinality ratios) and mapping schemas to relational tables. Relational algebra operators (select, project, union, set difference, Cartesian product, natural join, division) provide the formal query foundation.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 2,
+      "exam_weightage": 4.0,
+      "estimated_hours": 5.0,
+      "prerequisites": [
+        "DM-02"
+      ]
+    },
+    {
+      "topic_id": "DBMS-02",
+      "order_index": 2,
+      "subject": "DBMS",
+      "category": "CS Core",
+      "unit": "Unit 2: Query Languages",
+      "title": "SQL & Tuple Relational Calculus",
+      "subtopics": [
+        "GROUP BY & HAVING Clauses",
+        "Three-Valued NULL Semantics",
+        "Correlated & Nested Subqueries",
+        "Safe Tuple Relational Calculus"
+      ],
+      "raw_excerpt": "SQL DDL/DML querying with joins, outer joins, nested IN/ANY/ALL subqueries, aggregation with GROUP BY/HAVING, and SQL three-valued logic (TRUE, FALSE, UNKNOWN) under NULL values, paired with safe Tuple Relational Calculus formulations.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 3,
+      "exam_weightage": 4.5,
+      "estimated_hours": 6.0,
+      "prerequisites": [
+        "DBMS-01"
+      ]
+    },
+    {
+      "topic_id": "DBMS-03",
+      "order_index": 3,
+      "subject": "DBMS",
+      "category": "CS Core",
+      "unit": "Unit 3: Schema Refinement",
+      "title": "Normalization & Functional Dependencies",
+      "subtopics": [
+        "Attribute Closure & Candidate Keys",
+        "Armstrong Axioms & Canonical Cover",
+        "Lossless Join & Dependency Preservation",
+        "1NF, 2NF, 3NF & BCNF Decomposition"
+      ],
+      "raw_excerpt": "Formal schema design using functional dependencies (FDs), Armstrong inference rules, minimal canonical cover, prime vs non-prime attributes, candidate key discovery, lossless-join testing (Heath theorem), and decompositions into 3NF and BCNF.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 3,
+      "exam_weightage": 4.5,
+      "estimated_hours": 6.5,
+      "prerequisites": [
+        "DBMS-01"
+      ]
+    },
+    {
+      "topic_id": "DBMS-04",
+      "order_index": 4,
+      "subject": "DBMS",
+      "category": "CS Core",
+      "unit": "Unit 4: Transaction Management",
+      "title": "Transactions & Concurrency Control",
+      "subtopics": [
+        "ACID Properties & Recoverability",
+        "Conflict & View Serializability",
+        "Strict Two-Phase Locking & Deadlocks",
+        "Timestamp Ordering & ARIES Recovery"
+      ],
+      "raw_excerpt": "Transaction atomicity, isolation, durability, precedence-graph conflict serializability, cascadeless and recoverable schedules, locking protocols (2PL, Strict 2PL), Thomas write rule, and WAL/ARIES crash recovery.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 4,
+      "exam_weightage": 4.0,
+      "estimated_hours": 7.0,
+      "prerequisites": [
+        "DBMS-02",
+        "DBMS-03"
+      ]
+    },
+    {
+      "topic_id": "DBMS-05",
+      "order_index": 5,
+      "subject": "DBMS",
+      "category": "CS Core",
+      "unit": "Unit 5: Storage & Indexing",
+      "title": "File Organization & B/B+ Tree Indexing",
+      "subtopics": [
+        "Primary, Clustering & Secondary Indexes",
+        "Sparse vs Dense Indexing",
+        "B-Tree & B+ Tree Node Order & Splits",
+        "Static & Extendible Hashing"
+      ],
+      "raw_excerpt": "Disk block storage, primary/clustering/secondary indexes, B-tree vs B+ tree structural equations for internal order and leaf capacity, sequential leaf scan performance, and dynamic extendible hashing directory doubling.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 4,
+      "exam_weightage": 3.0,
+      "estimated_hours": 5.5,
+      "prerequisites": [
+        "DBMS-03"
+      ]
+    },
+    {
+      "topic_id": "OS-01",
+      "order_index": 6,
+      "subject": "Operating Systems",
+      "category": "CS Core",
+      "unit": "Unit 1: Process Management",
+      "title": "Processes, Threads & CPU Scheduling",
+      "subtopics": [
+        "Process States & PCB Context Switch",
+        "User vs Kernel Threads & fork()",
+        "FCFS, SJF, SRTF & Round Robin",
+        "Multilevel Feedback & Priority Inversion"
+      ],
+      "raw_excerpt": "Process lifecycle, PCB context switching, POSIX fork() execution trees, shared vs private thread state (stack/registers vs heap), and preemptive/non-preemptive CPU scheduling metrics (turnaround, waiting, response time).",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 2,
+      "exam_weightage": 4.5,
+      "estimated_hours": 5.5,
+      "prerequisites": []
+    },
+    {
+      "topic_id": "OS-02",
+      "order_index": 7,
+      "subject": "Operating Systems",
+      "category": "CS Core",
+      "unit": "Unit 2: Concurrency",
+      "title": "Process Synchronization & Semaphores",
+      "subtopics": [
+        "Critical Section Requirements",
+        "Peterson's Software Solution",
+        "Counting & Binary Semaphores",
+        "Classic Producer-Consumer & Readers-Writers"
+      ],
+      "raw_excerpt": "Race conditions, Mutual Exclusion, Progress, and Bounded Waiting criteria; hardware atomic primitives (TestAndSet, CompareAndSwap), semaphore wait/signal invariants, and deadlock/starvation pitfalls in classic synchronization problems.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 4,
+      "exam_weightage": 4.5,
+      "estimated_hours": 6.5,
+      "prerequisites": [
+        "OS-01"
+      ]
+    },
+    {
+      "topic_id": "OS-03",
+      "order_index": 8,
+      "subject": "Operating Systems",
+      "category": "CS Core",
+      "unit": "Unit 3: Deadlocks",
+      "title": "Deadlocks & Resource Allocation",
+      "subtopics": [
+        "Coffman Four Necessary Conditions",
+        "Resource Allocation Graphs (RAG)",
+        "Deadlock Prevention via Resource Ordering",
+        "Banker's Safety Algorithm & Bounds"
+      ],
+      "raw_excerpt": "Analysis of Mutual Exclusion, Hold-and-Wait, No Preemption, and Circular Wait; cycle detection in single vs multi-instance RAGs; worst-case pigeonhole deadlock-free resource bounds; and Banker's algorithm safety sequence verification.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 3,
+      "exam_weightage": 3.5,
+      "estimated_hours": 5.0,
+      "prerequisites": [
+        "OS-02"
+      ]
+    },
+    {
+      "topic_id": "OS-04",
+      "order_index": 9,
+      "subject": "Operating Systems",
+      "category": "CS Core",
+      "unit": "Unit 4: Primary Memory",
+      "title": "Memory Management & Paging",
+      "subtopics": [
+        "Contiguous Allocation & Fragmentation",
+        "Paging & Address Bit Splitting",
+        "TLB Effective Memory Access Time",
+        "Hierarchical & Inverted Page Tables"
+      ],
+      "raw_excerpt": "Logical-to-physical address translation, elimination of external fragmentation via paging, TLB hit-ratio EMAT calculations, multi-level page table sizing, and inverted page tables indexed by physical frame.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 3,
+      "exam_weightage": 4.0,
+      "estimated_hours": 6.0,
+      "prerequisites": [
+        "OS-01"
+      ]
+    },
+    {
+      "topic_id": "OS-05",
+      "order_index": 10,
+      "subject": "Operating Systems",
+      "category": "CS Core",
+      "unit": "Unit 5: Virtual Memory & Storage",
+      "title": "Virtual Memory, Page Replacement & File Systems",
+      "subtopics": [
+        "Demand Paging & Page Fault Latency",
+        "FIFO, Optimal & LRU Replacement",
+        "Belady's Anomaly & Thrashing",
+        "UNIX Inode Structure & Disk Scheduling"
+      ],
+      "raw_excerpt": "Demand paging, working-set thrashing control, stack vs non-stack replacement algorithms (Belady's anomaly in FIFO vs LRU/OPT), page-fault rate constraints on EMAT, and multi-indirect UNIX inode maximum file capacity.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 4,
+      "exam_weightage": 4.0,
+      "estimated_hours": 6.5,
+      "prerequisites": [
+        "OS-04"
+      ]
+    },
+    {
+      "topic_id": "CN-01",
+      "order_index": 11,
+      "subject": "Computer Networks",
+      "category": "CS Core",
+      "unit": "Unit 1: Layering & Framing",
+      "title": "OSI/TCP-IP & Data Link Framing/CRC",
+      "subtopics": [
+        "OSI vs TCP/IP Protocol Responsibilities",
+        "Byte & Bit Stuffing Framing",
+        "CRC Polynomial Error Detection",
+        "Stop-and-Wait, GBN & Selective Repeat ARQ"
+      ],
+      "raw_excerpt": "Layered network architecture, HDLC bit stuffing, modulo-2 polynomial CRC checksum generation, bandwidth-delay product, and utilization/sequence-width formulas for Stop-and-Wait, Go-Back-N (2^k - 1), and Selective Repeat (2^(k-1)).",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 3,
+      "exam_weightage": 4.0,
+      "estimated_hours": 6.0,
+      "prerequisites": []
+    },
+    {
+      "topic_id": "CN-02",
+      "order_index": 12,
+      "subject": "Computer Networks",
+      "category": "CS Core",
+      "unit": "Unit 2: Medium Access & Switching",
+      "title": "MAC Protocols, CSMA/CD & Ethernet Switching",
+      "subtopics": [
+        "Pure vs Slotted ALOHA Throughput",
+        "CSMA/CD Collision Detection & Min Frame Size",
+        "Binary Exponential Backoff",
+        "Self-Learning Switches vs Hubs & Domains"
+      ],
+      "raw_excerpt": "Random-access MAC protocols (ALOHA throughput 18.4%/36.8%), Ethernet CSMA/CD minimum frame length constraint L >= BW * RTT, exponential backoff bounds, and separating collision vs broadcast domains across hubs, switches, and routers.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 3,
+      "exam_weightage": 3.5,
+      "estimated_hours": 5.5,
+      "prerequisites": [
+        "CN-01"
+      ]
+    },
+    {
+      "topic_id": "CN-03",
+      "order_index": 13,
+      "subject": "Computer Networks",
+      "category": "CS Core",
+      "unit": "Unit 3: Network Addressing",
+      "title": "IPv4 Addressing, Subnetting & CIDR",
+      "subtopics": [
+        "Classless CIDR Prefix & Host Counts",
+        "Route Aggregation & Supernetting",
+        "Longest Prefix Match Forwarding",
+        "VLSM Subnetting & IP Fragmentation"
+      ],
+      "raw_excerpt": "IPv4 header fields, CIDR subnet masks, usable host counts, non-overlapping VLSM allocation, supernet route summarization, router longest-prefix matching, and 8-byte aligned IP fragmentation offsets across MTU boundaries.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 4,
+      "exam_weightage": 4.5,
+      "estimated_hours": 7.0,
+      "prerequisites": [
+        "CN-02"
+      ]
+    },
+    {
+      "topic_id": "CN-04",
+      "order_index": 14,
+      "subject": "Computer Networks",
+      "category": "CS Core",
+      "unit": "Unit 4: Routing Algorithms",
+      "title": "Routing Protocols \u2014 RIP, OSPF & BGP",
+      "subtopics": [
+        "Distance Vector (Bellman-Ford) & RIP",
+        "Count-to-Infinity & Split Horizon",
+        "Link-State (Dijkstra) & OSPF Areas",
+        "Path-Vector BGP & Transport Encapsulation"
+      ],
+      "raw_excerpt": "Intra-AS and inter-AS routing protocols: Bellman-Ford distance vector updates, count-to-infinity mitigations (Split Horizon / Poison Reverse), OSPF link-state flooding and Dijkstra SPF, and BGP AS-PATH loop prevention.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 5,
+      "exam_weightage": 4.5,
+      "estimated_hours": 7.5,
+      "prerequisites": [
+        "CN-03"
+      ]
+    },
+    {
+      "topic_id": "CN-05",
+      "order_index": 15,
+      "subject": "Computer Networks",
+      "category": "CS Core",
+      "unit": "Unit 5: Transport Protocols",
+      "title": "Transport Layer \u2014 TCP Congestion Control & UDP",
+      "subtopics": [
+        "TCP 3-Way Handshake & State Machine",
+        "Flow Control (rwnd) vs Congestion Window (cwnd)",
+        "Slow Start, AIMD & Fast Recovery",
+        "Sequence Wrap-Around & UDP Semantics"
+      ],
+      "raw_excerpt": "Connection-oriented reliable transport vs connectionless UDP, sliding-window flight cap min(rwnd, cwnd), TCP Reno response to 3 duplicate ACKs vs timeouts, Slow Start exponential doubling, AIMD linear growth, and 32-bit sequence wraparound.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 4,
+      "exam_weightage": 4.5,
+      "estimated_hours": 7.0,
+      "prerequisites": [
+        "CN-03",
+        "CN-04"
+      ]
+    },
+    {
+      "topic_id": "TOC-01",
+      "order_index": 16,
+      "subject": "Theory of Computation",
+      "category": "CS Core",
+      "unit": "Unit 1: Finite Automata",
+      "title": "Deterministic & Non-Deterministic Finite Automata",
+      "subtopics": [
+        "DFA State Design & Modular Arithmetic",
+        "NFA Subset Construction & Epsilon Closure",
+        "Myhill-Nerode Equivalence & Minimization",
+        "Product Automata for Set Operations"
+      ],
+      "raw_excerpt": "Formal DFA/NFA definitions, subset construction (2^n worst-case state blowup), product DFA constructions for union/intersection, and Myhill-Nerode distinguishability classes for minimal state counts.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 3,
+      "exam_weightage": 4.0,
+      "estimated_hours": 6.0,
+      "prerequisites": [
+        "DM-02"
+      ]
+    },
+    {
+      "topic_id": "TOC-02",
+      "order_index": 17,
+      "subject": "Theory of Computation",
+      "category": "CS Core",
+      "unit": "Unit 2: Regular Languages",
+      "title": "Regular Expressions & Pumping Lemma",
+      "subtopics": [
+        "Regex Algebra & Kleene Equivalence",
+        "Closure Properties of Regular Sets",
+        "Pumping Lemma Contradiction Proofs",
+        "Identifying Subtly Regular vs Non-Regular Languages"
+      ],
+      "raw_excerpt": "Algebraic equivalences of regular expressions, closure under Boolean and rational operations, and applying the Pumping Lemma carefully as a necessary condition to prove languages non-regular.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 4,
+      "exam_weightage": 4.0,
+      "estimated_hours": 6.5,
+      "prerequisites": [
+        "TOC-01"
+      ]
+    },
+    {
+      "topic_id": "TOC-03",
+      "order_index": 18,
+      "subject": "Theory of Computation",
+      "category": "CS Core",
+      "unit": "Unit 3: Context-Free Languages",
+      "title": "Context-Free Grammars & Pushdown Automata",
+      "subtopics": [
+        "Parse Trees & Grammar Ambiguity",
+        "Chomsky Normal Form (2n - 1 Steps)",
+        "DPDA vs NPDA Expressive Power",
+        "CFL & DCFL Closure Properties"
+      ],
+      "raw_excerpt": "CFGs, ambiguity detection, CNF conversion and derivation length bounds, pushdown automata determinism gap (palindromes), and failure of CFL closure under intersection and complement (unlike DCFL complement closure).",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 4,
+      "exam_weightage": 4.0,
+      "estimated_hours": 7.0,
+      "prerequisites": [
+        "TOC-02"
+      ]
+    },
+    {
+      "topic_id": "TOC-04",
+      "order_index": 19,
+      "subject": "Theory of Computation",
+      "category": "CS Core",
+      "unit": "Unit 4: Computability",
+      "title": "Turing Machines & Undecidability",
+      "subtopics": [
+        "Single vs Multi-Tape TM Equivalence",
+        "Decidable (Recursive) vs RE Languages",
+        "Halting Problem & Diagonalization",
+        "Mapping Reducibility & Non-RE Proofs"
+      ],
+      "raw_excerpt": "Church-Turing computability equivalence, recursive vs recursively enumerable characterization (L and complement both RE), undecidability of A_TM / HALT_TM / EQ_CFG, and mapping reduction contrapositives.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 5,
+      "exam_weightage": 4.0,
+      "estimated_hours": 7.5,
+      "prerequisites": [
+        "TOC-03"
+      ]
+    },
+    {
+      "topic_id": "TOC-05",
+      "order_index": 20,
+      "subject": "Theory of Computation",
+      "category": "CS Core",
+      "unit": "Unit 5: Decidability & Complexity",
+      "title": "Rice's Theorem & Complexity Basics",
+      "subtopics": [
+        "Semantic vs Syntactic TM Properties",
+        "Trivial vs Non-Trivial Language Properties",
+        "P, NP & Polynomial Verification",
+        "NP-Completeness & co-NP Implications"
+      ],
+      "raw_excerpt": "Applying Rice's theorem strictly to non-trivial semantic properties of L(M) while recognizing decidable bounded/syntactic checks, alongside fundamental P, NP, NP-complete reductions, and co-NP collapse theorems.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 5,
+      "exam_weightage": 3.0,
+      "estimated_hours": 6.0,
+      "prerequisites": [
+        "TOC-04"
+      ]
+    },
+    {
+      "topic_id": "DM-01",
+      "order_index": 21,
+      "subject": "Discrete Mathematics",
+      "category": "Engineering Mathematics",
+      "unit": "Unit 1: Mathematical Logic",
+      "title": "Propositional & Predicate Logic",
+      "subtopics": [
+        "Logical Equivalences & Contrapositives",
+        "Tautologies & Satisfiability Counting",
+        "Nested Quantifier Negation",
+        "Modus Ponens, Tollens & Resolution"
+      ],
+      "raw_excerpt": "Truth tables, tautologies, CNF/DNF, logical inference chains, and precise handling of universal/existential quantifier scope and negation in first-order predicate logic.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 2,
+      "exam_weightage": 4.0,
+      "estimated_hours": 5.0,
+      "prerequisites": []
+    },
+    {
+      "topic_id": "DM-02",
+      "order_index": 22,
+      "subject": "Discrete Mathematics",
+      "category": "Engineering Mathematics",
+      "unit": "Unit 2: Set Theory & Order",
+      "title": "Sets, Relations, Partial Orders & Lattices",
+      "subtopics": [
+        "Equivalence Relations & Bell Partitions",
+        "Counting Reflexive & Symmetric Relations",
+        "Partial Orders & Hasse Diagrams",
+        "Meet, Join & Lattice Complements"
+      ],
+      "raw_excerpt": "Binary relation properties, counting relations via adjacency matrices, equivalence class partitions (Stirling/Bell numbers), poset extremal elements, and algebraic lattice bounds.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 3,
+      "exam_weightage": 4.0,
+      "estimated_hours": 5.5,
+      "prerequisites": [
+        "DM-01"
+      ]
+    },
+    {
+      "topic_id": "DM-03",
+      "order_index": 23,
+      "subject": "Discrete Mathematics",
+      "category": "Engineering Mathematics",
+      "unit": "Unit 3: Combinatorics",
+      "title": "Functions & Counting Combinatorics",
+      "subtopics": [
+        "Pigeonhole Principle Bounds",
+        "Injective, Surjective & Bijective Counts",
+        "Stars-and-Bars Integer Solutions",
+        "Derangements & Inclusion-Exclusion"
+      ],
+      "raw_excerpt": "Counting principles, bijections, onto-function enumeration, multiset combinations with repetition, inclusion-exclusion counting, and derangement recurrences.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 3,
+      "exam_weightage": 4.0,
+      "estimated_hours": 6.0,
+      "prerequisites": [
+        "DM-02"
+      ]
+    },
+    {
+      "topic_id": "DM-04",
+      "order_index": 24,
+      "subject": "Discrete Mathematics",
+      "category": "Engineering Mathematics",
+      "unit": "Unit 4: Graph Theory",
+      "title": "Graph Theory \u2014 Connectivity, Trees & Planarity",
+      "subtopics": [
+        "Degree Sum & Handshaking Lemma",
+        "Trees & Cayley's Spanning Tree Formula",
+        "Euler Circuits vs Hamiltonian Paths",
+        "Planar Euler Formula & Chromatic Bounds"
+      ],
+      "raw_excerpt": "Fundamental undirected graph invariants, tree characterizations, Eulerian degree criteria, planar embedding equation V - E + F = 2, bipartite/odd-cycle coloring, and Cayley's n^(n-2) labeled tree count.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 3,
+      "exam_weightage": 4.5,
+      "estimated_hours": 6.5,
+      "prerequisites": [
+        "DM-02",
+        "DM-03"
+      ]
+    },
+    {
+      "topic_id": "DM-05",
+      "order_index": 25,
+      "subject": "Discrete Mathematics",
+      "category": "Engineering Mathematics",
+      "unit": "Unit 5: Algebra",
+      "title": "Algebraic Structures \u2014 Groups & Boolean Algebra",
+      "subtopics": [
+        "Group Axioms & Subgroup Orders (Lagrange)",
+        "Cyclic Groups & Euler Totient Generators",
+        "Abelian Group Classification",
+        "Boolean Algebraic Identities & Self-Duals"
+      ],
+      "raw_excerpt": "Finite group theory (order, cyclic generators, Lagrange divisibility, abelian classification up to isomorphism) and Boolean algebra laws including self-dual function enumeration.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 4,
+      "exam_weightage": 3.0,
+      "estimated_hours": 5.5,
+      "prerequisites": [
+        "DM-02"
+      ]
+    },
+    {
+      "topic_id": "LA-01",
+      "order_index": 26,
+      "subject": "Linear Algebra",
+      "category": "Engineering Mathematics",
+      "unit": "Unit 1: Matrix Fundamentals",
+      "title": "Matrices, Determinants & Rank",
+      "subtopics": [
+        "Row/Column Rank & Outer Products",
+        "Determinant Scaling & Skew-Symmetry",
+        "Idempotent & Nilpotent Trace Properties",
+        "Sylvester Rank Inequality"
+      ],
+      "raw_excerpt": "Core matrix invariants: determinant multilinear scaling, rank bounds on sums and products (Sylvester inequality), trace-rank relations for projection/idempotent matrices, and odd-order skew-symmetric determinants.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 2,
+      "exam_weightage": 3.5,
+      "estimated_hours": 4.5,
+      "prerequisites": []
+    },
+    {
+      "topic_id": "LA-02",
+      "order_index": 27,
+      "subject": "Linear Algebra",
+      "category": "Engineering Mathematics",
+      "unit": "Unit 2: Linear Systems",
+      "title": "Systems of Linear Equations",
+      "subtopics": [
+        "Rouche-Capelli Consistency Criterion",
+        "Homogeneous Nullity & Free Variables",
+        "Parametric Infinite vs No Solution Cases",
+        "Overdetermined & Full-Rank Uniqueness"
+      ],
+      "raw_excerpt": "Augmented matrix rank testing for existence and uniqueness of Ax = b, homogeneous solution space dimensionality via Rank-Nullity, and full-rank invertibility implications.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 2,
+      "exam_weightage": 3.5,
+      "estimated_hours": 4.5,
+      "prerequisites": [
+        "LA-01"
+      ]
+    },
+    {
+      "topic_id": "LA-03",
+      "order_index": 28,
+      "subject": "Linear Algebra",
+      "category": "Engineering Mathematics",
+      "unit": "Unit 3: Vector Spaces",
+      "title": "Vector Spaces, Basis & Dimension",
+      "subtopics": [
+        "Linear Independence & Spanning Sets",
+        "Subspace Closure Criteria",
+        "Four Fundamental Orthogonal Subspaces",
+        "Subspace Intersection Dimension & Projections"
+      ],
+      "raw_excerpt": "Abstract vector spaces over R, basis tests via determinants, fundamental subspace orthogonality (NullSpace perp RowSpace), Grassmann intersection formula, and orthogonal projection matrices.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 3,
+      "exam_weightage": 3.5,
+      "estimated_hours": 5.5,
+      "prerequisites": [
+        "LA-02"
+      ]
+    },
+    {
+      "topic_id": "LA-04",
+      "order_index": 29,
+      "subject": "Linear Algebra",
+      "category": "Engineering Mathematics",
+      "unit": "Unit 4: Spectral Theory",
+      "title": "Eigenvalues, Eigenvectors & Diagonalization",
+      "subtopics": [
+        "Trace & Determinant Vieta Identities",
+        "Spectral Theorem for Symmetric Matrices",
+        "Algebraic vs Geometric Multiplicity",
+        "Cayley-Hamilton Matrix Polynomials"
+      ],
+      "raw_excerpt": "Characteristic polynomials, eigenvalue transformations for A^k + cI, real symmetric orthogonal diagonalizability, defective non-diagonalizable Jordan blocks (AM > GM), and Cayley-Hamilton inverse derivation.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 4,
+      "exam_weightage": 4.0,
+      "estimated_hours": 6.0,
+      "prerequisites": [
+        "LA-03"
+      ]
+    },
+    {
+      "topic_id": "LA-05",
+      "order_index": 30,
+      "subject": "Linear Algebra",
+      "category": "Engineering Mathematics",
+      "unit": "Unit 5: Factorizations",
+      "title": "LU Decomposition & Positive Definite Matrices",
+      "subtopics": [
+        "Principal Minor Condition for LU",
+        "Positive Definiteness & Sylvester Criterion",
+        "Cholesky & Gram Matrix B^T B",
+        "Computational Complexity of Reuse"
+      ],
+      "raw_excerpt": "Gaussian elimination without pivoting via non-zero leading minors, symmetric positive-definiteness via positive eigenvalues or Sylvester minors, Cholesky L*L^T factorization, and O(n^2) back-substitution reuse.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 4,
+      "exam_weightage": 3.0,
+      "estimated_hours": 5.0,
+      "prerequisites": [
+        "LA-04"
+      ]
+    },
+    {
+      "topic_id": "CAL-01",
+      "order_index": 31,
+      "subject": "Calculus",
+      "category": "Engineering Mathematics",
+      "unit": "Unit 1: Differential Foundations",
+      "title": "Limits, Continuity & Differentiability",
+      "subtopics": [
+        "Standard Trigonometric & Exponential Limits",
+        "L'Hopital's Rule & Indeterminate Forms",
+        "Left/Right Derivative Corners (|x|)",
+        "Squeeze Theorem & Differentiable Discontinuous Derivatives"
+      ],
+      "raw_excerpt": "Evaluating 0/0, inf/inf, and 1^inf indeterminate limits via algebraic limits, L'Hopital, and series expansion; distinguishing continuity from differentiability.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 2,
+      "exam_weightage": 3.0,
+      "estimated_hours": 4.5,
+      "prerequisites": []
+    },
+    {
+      "topic_id": "CAL-02",
+      "order_index": 32,
+      "subject": "Calculus",
+      "category": "Engineering Mathematics",
+      "unit": "Unit 2: Theorems & Optimization",
+      "title": "Mean Value Theorems & Maxima/Minima",
+      "subtopics": [
+        "Rolle's & Lagrange Mean Value Theorems",
+        "Global Extrema on Closed Intervals",
+        "Derivative Bounds & Root Counting",
+        "Second Derivative Concavity Test"
+      ],
+      "raw_excerpt": "Existence of stationary/mean-value points under Rolle and Lagrange MVTs, bounding function growth via f'(x), counting real roots monotonically, and optimizing on bounded domains.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 3,
+      "exam_weightage": 3.5,
+      "estimated_hours": 5.0,
+      "prerequisites": [
+        "CAL-01"
+      ]
+    },
+    {
+      "topic_id": "CAL-03",
+      "order_index": 33,
+      "subject": "Calculus",
+      "category": "Engineering Mathematics",
+      "unit": "Unit 3: Series & Multivariable",
+      "title": "Taylor Series & Partial Derivatives",
+      "subtopics": [
+        "Maclaurin & Taylor Polynomial Coefficients",
+        "Partial Derivatives & Directional Gradients",
+        "Euler's Homogeneous Function Theorem",
+        "2D Hessian Discriminant & Saddle Points"
+      ],
+      "raw_excerpt": "Taylor/Maclaurin series expansions (e^x, sin x, cos x), directional derivative maximization along grad(f), Euler's homogeneous theorem, and classifying local extrema vs saddle points via Hessian tests.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 3,
+      "exam_weightage": 3.5,
+      "estimated_hours": 5.5,
+      "prerequisites": [
+        "CAL-02"
+      ]
+    },
+    {
+      "topic_id": "CAL-04",
+      "order_index": 34,
+      "subject": "Calculus",
+      "category": "Engineering Mathematics",
+      "unit": "Unit 4: Single-Variable Integration",
+      "title": "Definite Integrals & Fundamental Theorem",
+      "subtopics": [
+        "Odd/Even Interval Symmetry",
+        "Fundamental Theorem & Leibniz Rule",
+        "King's Property Integral Tricks",
+        "Beta/Gamma & Piecewise Integrals"
+      ],
+      "raw_excerpt": "Symmetry shortcuts on [-a, a], differentiating integrals with variable limits via Leibniz rule, reflection property f(a-x), and evaluating polynomial-power integrals via Beta/Gamma functions.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 3,
+      "exam_weightage": 3.0,
+      "estimated_hours": 5.0,
+      "prerequisites": [
+        "CAL-01"
+      ]
+    },
+    {
+      "topic_id": "CAL-05",
+      "order_index": 35,
+      "subject": "Calculus",
+      "category": "Engineering Mathematics",
+      "unit": "Unit 5: Improper & Multiple Integrals",
+      "title": "Improper Integrals & Multiple Integrals",
+      "subtopics": [
+        "p-Integral Convergence Criteria",
+        "Iterated Double Integrals & Fubini Order",
+        "Polar Coordinate Jacobian (r dr dtheta)",
+        "Reversing Limits of Integration"
+      ],
+      "raw_excerpt": "Convergence at zero and infinity for 1/x^p, Gaussian integral evaluation via polar transformation Jacobian, and exchanging x/y integration bounds on triangular domains.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 4,
+      "exam_weightage": 3.0,
+      "estimated_hours": 5.5,
+      "prerequisites": [
+        "CAL-03",
+        "CAL-04"
+      ]
+    },
+    {
+      "topic_id": "PS-01",
+      "order_index": 36,
+      "subject": "Probability & Statistics",
+      "category": "Engineering Mathematics",
+      "unit": "Unit 1: Foundations",
+      "title": "Sample Spaces, Axioms & Conditional Probability",
+      "subtopics": [
+        "Kolmogorov Axioms & Union Bounds",
+        "Conditional Probability Conditioning",
+        "Multiplication Rule Without Replacement",
+        "Pairwise vs Mutual Independence"
+      ],
+      "raw_excerpt": "Probability axioms, inclusion-exclusion, conditioning sample spaces, sequential dependent draws without replacement, and counterexamples distinguishing pairwise from mutual independence.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 2,
+      "exam_weightage": 4.0,
+      "estimated_hours": 5.0,
+      "prerequisites": [
+        "DM-03"
+      ]
+    },
+    {
+      "topic_id": "PS-02",
+      "order_index": 37,
+      "subject": "Probability & Statistics",
+      "category": "Engineering Mathematics",
+      "unit": "Unit 2: Bayesian Reasoning",
+      "title": "Bayes Theorem & Total Probability",
+      "subtopics": [
+        "Law of Total Probability Partitions",
+        "Prior, Likelihood & Posterior Updating",
+        "Base-Rate Fallacy in Medical Diagnostics",
+        "Conditional Independence Naive Bayes"
+      ],
+      "raw_excerpt": "Partitioning sample spaces via Total Probability and inverting conditional likelihoods via Bayes' Theorem to compute posterior beliefs across diagnostic tests, urns, and multi-evidence classification.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 3,
+      "exam_weightage": 4.5,
+      "estimated_hours": 6.0,
+      "prerequisites": [
+        "PS-01"
+      ]
+    },
+    {
+      "topic_id": "PS-03",
+      "order_index": 38,
+      "subject": "Probability & Statistics",
+      "category": "Engineering Mathematics",
+      "unit": "Unit 3: Random Variables",
+      "title": "Random Variables, PMF/PDF & CDF",
+      "subtopics": [
+        "CDF Axioms & Right-Continuity",
+        "Continuous PDF Normalization",
+        "Point Probabilities & Interval Integration",
+        "Monotonic RV Transformations & Medians"
+      ],
+      "raw_excerpt": "Discrete PMFs and continuous PDFs, computing interval probabilities from CDF differences F(b)-F(a), and deriving transformed distribution PDFs via CDF inversion.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 3,
+      "exam_weightage": 4.0,
+      "estimated_hours": 5.5,
+      "prerequisites": [
+        "PS-02",
+        "CAL-04"
+      ]
+    },
+    {
+      "topic_id": "PS-04",
+      "order_index": 39,
+      "subject": "Probability & Statistics",
+      "category": "Engineering Mathematics",
+      "unit": "Unit 4: Probability Distributions",
+      "title": "Standard Distributions \u2014 Binomial, Poisson, Normal, Exponential",
+      "subtopics": [
+        "Binomial & Geometric Discrete Models",
+        "Poisson Rare-Event & Additive Closure",
+        "Exponential Memoryless Lifetime",
+        "Normal Standardization & Empirical Rule"
+      ],
+      "raw_excerpt": "Moments and physical interpretations of Bernoulli, Binomial, Geometric, Poisson (additive under independence), memoryless Exponential, and Gaussian Normal distributions.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 4,
+      "exam_weightage": 4.0,
+      "estimated_hours": 6.0,
+      "prerequisites": [
+        "PS-03"
+      ]
+    },
+    {
+      "topic_id": "PS-05",
+      "order_index": 40,
+      "subject": "Probability & Statistics",
+      "category": "Engineering Mathematics",
+      "unit": "Unit 5: Moments & Limit Theorems",
+      "title": "Expectation, Variance, Covariance & Central Limit Theorem",
+      "subtopics": [
+        "Linearity of Expectation (Always Holds)",
+        "Variance of Sums & Covariance",
+        "Uncorrelated vs Independent RVs",
+        "Central Limit Theorem & Chebyshev Bounds"
+      ],
+      "raw_excerpt": "Expectation linearity without independence, Var(aX+bY) with covariance cross-terms, zero-covariance dependent variables (X, X^2), Chebyshev tail bounds, and CLT sample-mean convergence.",
+      "source_origin": "curated_dataset_note",
+      "difficulty": 4,
+      "exam_weightage": 4.0,
+      "estimated_hours": 6.0,
+      "prerequisites": [
+        "PS-04"
+      ]
+    }
+  ],
+  "prerequisite_edges": [
+    {
+      "prerequisite_topic_id": "DM-02",
+      "dependent_topic_id": "DBMS-01",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "DBMS-01",
+      "dependent_topic_id": "DBMS-02",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "DBMS-01",
+      "dependent_topic_id": "DBMS-03",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "DBMS-02",
+      "dependent_topic_id": "DBMS-04",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "DBMS-03",
+      "dependent_topic_id": "DBMS-04",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "DBMS-03",
+      "dependent_topic_id": "DBMS-05",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "OS-01",
+      "dependent_topic_id": "OS-02",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "OS-02",
+      "dependent_topic_id": "OS-03",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "OS-01",
+      "dependent_topic_id": "OS-04",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "OS-04",
+      "dependent_topic_id": "OS-05",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "CN-01",
+      "dependent_topic_id": "CN-02",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "CN-02",
+      "dependent_topic_id": "CN-03",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "CN-03",
+      "dependent_topic_id": "CN-04",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "CN-03",
+      "dependent_topic_id": "CN-05",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "CN-04",
+      "dependent_topic_id": "CN-05",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "DM-02",
+      "dependent_topic_id": "TOC-01",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "TOC-01",
+      "dependent_topic_id": "TOC-02",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "TOC-02",
+      "dependent_topic_id": "TOC-03",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "TOC-03",
+      "dependent_topic_id": "TOC-04",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "TOC-04",
+      "dependent_topic_id": "TOC-05",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "DM-01",
+      "dependent_topic_id": "DM-02",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "DM-02",
+      "dependent_topic_id": "DM-03",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "DM-02",
+      "dependent_topic_id": "DM-04",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "DM-03",
+      "dependent_topic_id": "DM-04",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "DM-02",
+      "dependent_topic_id": "DM-05",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "LA-01",
+      "dependent_topic_id": "LA-02",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "LA-02",
+      "dependent_topic_id": "LA-03",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "LA-03",
+      "dependent_topic_id": "LA-04",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "LA-04",
+      "dependent_topic_id": "LA-05",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "CAL-01",
+      "dependent_topic_id": "CAL-02",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "CAL-02",
+      "dependent_topic_id": "CAL-03",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "CAL-01",
+      "dependent_topic_id": "CAL-04",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "CAL-03",
+      "dependent_topic_id": "CAL-05",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "CAL-04",
+      "dependent_topic_id": "CAL-05",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "DM-03",
+      "dependent_topic_id": "PS-01",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "PS-01",
+      "dependent_topic_id": "PS-02",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "PS-02",
+      "dependent_topic_id": "PS-03",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "CAL-04",
+      "dependent_topic_id": "PS-03",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "PS-03",
+      "dependent_topic_id": "PS-04",
+      "confidence_status": "verified_seed"
+    },
+    {
+      "prerequisite_topic_id": "PS-04",
+      "dependent_topic_id": "PS-05",
+      "confidence_status": "verified_seed"
+    }
+  ]
+}

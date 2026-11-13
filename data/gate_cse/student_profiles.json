@@ -1,0 +1,111 @@
+{
+  "students": [
+    {
+      "student_id": "stu_aarav",
+      "name": "Aarav Sharma",
+      "email": "aarav.gate@demo.edu",
+      "role": "student",
+      "link_code": "GATE-DEMO-2026",
+      "exam_name": "GATE CSE",
+      "max_score": 100.0,
+      "target_score": 78.0,
+      "current_grade": "B.Tech CSE Sem 7",
+      "days_remaining": 90,
+      "daily_hours": 4.0,
+      "learning_style": "visual",
+      "study_streak": 12,
+      "total_hours_logged": 46.5,
+      "stated_strengths": [
+        "DBMS",
+        "Operating Systems"
+      ],
+      "stated_weaknesses": [
+        "Computer Networks",
+        "Theory of Computation"
+      ]
+    },
+    {
+      "student_id": "stu_priya",
+      "name": "Priya Nair",
+      "email": "priya.gate@demo.edu",
+      "role": "student",
+      "link_code": "GATE-PRIYA-4102",
+      "exam_name": "GATE CSE",
+      "max_score": 100.0,
+      "target_score": 72.0,
+      "current_grade": "B.Tech CSE Sem 7",
+      "days_remaining": 120,
+      "daily_hours": 3.5,
+      "learning_style": "reading",
+      "study_streak": 5,
+      "total_hours_logged": 14.0,
+      "stated_strengths": [
+        "Discrete Mathematics",
+        "Linear Algebra"
+      ],
+      "stated_weaknesses": [
+        "Operating Systems"
+      ]
+    },
+    {
+      "student_id": "stu_rohan",
+      "name": "Rohan Verma",
+      "email": "rohan.gate@demo.edu",
+      "role": "student",
+      "link_code": "GATE-ROHAN-7731",
+      "exam_name": "GATE CSE",
+      "max_score": 100.0,
+      "target_score": 85.0,
+      "current_grade": "GATE Repeater",
+      "days_remaining": 35,
+      "daily_hours": 5.0,
+      "learning_style": "practice",
+      "study_streak": 24,
+      "total_hours_logged": 118.0,
+      "stated_strengths": [
+        "DBMS",
+        "Operating Systems",
+        "Computer Networks",
+        "Linear Algebra"
+      ],
+      "stated_weaknesses": [
+        "Theory of Computation"
+      ]
+    },
+    {
+      "student_id": "stu_meera",
+      "name": "Meera Iyer",
+      "email": "meera.gate@demo.edu",
+      "role": "student",
+      "link_code": "GATE-MEERA-3390",
+      "exam_name": "GATE CSE",
+      "max_score": 100.0,
+      "target_score": 68.0,
+      "current_grade": "B.E. CSE Sem 6",
+      "days_remaining": 75,
+      "daily_hours": 3.0,
+      "learning_style": "visual",
+      "study_streak": 4,
+      "total_hours_logged": 19.5,
+      "stated_strengths": [
+        "Calculus",
+        "DBMS"
+      ],
+      "stated_weaknesses": [
+        "Probability & Statistics",
+        "Computer Networks"
+      ]
+    }
+  ],
+  "parent_teachers": [
+    {
+      "user_id": "pt_kavita",
+      "name": "Prof. Kavita Sharma",
+      "email": "kavita.mentor@demo.edu",
+      "role": "parent_teacher",
+      "linked_student_id": "stu_aarav",
+      "link_code_used": "GATE-DEMO-2026",
+      "permissions": "read_only"
+    }
+  ]
+}

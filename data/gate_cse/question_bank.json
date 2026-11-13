@@ -1,0 +1,4322 @@
+[
+  {
+    "question_id": "Q-001",
+    "topic_id": "DBMS-01",
+    "subtopic": "ER Diagrams",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "In an Entity-Relationship (ER) diagram, a weak entity set is uniquely identified using:",
+    "options": [
+      "Only its own primary key",
+      "A discriminator combined with the primary key of its identifying owner entity",
+      "A surrogate foreign key from any relationship",
+      "Multivalued attributes only"
+    ],
+    "correct_answer": "A discriminator combined with the primary key of its identifying owner entity",
+    "explanation": "A weak entity lacks sufficient attributes to form a primary key alone; it uses a partial key (discriminator) plus the owner entity's primary key via an identifying relationship.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-002",
+    "topic_id": "DBMS-01",
+    "subtopic": "Relational Algebra",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Which relational algebra operation eliminates duplicate tuples automatically in pure relational algebra?",
+    "options": [
+      "Cartesian Product (x)",
+      "Projection (pi)",
+      "Rename (rho)",
+      "Natural Join (bowtie)"
+    ],
+    "correct_answer": "Projection (pi)",
+    "explanation": "Pure relational algebra operates on sets, and projection explicitly removes duplicate rows from the resulting attribute subset.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-003",
+    "topic_id": "DBMS-01",
+    "subtopic": "Relational Algebra",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Consider relations R(A, B) with 4 tuples and S(B, C) with 5 tuples where B is a foreign key in R referencing primary key B in S. What is the maximum number of tuples in R natural-join S?",
+    "options": [
+      "4",
+      "5",
+      "9",
+      "20"
+    ],
+    "correct_answer": "4",
+    "explanation": "Because B is a primary key in S, every tuple in R can match at most one tuple in S (or zero if null). Thus |R bowtie S| <= |R| = 4.",
+    "expected_time_sec": 75,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-004",
+    "topic_id": "DBMS-01",
+    "subtopic": "ER Mapping",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "When mapping an ER diagram to relational tables, a 1:N binary relationship without attributes between entity E1 (1-side) and E2 (N-side, total participation) is best represented by:",
+    "options": [
+      "Creating three separate tables always",
+      "Adding E1's primary key as a foreign key in E2's table",
+      "Adding E2's primary key in E1's table",
+      "Merging E1 and E2 into one table"
+    ],
+    "correct_answer": "Adding E1's primary key as a foreign key in E2's table",
+    "explanation": "Placing the primary key of the 1-side inside the N-side table (with NOT NULL due to total participation) minimizes table count without redundancy.",
+    "expected_time_sec": 70,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-005",
+    "topic_id": "DBMS-01",
+    "subtopic": "Relational Algebra",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Which relational algebra expression finds students in Enrolled(sid, cid) who are enrolled in ALL courses listed in Core(cid)?",
+    "options": [
+      "Enrolled / Core (Division)",
+      "pi_sid(Enrolled) - pi_sid(Enrolled bowtie Core)",
+      "Enrolled bowtie Core",
+      "sigma_cid(Enrolled) union Core"
+    ],
+    "correct_answer": "Enrolled / Core (Division)",
+    "explanation": "Relational division R(X, Y) / S(Y) returns every X value paired with all Y values in S, computed as pi_X(R) - pi_X((pi_X(R) x S) - R).",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-006",
+    "topic_id": "DBMS-01",
+    "subtopic": "ER Constraints",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "In an ER model, a ternary relationship R(E, F, G) has M:N:P (many-to-many-to-many) cardinality and descriptive attribute 'since'. Assuming E, F, and G are regular entities with their own attributes, how many minimum relational tables are required?",
+    "options": [
+      "3 tables by folding R into F",
+      "4 tables (E, F, G, and R)",
+      "2 tables",
+      "1 merged table"
+    ],
+    "correct_answer": "4 tables (E, F, G, and R)",
+    "explanation": "With M:N:P cardinality across three regular entities, R cannot be folded into any single participant without redundancy and requires its own relation keyed on (E_pk, F_pk, G_pk) plus 'since'.",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-007",
+    "topic_id": "DBMS-02",
+    "subtopic": "SQL Aggregation",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Which SQL clause filters groups created by GROUP BY based on an aggregate condition?",
+    "options": [
+      "WHERE",
+      "HAVING",
+      "ORDER BY",
+      "DISTINCT"
+    ],
+    "correct_answer": "HAVING",
+    "explanation": "WHERE filters individual rows prior to grouping, whereas HAVING filters groups after aggregate functions are computed.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-008",
+    "topic_id": "DBMS-02",
+    "subtopic": "SQL NULL Semantics",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "In standard three-valued SQL logic, what does COUNT(salary) return on a column containing [100, NULL, 200, NULL]?",
+    "options": [
+      "4",
+      "2",
+      "NULL",
+      "0"
+    ],
+    "correct_answer": "2",
+    "explanation": "COUNT(column) ignores NULL values and counts only non-NULL entries; only COUNT(*) counts all rows including NULLs.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-009",
+    "topic_id": "DBMS-02",
+    "subtopic": "Correlated Subqueries",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "What happens if an uncorrelated subquery inside `WHERE x NOT IN (SELECT y FROM T)` returns at least one NULL value for y?",
+    "options": [
+      "Returns all rows where x is non-NULL",
+      "Ignores the NULL and compares remaining values",
+      "Evaluates to UNKNOWN for every row, returning zero rows",
+      "Raises a runtime SQL exception"
+    ],
+    "correct_answer": "Evaluates to UNKNOWN for every row, returning zero rows",
+    "explanation": "`x NOT IN (a, NULL)` expands to `x != a AND x != NULL`, which yields `UNKNOWN` for any x, causing WHERE to filter out every row.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-010",
+    "topic_id": "DBMS-02",
+    "subtopic": "Tuple Calculus",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "A Tuple Relational Calculus (TRC) query {t | P(t)} is guaranteed to be 'safe' (finite result) if:",
+    "options": [
+      "Every value in t comes from the domain of constants in P or attributes of relations referenced in P",
+      "It uses universal quantification exclusively",
+      "It avoids negation",
+      "It references at least two relations"
+    ],
+    "correct_answer": "Every value in t comes from the domain of constants in P or attributes of relations referenced in P",
+    "explanation": "Domain independence / safety requires all result components to lie within dom(P), preventing infinite complements like {t | not(t in R)}.",
+    "expected_time_sec": 90,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-011",
+    "topic_id": "DBMS-02",
+    "subtopic": "SQL Window/Join",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Given Emp(eid, dept, sal), which SQL query accurately finds departments whose average salary exceeds the overall company average salary?",
+    "options": [
+      "SELECT dept FROM Emp GROUP BY dept HAVING AVG(sal) > (SELECT AVG(sal) FROM Emp)",
+      "SELECT dept FROM Emp WHERE AVG(sal) > (SELECT AVG(sal) FROM Emp)",
+      "SELECT dept FROM Emp WHERE sal > AVG(sal) GROUP BY dept",
+      "SELECT DISTINCT dept FROM Emp HAVING sal > AVG(sal)"
+    ],
+    "correct_answer": "SELECT dept FROM Emp GROUP BY dept HAVING AVG(sal) > (SELECT AVG(sal) FROM Emp)",
+    "explanation": "Aggregate functions cannot appear directly in WHERE; HAVING compares each department group's AVG(sal) against the scalar subquery returning global AVG(sal).",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-012",
+    "topic_id": "DBMS-02",
+    "subtopic": "SQL Subqueries",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Suppose relation R(A) has values {1, 2, 3} and S(A) has values {2, NULL}. Which rows are returned by `SELECT R.A FROM R WHERE R.A > ANY (SELECT S.A FROM S)`?",
+    "options": [
+      "{3}",
+      "{1, 2, 3}",
+      "Empty set",
+      "{2, 3}"
+    ],
+    "correct_answer": "{3}",
+    "explanation": "ANY requires at least one comparison to evaluate to TRUE: `3 > 2` is TRUE (even though `3 > NULL` is UNKNOWN), whereas `1` and `2` yield FALSE or UNKNOWN for every item.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-013",
+    "topic_id": "DBMS-03",
+    "subtopic": "Normal Forms",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "A relation schema in 2NF is also in 3NF if it contains no:",
+    "options": [
+      "Multivalued attributes",
+      "Transitive functional dependencies of non-prime attributes on a candidate key",
+      "Composite candidate keys",
+      "Foreign keys"
+    ],
+    "correct_answer": "Transitive functional dependencies of non-prime attributes on a candidate key",
+    "explanation": "3NF eliminates transitive dependencies where a non-prime attribute depends on a candidate key through another non-prime attribute.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-014",
+    "topic_id": "DBMS-03",
+    "subtopic": "FD Inference",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Which Armstrong axiom states that if X -> Y and Y -> Z hold, then X -> Z holds?",
+    "options": [
+      "Reflexivity",
+      "Augmentation",
+      "Transitivity",
+      "Pseudotransitivity"
+    ],
+    "correct_answer": "Transitivity",
+    "explanation": "Reflexivity, Augmentation, and Transitivity form the three sound and complete Armstrong axioms for functional dependencies.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-015",
+    "topic_id": "DBMS-03",
+    "subtopic": "Candidate Keys",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Given R(A, B, C, D) with FDs {AB -> C, C -> D, D -> A}, how many candidate keys does R have?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct_answer": "3",
+    "explanation": "B does not appear on any RHS, so B must belong to every key. Closures: (AB)+=ABCD, (CB)+=CDAB, (DB)+=DABC. Thus AB, CB, DB are the 3 candidate keys.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-016",
+    "topic_id": "DBMS-03",
+    "subtopic": "Decomposition Properties",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "A binary decomposition of R into R1 and R2 is guaranteed to be lossless-join if and only if:",
+    "options": [
+      "(R1 intersect R2) -> R1 OR (R1 intersect R2) -> R2 holds in F+",
+      "R1 union R2 = R only",
+      "R1 intersect R2 is empty",
+      "Both R1 and R2 are in BCNF"
+    ],
+    "correct_answer": "(R1 intersect R2) -> R1 OR (R1 intersect R2) -> R2 holds in F+",
+    "explanation": "Heath's theorem guarantees lossless join on a binary split when common attributes form a superkey of at least one decomposed table.",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-017",
+    "topic_id": "DBMS-03",
+    "subtopic": "BCNF vs 3NF",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Consider R(A, B, C) with FDs {AB -> C, C -> B}. What is the highest normal form satisfied by R, and can it be decomposed into BCNF preserving all dependencies?",
+    "options": [
+      "3NF; cannot be decomposed into BCNF with dependency preservation",
+      "BCNF; already dependency-preserving",
+      "2NF; lossless BCNF decomposition preserves C -> B",
+      "1NF; cannot satisfy 2NF"
+    ],
+    "correct_answer": "3NF; cannot be decomposed into BCNF with dependency preservation",
+    "explanation": "Candidate keys are AB and AC, so every attribute is prime (satisfying 3NF). C -> B violates BCNF since C is not a superkey, and decomposing into (C,B) and (C,A) loses AB -> C.",
+    "expected_time_sec": 120,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-018",
+    "topic_id": "DBMS-03",
+    "subtopic": "Canonical Cover",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "For F = {A -> BC, B -> C, A -> B, AB -> C}, what is a minimal canonical cover Fc?",
+    "options": [
+      "{A -> B, B -> C}",
+      "{A -> BC, B -> C}",
+      "{A -> B, AB -> C}",
+      "{A -> C, B -> C}"
+    ],
+    "correct_answer": "{A -> B, B -> C}",
+    "explanation": "In A -> BC, C is extraneous because A -> B and B -> C derive A -> C. AB -> C has extraneous A because B -> C already holds, leaving {A -> B, B -> C}.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-019",
+    "topic_id": "DBMS-04",
+    "subtopic": "ACID Properties",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Which ACID property ensures that once a transaction commits, its effects survive system crashes?",
+    "options": [
+      "Atomicity",
+      "Consistency",
+      "Isolation",
+      "Durability"
+    ],
+    "correct_answer": "Durability",
+    "explanation": "Durability is typically enforced using write-ahead logging (WAL) flushed to stable non-volatile storage prior to commit acknowledgment.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-020",
+    "topic_id": "DBMS-04",
+    "subtopic": "Serializability",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "A schedule is conflict-serializable if and only if its precedence (conflict) graph is:",
+    "options": [
+      "Complete",
+      "Bipartite",
+      "Acyclic (contains no directed cycles)",
+      "Connected"
+    ],
+    "correct_answer": "Acyclic (contains no directed cycles)",
+    "explanation": "Any topological ordering of an acyclic precedence graph gives a conflict-equivalent serial schedule.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-021",
+    "topic_id": "DBMS-04",
+    "subtopic": "Two-Phase Locking",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Strict Two-Phase Locking (Strict 2PL) prevents cascading rollbacks by:",
+    "options": [
+      "Acquiring all locks before execution starts",
+      "Holding all exclusive (write) locks until the transaction commits or aborts",
+      "Releasing shared locks immediately after read",
+      "Using timestamps instead of locks"
+    ],
+    "correct_answer": "Holding all exclusive (write) locks until the transaction commits or aborts",
+    "explanation": "By keeping X-locks until commit/abort, no other transaction can read uncommitted dirty writes, ensuring cascadeless and recoverable schedules.",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-022",
+    "topic_id": "DBMS-04",
+    "subtopic": "Timestamp Ordering",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "In Thomas Write Rule under timestamp ordering, if transaction Ti issues Write(Q) and TS(Ti) < W-timestamp(Q), what happens?",
+    "options": [
+      "Ti is always rolled back",
+      "The obsolete write is ignored and Ti continues if TS(Ti) >= R-timestamp(Q)",
+      "W-timestamp(Q) is decreased",
+      "A deadlock occurs"
+    ],
+    "correct_answer": "The obsolete write is ignored and Ti continues if TS(Ti) >= R-timestamp(Q)",
+    "explanation": "Thomas Write Rule allows view-serializable optimization by ignoring outdated writes that would have been overwritten by newer writes anyway.",
+    "expected_time_sec": 90,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-023",
+    "topic_id": "DBMS-04",
+    "subtopic": "Recoverability",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Consider schedule S: R1(X), W1(X), R2(X), W2(X), Commit(T2), Commit(T1). Which statement accurately describes S?",
+    "options": [
+      "S is conflict-serializable and strict",
+      "S is conflict-serializable but NOT recoverable",
+      "S is view-serializable and cascadeless",
+      "S is recoverable and rigorous"
+    ],
+    "correct_answer": "S is conflict-serializable but NOT recoverable",
+    "explanation": "Precedence edge T1 -> T2 exists (no cycle), so S is conflict-serializable. However, T2 reads dirty X written by T1 and commits before T1 commits, violating recoverability.",
+    "expected_time_sec": 120,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-024",
+    "topic_id": "DBMS-04",
+    "subtopic": "ARIES Recovery",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "In the ARIES recovery algorithm, the Redo pass starts from:",
+    "options": [
+      "The beginning of the entire log file",
+      "The minimum RecLSN present in the Dirty Page Table reconstructed during Analysis",
+      "The last Master Record checkpoint only",
+      "The oldest active transaction's first log entry"
+    ],
+    "correct_answer": "The minimum RecLSN present in the Dirty Page Table reconstructed during Analysis",
+    "explanation": "ARIES 'repeats history' starting from the earliest RecLSN in the Dirty Page Table to bring the buffer pool to the exact crash state before Undo.",
+    "expected_time_sec": 120,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-025",
+    "topic_id": "DBMS-05",
+    "subtopic": "Index Types",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Which index type guarantees at most one index entry per distinct block rather than one entry per record?",
+    "options": [
+      "Dense primary index",
+      "Sparse primary index",
+      "Secondary clustering index on non-key",
+      "Hash index"
+    ],
+    "correct_answer": "Sparse primary index",
+    "explanation": "A sparse index stores one anchor pointer per data block (requiring sequential ordering on the search key), saving significant index space.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-026",
+    "topic_id": "DBMS-05",
+    "subtopic": "B+ Tree Structure",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "In a B+ tree, actual data record pointers (or data records) reside:",
+    "options": [
+      "In every internal node and leaf node",
+      "Only in leaf nodes, which are linked sequentially",
+      "Only in the root node",
+      "Only in odd-level nodes"
+    ],
+    "correct_answer": "Only in leaf nodes, which are linked sequentially",
+    "explanation": "B+ trees store routing keys in internal nodes (maximizing fanout) and keep all data pointers in a doubly/singly linked leaf chain for fast range queries.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-027",
+    "topic_id": "DBMS-05",
+    "subtopic": "B+ Tree Order",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Given block size 1024 B, search key 8 B, block pointer 6 B, and record pointer 10 B, what is the maximum order p (number of block pointers) of a B+ tree internal node?",
+    "options": [
+      "73",
+      "72",
+      "64",
+      "42"
+    ],
+    "correct_answer": "73",
+    "explanation": "Internal node satisfies p*6 + (p-1)*8 <= 1024 => 14p <= 1032 => p = floor(1032/14) = 73.",
+    "expected_time_sec": 95,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-028",
+    "topic_id": "DBMS-05",
+    "subtopic": "B-Tree vs B+ Tree",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Why is range searching (e.g., `WHERE key BETWEEN 20 AND 80`) typically faster in a B+ tree than in a standard B-tree?",
+    "options": [
+      "B+ trees allow duplicate keys without links",
+      "Leaf nodes in a B+ tree are linked sequentially so no backtracking up internal nodes is needed",
+      "B-trees cannot index integer keys",
+      "B+ trees always have height 1"
+    ],
+    "correct_answer": "Leaf nodes in a B+ tree are linked sequentially so no backtracking up internal nodes is needed",
+    "explanation": "Once the lower bound 20 is located in a B+ tree leaf, sequential leaf pointers scan directly through 80 without revisiting parent nodes.",
+    "expected_time_sec": 75,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-029",
+    "topic_id": "DBMS-05",
+    "subtopic": "B+ Tree Leaf Capacity",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Using block size 512 B, key 12 B, record pointer 8 B, and next-leaf block pointer 4 B, what is the maximum number of (key, record-pointer) pairs in a B+ tree leaf node?",
+    "options": [
+      "25",
+      "24",
+      "21",
+      "26"
+    ],
+    "correct_answer": "25",
+    "explanation": "Leaf equation: n*(12 + 8) + 4 <= 512 => 20n <= 508 => n = floor(508/20) = 25.",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-030",
+    "topic_id": "DBMS-05",
+    "subtopic": "Extendible Hashing",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "In extendible hashing, when a bucket overflows and its local depth equals the global depth d, what happens?",
+    "options": [
+      "Only the local bucket splits without changing directory size",
+      "The global directory doubles in size (d becomes d+1) and the overflowing bucket splits",
+      "All buckets merge into one",
+      "Open addressing linear probing is triggered"
+    ],
+    "correct_answer": "The global directory doubles in size (d becomes d+1) and the overflowing bucket splits",
+    "explanation": "When local_depth == global_depth, a directory split doubles the pointer array to accommodate an extra hash prefix bit before splitting the full bucket.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-031",
+    "topic_id": "OS-01",
+    "subtopic": "Process vs Thread",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Which resource is NOT shared among peer threads of the same process?",
+    "options": [
+      "Heap memory",
+      "Global variables",
+      "Thread stack and CPU registers",
+      "Open file descriptors"
+    ],
+    "correct_answer": "Thread stack and CPU registers",
+    "explanation": "Threads share address space (code, data, heap, open files) for fast communication, while each thread keeps its own stack, program counter, and registers.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-032",
+    "topic_id": "OS-01",
+    "subtopic": "CPU Scheduling",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Which non-preemptive scheduling algorithm minimizes average waiting time for a fixed set of processes arriving at t = 0?",
+    "options": [
+      "FCFS",
+      "Shortest Job First (SJF)",
+      "Round Robin",
+      "Priority Scheduling"
+    ],
+    "correct_answer": "Shortest Job First (SJF)",
+    "explanation": "SJF is provably optimal in minimizing average waiting time for batch jobs arriving simultaneously, though it risks starvation of long jobs.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-033",
+    "topic_id": "OS-01",
+    "subtopic": "Round Robin Quantum",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Three processes P1(4 ms), P2(5 ms), P3(3 ms) arrive at t=0 in order P1, P2, P3 under Round Robin with time quantum q = 2 ms. What is the turnaround time of P1?",
+    "options": [
+      "6 ms",
+      "8 ms",
+      "10 ms",
+      "12 ms"
+    ],
+    "correct_answer": "8 ms",
+    "explanation": "Gantt: P1[0-2], P2[2-4], P3[4-6], P1[6-8]. P1 finishes at t=8, so turnaround = 8 - 0 = 8 ms.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-034",
+    "topic_id": "OS-01",
+    "subtopic": "SRTF Scheduling",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Process P1 arrives at t=0 (burst 7), P2 at t=2 (burst 4), P3 at t=4 (burst 1). Under preemptive SRTF, what is the completion time of P1?",
+    "options": [
+      "7",
+      "12",
+      "11",
+      "8"
+    ],
+    "correct_answer": "12",
+    "explanation": "P1 runs [0-2] (rem 5). P2 runs [2-4] (rem 2). At t=4, P3(1) < P2(2) < P1(5), so P3 runs [4-5], P2 finishes [5-7], and P1 finishes [7-12].",
+    "expected_time_sec": 90,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-035",
+    "topic_id": "OS-01",
+    "subtopic": "Fork System Call",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "If a process executes `fork(); fork() && fork(); fork();` sequentially (assuming all forks succeed), how many total processes (including parent) exist afterward?",
+    "options": [
+      "8",
+      "10",
+      "12",
+      "16"
+    ],
+    "correct_answer": "12",
+    "explanation": "First fork -> 2 processes. In `fork() && fork()`: parent creates 1 child (which sees 0 from first fork and skips second fork), while original/first child get non-zero PID and run second fork -> each of the 2 becomes 3 processes (total 6). Last `fork()` doubles 6 to 12.",
+    "expected_time_sec": 120,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-036",
+    "topic_id": "OS-01",
+    "subtopic": "Priority Inversion",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Priority inversion occurs when a high-priority task waits for a mutex held by a low-priority task preempted by medium-priority tasks. The standard kernel fix is:",
+    "options": [
+      "Aging only",
+      "Priority Inheritance Protocol",
+      "Disabling interrupts across user space",
+      "Increasing Round Robin quantum"
+    ],
+    "correct_answer": "Priority Inheritance Protocol",
+    "explanation": "Priority Inheritance temporarily elevates the low-priority lock holder to the highest blocked waiter's priority until it releases the mutex.",
+    "expected_time_sec": 105,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-037",
+    "topic_id": "OS-02",
+    "subtopic": "Critical Section",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Which three requirements must any valid solution to the critical section problem satisfy?",
+    "options": [
+      "Atomicity, Isolation, Durability",
+      "Mutual Exclusion, Progress, Bounded Waiting",
+      "Preemption, Deadlock Freedom, Throughput",
+      "Paging, Segmentation, Protection"
+    ],
+    "correct_answer": "Mutual Exclusion, Progress, Bounded Waiting",
+    "explanation": "Dijkstra's three classic correctness requirements ensure safety (mutual exclusion), liveness (progress), and starvation freedom (bounded waiting).",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-038",
+    "topic_id": "OS-02",
+    "subtopic": "Semaphores",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "A counting semaphore initialized to 7 has 12 wait(P) operations and 4 signal(V) operations executed on it. Assuming non-blocking or queued completion, what is its final value?",
+    "options": [
+      "-1",
+      "0",
+      "3",
+      "11"
+    ],
+    "correct_answer": "-1",
+    "explanation": "Final value = 7 - 12 + 4 = -1 (meaning 1 process is currently blocked in the semaphore queue under negative-count semantics).",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-039",
+    "topic_id": "OS-02",
+    "subtopic": "Peterson's Algorithm",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "In Peterson's two-process solution, if `turn = j` is written BEFORE `flag[i] = true` (swapping the two entry lines), what breaks?",
+    "options": [
+      "Bounded waiting only",
+      "Mutual exclusion can be violated if both processes enter simultaneously",
+      "Deadlock is guaranteed",
+      "Nothing changes"
+    ],
+    "correct_answer": "Mutual exclusion can be violated if both processes enter simultaneously",
+    "explanation": "If P0 sets turn=1 and is preempted before flag[0]=true, P1 sees flag[0]==false and enters; then P0 sets flag[0]=true and sees turn==0? No, if turn gets overwritten by P1 to 0, P0 enters too\u2014breaking mutual exclusion.",
+    "expected_time_sec": 90,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-040",
+    "topic_id": "OS-02",
+    "subtopic": "Producer-Consumer",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "In a bounded-buffer Producer-Consumer solution with buffer size N, mutex=1, full=0, empty=N, what happens if Producer executes `wait(mutex)` BEFORE `wait(empty)`?",
+    "options": [
+      "Buffer overflow",
+      "Deadlock when the buffer is full",
+      "Race condition on buffer index",
+      "Starvation of Consumer only"
+    ],
+    "correct_answer": "Deadlock when the buffer is full",
+    "explanation": "When full, Producer acquires mutex and blocks on `wait(empty)`. Consumer cannot enter `wait(mutex)` to remove an item and call `signal(empty)`\u2014causing permanent deadlock.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-041",
+    "topic_id": "OS-02",
+    "subtopic": "Hardware Synchronization",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Why does a naive spinlock using `TestAndSet(&lock)` satisfy Mutual Exclusion and Progress but fail Bounded Waiting?",
+    "options": [
+      "TestAndSet is not atomic on multicore CPUs",
+      "Without a queued turn mechanism, a competing thread can repeatedly re-acquire the lock and starve another waiting thread",
+      "It disables preemption inside kernel",
+      "Busy waiting always deadlocks"
+    ],
+    "correct_answer": "Without a queued turn mechanism, a competing thread can repeatedly re-acquire the lock and starve another waiting thread",
+    "explanation": "Basic TestAndSet gives no FIFO guarantee, so an unlucky waiting thread can be bypassed indefinitely.",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-042",
+    "topic_id": "OS-02",
+    "subtopic": "Reader-Writer Locks",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "In the First Readers-Writers problem (readers preference), when a continuous stream of readers arrives while one reader holds the database:",
+    "options": [
+      "Writers starve indefinitely",
+      "Readers starve indefinitely",
+      "Deadlock occurs between consecutive readers",
+      "Only one reader accesses the database at a time"
+    ],
+    "correct_answer": "Writers starve indefinitely",
+    "explanation": "Because new readers enter immediately whenever read_count >= 1 without waiting for queued writers, writers face unbounded starvation.",
+    "expected_time_sec": 105,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-043",
+    "topic_id": "OS-03",
+    "subtopic": "Deadlock Conditions",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Which is NOT one of Coffman's four necessary conditions for deadlock?",
+    "options": [
+      "Mutual Exclusion",
+      "Hold and Wait",
+      "Circular Wait",
+      "Bounded Waiting"
+    ],
+    "correct_answer": "Bounded Waiting",
+    "explanation": "Coffman's four conditions are Mutual Exclusion, Hold and Wait, No Preemption, and Circular Wait. Bounded Waiting belongs to critical section synchronization.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-044",
+    "topic_id": "OS-03",
+    "subtopic": "Resource Allocation Graph",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "If every resource type has multiple instances, a cycle in the Resource Allocation Graph (RAG) indicates:",
+    "options": [
+      "Deadlock definitely exists",
+      "Deadlock may exist (necessary, not sufficient)",
+      "System is guaranteed safe",
+      "Circular wait is absent"
+    ],
+    "correct_answer": "Deadlock may exist (necessary, not sufficient)",
+    "explanation": "With single-instance resources a cycle is necessary and sufficient for deadlock; with multi-instance resources a cycle is necessary but not sufficient.",
+    "expected_time_sec": 50,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-045",
+    "topic_id": "OS-03",
+    "subtopic": "Deadlock-Free Allocation",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Three processes P0, P1, P2 require maximum resource counts (4, 5, 6) of a single resource type. What is the minimum total number of resource instances needed to guarantee the system is deadlock-free?",
+    "options": [
+      "11",
+      "12",
+      "13",
+      "15"
+    ],
+    "correct_answer": "13",
+    "explanation": "Worst-case stuck allocation before completion gives each process (max_i - 1): 3 + 4 + 5 = 12. Adding 1 more instance (13 total) guarantees at least one process finishes.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-046",
+    "topic_id": "OS-03",
+    "subtopic": "Deadlock Prevention",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Imposing a strict total ordering R1 < R2 < ... < Rm on resource types and requiring processes to request resources in ascending order breaks which Coffman condition?",
+    "options": [
+      "Mutual Exclusion",
+      "Hold and Wait",
+      "No Preemption",
+      "Circular Wait"
+    ],
+    "correct_answer": "Circular Wait",
+    "explanation": "Any cycle in wait-for implies R_i < R_j < ... < R_i, a contradiction under strict total ordering, preventing circular wait.",
+    "expected_time_sec": 75,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-047",
+    "topic_id": "OS-03",
+    "subtopic": "Banker's Safety Check",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "With 3 resource types A, B, C, Available=(3,3,2), Allocation for P0..P4: P0(0,1,0), P1(2,0,0), P2(3,0,2), P3(2,1,1), P4(0,0,2) and Need: P0(7,4,3), P1(1,2,2), P2(6,0,0), P3(0,1,1), P4(4,3,1), which safe sequence starts validly?",
+    "options": [
+      "<P0, P1, P2, P3, P4>",
+      "<P1, P3, P4, P0, P2>",
+      "<P2, P0, P1, P3, P4>",
+      "No safe sequence exists"
+    ],
+    "correct_answer": "<P1, P3, P4, P0, P2>",
+    "explanation": "Avail(3,3,2) >= Need_P1(1,2,2) -> Avail becomes (5,3,2) >= Need_P3(0,1,1) -> (7,4,3) -> P4 -> (7,4,5) -> P0 -> (7,5,5) -> P2 completes safely.",
+    "expected_time_sec": 120,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-048",
+    "topic_id": "OS-03",
+    "subtopic": "Deadlock-Free Bound",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Suppose 4 processes each require at most 3 units of an identical resource type. What is the minimum total number of units R that guarantees the system is deadlock-free?",
+    "options": [
+      "8",
+      "9",
+      "10",
+      "12"
+    ],
+    "correct_answer": "9",
+    "explanation": "By pigeonhole worst-case, each process can hold (max_i - 1) = 2 units without finishing => 4 * 2 = 8 units stuck. Adding 1 unit => 9 guarantees at least one process finishes.",
+    "expected_time_sec": 100,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-049",
+    "topic_id": "OS-04",
+    "subtopic": "Paging Basics",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Paging completely eliminates which type of memory fragmentation?",
+    "options": [
+      "Internal fragmentation",
+      "External fragmentation",
+      "Swap fragmentation",
+      "Stack overflow"
+    ],
+    "correct_answer": "External fragmentation",
+    "explanation": "Because any free physical frame can be allocated to any virtual page, contiguous holes between partitions (external fragmentation) disappear, though the last page may retain internal fragmentation.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-050",
+    "topic_id": "OS-04",
+    "subtopic": "Address Translation",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "If a 32-bit virtual address space uses 4 KB (2^12 byte) pages, how many bits represent the virtual page number (VPN)?",
+    "options": [
+      "12",
+      "16",
+      "20",
+      "24"
+    ],
+    "correct_answer": "20",
+    "explanation": "4 KB = 2^12 bytes requires 12 offset bits, leaving 32 - 12 = 20 bits for the virtual page number.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-051",
+    "topic_id": "OS-04",
+    "subtopic": "Effective Access Time",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "A system has a TLB hit ratio of 90%, TLB access time of 10 ns, and main memory access time of 100 ns (single-level page table). What is the Effective Memory Access Time (EMAT)?",
+    "options": [
+      "110 ns",
+      "120 ns",
+      "130 ns",
+      "190 ns"
+    ],
+    "correct_answer": "120 ns",
+    "explanation": "EMAT = 0.9*(10 + 100) + 0.1*(10 + 100 + 100) = 99 + 21 = 120 ns.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-052",
+    "topic_id": "OS-04",
+    "subtopic": "Multi-Level Paging",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Why do 64-bit architectures use multi-level hierarchical page tables instead of a single flat page table?",
+    "options": [
+      "To decrease TLB hit latency",
+      "A single flat table would require gigabytes of contiguous RAM per process even when most virtual address space is unused",
+      "To eliminate page faults completely",
+      "To enable external fragmentation"
+    ],
+    "correct_answer": "A single flat table would require gigabytes of contiguous RAM per process even when most virtual address space is unused",
+    "explanation": "Hierarchical page tables allocate inner page-table pages lazily only for populated virtual address regions.",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-053",
+    "topic_id": "OS-04",
+    "subtopic": "Inverted Page Tables",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "In a machine with 48-bit virtual addresses, 4 KB pages, and 16 GB physical RAM, roughly how many entries does an Inverted Page Table contain globally across all processes?",
+    "options": [
+      "2^36 entries per process",
+      "2^22 entries total (one per physical frame)",
+      "2^48 entries total",
+      "2^12 entries total"
+    ],
+    "correct_answer": "2^22 entries total (one per physical frame)",
+    "explanation": "Physical RAM = 16 GB = 2^34 bytes; page size = 2^12 bytes => 2^22 physical frames. Inverted page tables maintain one global entry per physical frame.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-054",
+    "topic_id": "OS-04",
+    "subtopic": "Page Table Size",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "A 32-bit system with 4 KB pages and 4-byte page table entries uses a 2-level page table where the outer directory fits in exactly one 4 KB page (1024 entries). How are the 32 address bits split (Outer : Inner : Offset)?",
+    "options": [
+      "10 : 10 : 12",
+      "12 : 10 : 10",
+      "8 : 12 : 12",
+      "10 : 12 : 10"
+    ],
+    "correct_answer": "10 : 10 : 12",
+    "explanation": "Offset = log2(4 KB) = 12 bits. Outer directory has 4096/4 = 1024 = 2^10 entries -> 10 bits, leaving 32 - 12 - 10 = 10 bits for the inner table.",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-055",
+    "topic_id": "OS-05",
+    "subtopic": "Belady's Anomaly",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Which classic page replacement algorithm can suffer from Belady's Anomaly (more page faults when allocated more physical frames)?",
+    "options": [
+      "LRU",
+      "Optimal (OPT)",
+      "FIFO",
+      "LFU"
+    ],
+    "correct_answer": "FIFO",
+    "explanation": "Stack algorithms (LRU, OPT) satisfy the inclusion property and never exhibit Belady's Anomaly; FIFO is not a stack algorithm and can fault more with extra frames.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-056",
+    "topic_id": "OS-05",
+    "subtopic": "Thrashing",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Thrashing in a virtual memory system occurs when:",
+    "options": [
+      "CPU utilization reaches 100% due to compute-heavy threads",
+      "Processes spend more time swapping pages between disk and RAM than executing instructions",
+      "Disk cache hits 100%",
+      "The TLB is disabled"
+    ],
+    "correct_answer": "Processes spend more time swapping pages between disk and RAM than executing instructions",
+    "explanation": "When total working sets exceed available physical frames, constant page faults collapse CPU utilization.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-057",
+    "topic_id": "OS-05",
+    "subtopic": "Page Replacement Trace",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "For reference string `1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5` with 3 initially empty frames, how many page faults occur under FIFO?",
+    "options": [
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "correct_answer": "9",
+    "explanation": "FIFO faults on 1,2,3,4,1,2,5 (first 7 accesses), hits 1,2, then faults on 3,4 (hits 5) -> total 9 faults (classic Belady example: 4 frames gives 10!).",
+    "expected_time_sec": 95,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-058",
+    "topic_id": "OS-05",
+    "subtopic": "Unix Inodes",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "An inode has 12 direct pointers, 1 single indirect, 1 double indirect, and 1 triple indirect pointer. With 4 KB blocks and 4-byte block pointers (1024 pointers/block), which structure dominates maximum file size?",
+    "options": [
+      "Direct pointers",
+      "Single indirect block",
+      "Double indirect block",
+      "Triple indirect block"
+    ],
+    "correct_answer": "Triple indirect block",
+    "explanation": "Triple indirect holds 1024^3 = 2^30 blocks (~4 TB with 4 KB blocks), dwarfing direct, single, and double indirect blocks combined.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-059",
+    "topic_id": "OS-05",
+    "subtopic": "LRU Fault Count",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "For reference string `7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2` with 3 initially empty frames, how many page faults occur under LRU?",
+    "options": [
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "correct_answer": "9",
+    "explanation": "Step-by-step LRU faults: 7, 0, 1, 2(rep 7), 0(hit), 3(rep 1), 0(hit), 4(rep 2), 2(rep 3), 3(rep 0), 0(rep 4), 3(hit), 2(hit) -> 9 total faults.",
+    "expected_time_sec": 120,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-060",
+    "topic_id": "OS-05",
+    "subtopic": "Working Set & Page Fault EAT",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "If RAM access time is 100 ns, page fault service time is 8 ms (8,000,000 ns), and we want Effective Access Time <= 200 ns, what is the maximum tolerable page fault rate p?",
+    "options": [
+      "p <= 1.25 x 10^-5",
+      "p <= 1.25 x 10^-4",
+      "p <= 1.0 x 10^-3",
+      "p <= 2.5 x 10^-6"
+    ],
+    "correct_answer": "p <= 1.25 x 10^-5",
+    "explanation": "(1-p)*100 + p*8,000,000 <= 200 => 7,999,900*p <= 100 => p <= 100 / 8,000,000 = 1.25e-5.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-061",
+    "topic_id": "CN-01",
+    "subtopic": "Layer Responsibilities",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Which OSI layer is primarily responsible for end-to-end host-to-host process delivery, flow control, and reliability?",
+    "options": [
+      "Data Link Layer",
+      "Network Layer",
+      "Transport Layer",
+      "Session Layer"
+    ],
+    "correct_answer": "Transport Layer",
+    "explanation": "The Transport Layer (TCP/UDP) manages end-to-end process-to-process communication via ports, whereas Data Link handles hop-to-hop and Network handles host-to-host routing.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-062",
+    "topic_id": "CN-01",
+    "subtopic": "Bit Stuffing",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "In HDLC bit-oriented framing with flag 01111110, when does the sender insert a stuffed '0' bit into the payload?",
+    "options": [
+      "After every 4 consecutive 1s",
+      "After every 5 consecutive 1s",
+      "Before every byte boundary",
+      "After every 6 consecutive 0s"
+    ],
+    "correct_answer": "After every 5 consecutive 1s",
+    "explanation": "Bit stuffing inserts a 0 immediately after five consecutive 1s in data so the 01111110 frame delimiter can never appear accidentally inside payload.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-063",
+    "topic_id": "CN-01",
+    "subtopic": "CRC Remainder",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Using CRC generator polynomial G(x) = x^3 + x + 1 (1011) and data bits 101001, what 3-bit CRC checksum is appended?",
+    "options": [
+      "001",
+      "010",
+      "101",
+      "110"
+    ],
+    "correct_answer": "001",
+    "explanation": "Append 3 zeros -> 101001000. Modulo-2 divide by 1011: step-by-step XOR yields remainder 001.",
+    "expected_time_sec": 95,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-064",
+    "topic_id": "CN-01",
+    "subtopic": "Stop-and-Wait Efficiency",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "A link has bandwidth 1 Mbps, frame size 1000 bits, and one-way propagation delay 2 ms (ignore ACK transmission time). What is Stop-and-Wait link utilization?",
+    "options": [
+      "20%",
+      "33.3%",
+      "50%",
+      "80%"
+    ],
+    "correct_answer": "20%",
+    "explanation": "T_t = 1000 / 10^6 = 1 ms. RTT = 2 * T_p = 4 ms. Utilization = T_t / (T_t + 2*T_p) = 1 / (1 + 4) = 20%.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-065",
+    "topic_id": "CN-01",
+    "subtopic": "Sliding Window Sequence Bits",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "In Selective Repeat ARQ with k-bit sequence numbers, what is the maximum sender (and receiver) window size to avoid sequence ambiguity?",
+    "options": [
+      "2^k",
+      "2^k - 1",
+      "2^(k-1)",
+      "k"
+    ],
+    "correct_answer": "2^(k-1)",
+    "explanation": "In Go-Back-N max sender window is 2^k - 1; in Selective Repeat both sender and receiver share half the sequence space (2^(k-1)) so old and new frames never overlap.",
+    "expected_time_sec": 105,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-066",
+    "topic_id": "CN-01",
+    "subtopic": "Bandwidth-Delay Product",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "For a 10 Mbps link with 5 ms one-way propagation delay and 1250-byte frames, what minimum sequence number field width (in bits) is needed for Go-Back-N to achieve 100% utilization?",
+    "options": [
+      "3 bits",
+      "4 bits",
+      "5 bits",
+      "6 bits"
+    ],
+    "correct_answer": "4 bits",
+    "explanation": "T_t = (1250*8) / 10^7 = 1 ms. Total pipe time T_t + 2*T_p = 11 ms => need W >= 11 frames. Since GBN allows W <= 2^k - 1, 2^k - 1 >= 11 => k = 4 bits (max 15).",
+    "expected_time_sec": 120,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-067",
+    "topic_id": "CN-02",
+    "subtopic": "Pure vs Slotted ALOHA",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "What is the maximum theoretical throughput of Slotted ALOHA compared to Pure ALOHA?",
+    "options": [
+      "36.8% vs 18.4%",
+      "50% vs 25%",
+      "18.4% vs 36.8%",
+      "75% vs 50%"
+    ],
+    "correct_answer": "36.8% vs 18.4%",
+    "explanation": "Slotted ALOHA halves the vulnerable collision window from 2*T_fr to T_fr, doubling max efficiency from 1/(2e) \u2248 18.4% to 1/e \u2248 36.8%.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-068",
+    "topic_id": "CN-02",
+    "subtopic": "Ethernet Switch Learning",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "An Ethernet learning switch builds its forwarding table dynamically by inspecting:",
+    "options": [
+      "Destination IP addresses",
+      "Source MAC addresses of incoming frames",
+      "TCP port numbers",
+      "ARP reply TTLs only"
+    ],
+    "correct_answer": "Source MAC addresses of incoming frames",
+    "explanation": "Whenever a frame arrives on port P, the switch records (Source MAC -> Port P) in its CAM table and floods only when Destination MAC is unknown.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-069",
+    "topic_id": "CN-02",
+    "subtopic": "CSMA/CD Minimum Frame Size",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "In a CSMA/CD Ethernet LAN running at 100 Mbps with max round-trip propagation delay 25.6 microseconds, what is the minimum frame size required for reliable collision detection?",
+    "options": [
+      "128 bytes",
+      "256 bytes",
+      "320 bytes",
+      "512 bytes"
+    ],
+    "correct_answer": "320 bytes",
+    "explanation": "T_t >= RTT = 25.6 us => L_min = 100 * 10^6 * 25.6 * 10^-6 = 2560 bits = 320 bytes.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-070",
+    "topic_id": "CN-02",
+    "subtopic": "CSMA/CD Backoff",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "After a station experiences its 3rd consecutive collision in IEEE 802.3 Binary Exponential Backoff, from which range is the random backoff k chosen?",
+    "options": [
+      "{0, 1, 2, 3}",
+      "{0, ..., 7}",
+      "{0, ..., 15}",
+      "{1, ..., 8}"
+    ],
+    "correct_answer": "{0, ..., 7}",
+    "explanation": "After c collisions (capped at 10), k is drawn uniformly from {0, 1, ..., 2^c - 1}. For c=3, 2^3 - 1 = 7.",
+    "expected_time_sec": 75,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-071",
+    "topic_id": "CN-02",
+    "subtopic": "Broadcast vs Collision Domain",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "A network connects 4 hubs to 4 separate ports of a Layer-2 switch, and each hub connects 6 PCs; the switch connects via 1 port to a router. How many collision domains and broadcast domains exist?",
+    "options": [
+      "5 collision domains, 1 broadcast domain",
+      "4 collision domains, 4 broadcast domains",
+      "24 collision domains, 1 broadcast domain",
+      "1 collision domain, 1 broadcast domain"
+    ],
+    "correct_answer": "5 collision domains, 1 broadcast domain",
+    "explanation": "Each switch port terminates a collision domain (4 hub ports + 1 router link = 5 collision domains). Switches forward broadcasts across all ports unless separated by VLANs or a router port -> 1 broadcast domain.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-072",
+    "topic_id": "CN-02",
+    "subtopic": "Token Ring vs CSMA/CD",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Under heavy load (G >> 1) on a high-speed, long-distance LAN, why does CSMA/CD efficiency degrade compared to Token Passing?",
+    "options": [
+      "CSMA/CD packets shrink under load",
+      "Increasing propagation delay-to-transmission ratio increases collision probability while token passing eliminates collisions",
+      "Token rings double cable bandwidth",
+      "CSMA/CD cannot run over twisted pair"
+    ],
+    "correct_answer": "Increasing propagation delay-to-transmission ratio increases collision probability while token passing eliminates collisions",
+    "explanation": "CSMA/CD efficiency \u2248 1/(1 + 6.44*a) drops rapidly as propagation parameter a = T_p/T_t grows, whereas deterministic token passing avoids collisions.",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-073",
+    "topic_id": "CN-03",
+    "subtopic": "CIDR Basics",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "How many usable host IPv4 addresses exist in a `/26` subnet (excluding network and broadcast addresses)?",
+    "options": [
+      "64",
+      "62",
+      "30",
+      "126"
+    ],
+    "correct_answer": "62",
+    "explanation": "`/26` leaves 32 - 26 = 6 host bits => 2^6 - 2 = 62 usable host addresses.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-074",
+    "topic_id": "CN-03",
+    "subtopic": "Classless Mask",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "What is the dotted-decimal subnet mask for a `/21` CIDR block?",
+    "options": [
+      "255.255.248.0",
+      "255.255.240.0",
+      "255.255.252.0",
+      "255.255.224.0"
+    ],
+    "correct_answer": "255.255.248.0",
+    "explanation": "21 bits = 8 + 8 + 5 bits. In the 3rd octet, 5 leading ones = 11111000 = 248.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-075",
+    "topic_id": "CN-03",
+    "subtopic": "Route Aggregation",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Four contiguous `/24` networks `192.168.16.0/24` through `192.168.19.0/24` are aggregated into one CIDR supernet. What is the resulting prefix?",
+    "options": [
+      "192.168.16.0/22",
+      "192.168.16.0/23",
+      "192.168.16.0/21",
+      "192.168.0.0/16"
+    ],
+    "correct_answer": "192.168.16.0/22",
+    "explanation": "16=00010000, 17=00010001, 18=00010010, 19=00010011 share the top 6 bits of the 3rd octet -> 8+8+6 = /22 starting at 192.168.16.0.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-076",
+    "topic_id": "CN-03",
+    "subtopic": "Longest Prefix Match",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "A router table has routes `10.1.0.0/16 -> Eth0`, `10.1.4.0/22 -> Eth1`, `10.1.5.0/24 -> Eth2`. Which interface forwards packet `10.1.5.42`?",
+    "options": [
+      "Eth0",
+      "Eth1",
+      "Eth2",
+      "Dropped by default"
+    ],
+    "correct_answer": "Eth2",
+    "explanation": "All three entries match `10.1.5.42`, and Longest Prefix Match selects the most specific mask `/24` -> Eth2.",
+    "expected_time_sec": 75,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-077",
+    "topic_id": "CN-03",
+    "subtopic": "VLSM Allocation",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "An organization owns `172.16.64.0/20` and allocates a `/22` subnet for Dept A, followed by a `/23` subnet for Dept B without overlap. What is the network address of Dept B?",
+    "options": [
+      "172.16.68.0/23",
+      "172.16.66.0/23",
+      "172.16.70.0/23",
+      "172.16.72.0/23"
+    ],
+    "correct_answer": "172.16.68.0/23",
+    "explanation": "Dept A uses `172.16.64.0/22`, spanning 64..67 (4 blocks of /24). The next aligned `/23` starts cleanly at `172.16.68.0/23` (covering 68..69).",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-078",
+    "topic_id": "CN-03",
+    "subtopic": "IP Fragmentation",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "An IP packet of 3000 bytes (20 B header + 2980 B payload) traverses a link with MTU = 1000 bytes. What is the Fragment Offset field (in 8-byte units) of the 3rd fragment?",
+    "options": [
+      "122",
+      "240",
+      "244",
+      "1952"
+    ],
+    "correct_answer": "244",
+    "explanation": "Max payload per fragment divisible by 8: floor((1000-20)/8)*8 = 122*8 = 976 bytes. Frag 1 carries bytes 0..975 (offset 0), Frag 2 carries 976..1951 (offset 122), Frag 3 starts at byte 1952 -> 1952/8 = 244.",
+    "expected_time_sec": 120,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-079",
+    "topic_id": "CN-04",
+    "subtopic": "Distance Vector vs Link State",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Which underlying shortest-path algorithm does OSPF (Link-State routing) run on each router?",
+    "options": [
+      "Bellman-Ford algorithm",
+      "Dijkstra's shortest-path first algorithm",
+      "Prim's MST algorithm",
+      "Floyd-Warshall all-pairs"
+    ],
+    "correct_answer": "Dijkstra's shortest-path first algorithm",
+    "explanation": "OSPF routers flood Link-State Advertisements (LSAs) so every router builds the full area topology and runs Dijkstra's SPF tree.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-080",
+    "topic_id": "CN-04",
+    "subtopic": "RIP Metrics",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "In Routing Information Protocol (RIP), what metric is used to measure path cost, and what value represents infinity (unreachable)?",
+    "options": [
+      "Bandwidth; 255",
+      "Hop count; 16",
+      "Latency in ms; 64",
+      "Packet loss; 100"
+    ],
+    "correct_answer": "Hop count; 16",
+    "explanation": "RIP counts hops (max valid 15) and sets 16 as infinity to limit count-to-infinity propagation.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-081",
+    "topic_id": "CN-04",
+    "subtopic": "Count-to-Infinity",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "How does Split Horizon with Poison Reverse help mitigate count-to-infinity in Distance Vector routing?",
+    "options": [
+      "Broadcasts full topology graphs every second",
+      "Advertises a route back to the neighbor from which it was learned with metric = infinity",
+      "Switches automatically to BGP",
+      "Drops all UDP packets"
+    ],
+    "correct_answer": "Advertises a route back to the neighbor from which it was learned with metric = infinity",
+    "explanation": "By reporting infinite cost back to the next-hop neighbor, immediate 2-node routing loops are eliminated (though 3+ node loops can still occur).",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-082",
+    "topic_id": "CN-04",
+    "subtopic": "BGP Path Vector",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "How does BGP prevent inter-Autonomous System (inter-AS) routing loops?",
+    "options": [
+      "By setting hop limit = 16",
+      "By checking whether its own AS number already appears in the AS-PATH attribute",
+      "By running Dijkstra across all Internet routers",
+      "By using ARP tables"
+    ],
+    "correct_answer": "By checking whether its own AS number already appears in the AS-PATH attribute",
+    "explanation": "BGP is a path-vector protocol: if a router sees its own ASN inside a received AS-PATH, it rejects the route to prevent loops.",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-083",
+    "topic_id": "CN-04",
+    "subtopic": "Bellman-Ford Update",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Node X has neighbors Y (link cost 2) and Z (link cost 5). Distance vectors arrive: Y reports [to W: 3] and Z reports [to W: 1]. What is X's updated shortest distance to W and next hop?",
+    "options": [
+      "Cost 5 via Y",
+      "Cost 6 via Z",
+      "Cost 4 via Y",
+      "Cost 6 via Y"
+    ],
+    "correct_answer": "Cost 5 via Y",
+    "explanation": "Cost via Y = c(X,Y) + D_Y(W) = 2 + 3 = 5. Cost via Z = c(X,Z) + D_Z(W) = 5 + 1 = 6. Minimum is 5 via Y.",
+    "expected_time_sec": 105,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-084",
+    "topic_id": "CN-04",
+    "subtopic": "OSPF vs BGP Transport",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Which transport encapsulation do RIP, OSPF, and BGP use respectively?",
+    "options": [
+      "UDP, raw IP (protocol 89), TCP",
+      "TCP, UDP, raw IP",
+      "UDP, TCP, UDP",
+      "All three use TCP port 179"
+    ],
+    "correct_answer": "UDP, raw IP (protocol 89), TCP",
+    "explanation": "RIP runs over UDP (port 520), OSPF runs directly over IP protocol 89 with its own reliability ACKs, and BGP runs over TCP (port 179).",
+    "expected_time_sec": 105,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-085",
+    "topic_id": "CN-05",
+    "subtopic": "TCP 3-Way Handshake",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "What flags are set in the three packets of a standard TCP connection establishment handshake?",
+    "options": [
+      "SYN -> ACK -> FIN",
+      "SYN -> SYN+ACK -> ACK",
+      "ACK -> SYN -> SYN+ACK",
+      "FIN -> ACK -> RST"
+    ],
+    "correct_answer": "SYN -> SYN+ACK -> ACK",
+    "explanation": "Client initiates with SYN (seq=x), server replies with SYN+ACK (seq=y, ack=x+1), client completes with ACK (ack=y+1).",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-086",
+    "topic_id": "CN-05",
+    "subtopic": "TCP Flow vs Congestion",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "In TCP, the maximum unacknowledged bytes a sender may keep in flight equals:",
+    "options": [
+      "rwnd + cwnd",
+      "min(rwnd, cwnd)",
+      "max(rwnd, cwnd)",
+      "MSS * 2"
+    ],
+    "correct_answer": "min(rwnd, cwnd)",
+    "explanation": "The sender obeys both receiver buffer flow control (rwnd) and network congestion control (cwnd), capping flight bytes at their minimum.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-087",
+    "topic_id": "CN-05",
+    "subtopic": "Slow Start & AIMD",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "A TCP Reno sender starts with cwnd = 1 MSS and ssthresh = 16 MSS. Assuming no losses, how many RTTs does it take to reach cwnd = 16 MSS?",
+    "options": [
+      "4 RTTs",
+      "5 RTTs",
+      "15 RTTs",
+      "16 RTTs"
+    ],
+    "correct_answer": "4 RTTs",
+    "explanation": "During Slow Start, cwnd doubles each RTT: 1 -> 2 (RTT1) -> 4 (RTT2) -> 8 (RTT3) -> 16 (RTT4).",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-088",
+    "topic_id": "CN-05",
+    "subtopic": "TCP Fast Retransmit",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "In TCP Reno, how does a sender respond differently to 3 duplicate ACKs versus a Retransmission Timeout (RTO)?",
+    "options": [
+      "3 dup ACKs reset cwnd to 1 MSS; timeout halves cwnd",
+      "3 dup ACKs trigger Fast Recovery (ssthresh=cwnd/2, cwnd=ssthresh+3); timeout drops cwnd back to 1 MSS",
+      "Both drop cwnd to 0",
+      "Both ignore loss"
+    ],
+    "correct_answer": "3 dup ACKs trigger Fast Recovery (ssthresh=cwnd/2, cwnd=ssthresh+3); timeout drops cwnd back to 1 MSS",
+    "explanation": "Duplicate ACKs imply packets are still reaching the receiver (mild congestion), whereas an RTO signals severe congestion requiring reset to Slow Start (1 MSS).",
+    "expected_time_sec": 90,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-089",
+    "topic_id": "CN-05",
+    "subtopic": "TCP Wrap-around & Throughput",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Over a 1 Gbps link, roughly how quickly does TCP's 32-bit sequence number space (4 GB) wrap around if sending at full line rate?",
+    "options": [
+      "~34 seconds",
+      "~4 seconds",
+      "~340 seconds",
+      "~1 hour"
+    ],
+    "correct_answer": "~34 seconds",
+    "explanation": "2^32 bytes * 8 bits/byte = 34.36 * 10^9 bits. Divided by 10^9 bps \u2248 34.4 seconds (motivating PAWS / TCP timestamps).",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-090",
+    "topic_id": "CN-05",
+    "subtopic": "TCP Congestion Math",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "A TCP Reno connection has cwnd = 24 KB (MSS = 2 KB). After a timeout occurs, followed by 5 successful RTTs without loss, what is cwnd?",
+    "options": [
+      "14 KB",
+      "16 KB",
+      "20 KB",
+      "32 KB"
+    ],
+    "correct_answer": "16 KB",
+    "explanation": "On timeout at cwnd=24 KB: ssthresh = 24/2 = 12 KB, cwnd = 1 MSS = 2 KB. Slow start: RTT1->4 KB, RTT2->8 KB, RTT3->12 KB (reaches ssthresh). Congestion Avoidance (+1 MSS/RTT): RTT4->14 KB, RTT5->16 KB.",
+    "expected_time_sec": 120,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-091",
+    "topic_id": "TOC-01",
+    "subtopic": "DFA Basics",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "What is the minimum number of states in a DFA over {a, b} that accepts all strings ending with 'ab'?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "correct_answer": "3",
+    "explanation": "States track suffix progress: q0 (neither/start), q1 (ends with 'a'), q2 (ends with 'ab', accepting).",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-092",
+    "topic_id": "TOC-01",
+    "subtopic": "NFA to DFA",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "If an NFA has n states, what is the tight worst-case upper bound on the number of states in an equivalent DFA?",
+    "options": [
+      "n^2",
+      "2n",
+      "2^n",
+      "n!"
+    ],
+    "correct_answer": "2^n",
+    "explanation": "Subset construction maps each subset of NFA states to a DFA state, yielding at most 2^n states (achievable by languages like 'k-th symbol from end is 1').",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-093",
+    "topic_id": "TOC-01",
+    "subtopic": "DFA Minimization",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "What is the minimum number of states in a DFA over {0, 1} accepting binary strings divisible by 5 (leading zeros allowed, empty string rejected or accepted\u2014standard empty=0 accepted)?",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "10"
+    ],
+    "correct_answer": "5",
+    "explanation": "DFA tracks remainder modulo 5 ({0, 1, 2, 3, 4}), and all 5 congruence classes are pairwise distinguishable by Myhill-Nerode -> 5 states.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-094",
+    "topic_id": "TOC-01",
+    "subtopic": "Myhill-Nerode Theorem",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "For L = {a^n b^n | n >= 0}, how many equivalence classes exist under the Myhill-Nerode indistinguishability relation?",
+    "options": [
+      "2",
+      "n + 1",
+      "Countably infinite",
+      "Uncountable"
+    ],
+    "correct_answer": "Countably infinite",
+    "explanation": "Every prefix a^i and a^j (i != j) is distinguished by suffix b^i, proving infinitely many equivalence classes and hence L is non-regular.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-095",
+    "topic_id": "TOC-01",
+    "subtopic": "Product Construction",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Let L1 be strings over {0,1} with even number of 0s and L2 be strings with odd number of 1s. What is the minimum number of states in a DFA accepting L1 union L2?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "6"
+    ],
+    "correct_answer": "4",
+    "explanation": "Product DFA has 2 * 2 = 4 states tracking (parity of 0s, parity of 1s), accepting whenever parity_0==even OR parity_1==odd; all 4 states remain pairwise distinguishable.",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-096",
+    "topic_id": "TOC-01",
+    "subtopic": "NFA Epsilon Closure",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "An NFA over {a,b} accepts strings where the 3rd symbol from the right end is 'a'. How many states does the smallest equivalent DFA require?",
+    "options": [
+      "4",
+      "6",
+      "8",
+      "9"
+    ],
+    "correct_answer": "8",
+    "explanation": "The DFA must remember the last 3 binary symbols seen (2^3 = 8 combinations), and each 3-bit history is distinguishable by appending 0, 1, or 2 characters.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-097",
+    "topic_id": "TOC-02",
+    "subtopic": "Regular Expressions",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Which regular expression over {0, 1} matches all strings containing at least two consecutive 1s?",
+    "options": [
+      "(0+1)*11(0+1)*",
+      "(0*10*1)*",
+      "0*110*",
+      "(1+01)*"
+    ],
+    "correct_answer": "(0+1)*11(0+1)*",
+    "explanation": "Any arbitrary prefix `(0+1)*`, followed by `11`, followed by any suffix `(0+1)*` captures every string containing substring `11`.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-098",
+    "topic_id": "TOC-02",
+    "subtopic": "Closure Properties",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Regular languages are closed under which set of operations?",
+    "options": [
+      "Union and Intersection only",
+      "Union, Intersection, Complement, Concatenation, and Kleene Star",
+      "Union only (not Complement)",
+      "Infinite Union of arbitrary regular sets"
+    ],
+    "correct_answer": "Union, Intersection, Complement, Concatenation, and Kleene Star",
+    "explanation": "Regular languages form a Boolean algebra closed under all finite set operations plus concatenation, star, reversal, and homomorphisms.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-099",
+    "topic_id": "TOC-02",
+    "subtopic": "Pumping Lemma Logic",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "The Pumping Lemma for Regular Languages is a:",
+    "options": [
+      "Necessary and sufficient condition for regularity",
+      "Necessary condition for regularity (used to prove non-regularity by contradiction)",
+      "Sufficient condition for regularity",
+      "Decision algorithm for all CFGs"
+    ],
+    "correct_answer": "Necessary condition for regularity (used to prove non-regularity by contradiction)",
+    "explanation": "Every regular language satisfies the pumping lemma, so failing it proves non-regularity; however, some non-regular languages also satisfy it.",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-100",
+    "topic_id": "TOC-02",
+    "subtopic": "Identifying Non-Regular",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Which of the following languages over {a, b} IS regular?",
+    "options": [
+      "{a^p | p is prime}",
+      "{w | count_a(w) = count_b(w)}",
+      "{w | count_ab(w) = count_ba(w)}",
+      "{a^(n^2) | n >= 1}"
+    ],
+    "correct_answer": "{w | count_ab(w) = count_ba(w)}",
+    "explanation": "Substrings `ab` and `ba` alternate strictly along any string, so count(ab) == count(ba) holds iff the first and last characters of w are identical (or |w|<=1)\u2014a regular condition!",
+    "expected_time_sec": 100,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-101",
+    "topic_id": "TOC-02",
+    "subtopic": "Regex Equivalence",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Which statement about `r1 = (a* b*)*` and `r2 = (a + b)*` is true?",
+    "options": [
+      "L(r1) is a strict subset of L(r2)",
+      "L(r1) = L(r2)",
+      "L(r2) is a strict subset of L(r1)",
+      "L(r1) and L(r2) are disjoint"
+    ],
+    "correct_answer": "L(r1) = L(r2)",
+    "explanation": "Since `a` lies in `a*b*` (with 0 b's) and `b` lies in `a*b*` (with 0 a's), repeating `a*b*` generates every finite string over {a, b}, matching `(a+b)*`.",
+    "expected_time_sec": 105,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-102",
+    "topic_id": "TOC-02",
+    "subtopic": "Non-Regular Prime Powers",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "To prove L = {a^(2^n) | n >= 0} is non-regular using pumping length p, pick w = a^(2^p). Pumping y once produces length:",
+    "options": [
+      "Between 2^p + 1 and 2^p + p, which is strictly less than 2^(p+1)",
+      "Equal to 2^(p+1)",
+      "Strictly divisible by p",
+      "Equal to 2^(p-1)"
+    ],
+    "correct_answer": "Between 2^p + 1 and 2^p + p, which is strictly less than 2^(p+1)",
+    "explanation": "Since 1 <= |y| <= p < 2^p, pumping once gives 2^p < |xy^2z| <= 2^p + p < 2^(p+1), falling strictly between consecutive powers of 2.",
+    "expected_time_sec": 120,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-103",
+    "topic_id": "TOC-03",
+    "subtopic": "CFG Ambiguity",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "A context-free grammar G is ambiguous if there exists at least one string in L(G) that has:",
+    "options": [
+      "More than one derivation",
+      "Two or more distinct parse trees (or leftmost derivations)",
+      "Epsilon productions",
+      "Left recursion"
+    ],
+    "correct_answer": "Two or more distinct parse trees (or leftmost derivations)",
+    "explanation": "Different orders of expanding independent nonterminals can produce different derivations for the same parse tree; ambiguity requires >= 2 distinct parse trees.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-104",
+    "topic_id": "TOC-03",
+    "subtopic": "DPDA vs NPDA",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "How do Deterministic PDAs (DPDAs) compare in expressive power to Nondeterministic PDAs (NPDAs)?",
+    "options": [
+      "DPDA = NPDA in power",
+      "DPDAs accept a strict subset of CFLs (e.g., even-length palindromes require NPDA)",
+      "NPDAs accept only regular languages",
+      "DPDAs accept all recursively enumerable languages"
+    ],
+    "correct_answer": "DPDAs accept a strict subset of CFLs (e.g., even-length palindromes require NPDA)",
+    "explanation": "Unlike NFAs vs DFAs, nondeterminism strictly increases PDA power because deterministic PDAs cannot guess the midpoint of `ww^R`.",
+    "expected_time_sec": 50,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-105",
+    "topic_id": "TOC-03",
+    "subtopic": "Chomsky Normal Form",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "If a CFG in Chomsky Normal Form (CNF) generates a non-empty string w of length n >= 1, how many derivation steps are always required?",
+    "options": [
+      "n",
+      "2n - 1",
+      "2n + 1",
+      "n log n"
+    ],
+    "correct_answer": "2n - 1",
+    "explanation": "Any binary parse tree with n leaves has (n - 1) internal binary production steps (A -> BC) plus n terminal production steps (A -> a) = 2n - 1.",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-106",
+    "topic_id": "TOC-03",
+    "subtopic": "CFL Closure Properties",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Context-Free Languages are NOT closed under which pair of operations?",
+    "options": [
+      "Union and Concatenation",
+      "Intersection and Complement",
+      "Kleene Star and Reversal",
+      "Intersection with a Regular language"
+    ],
+    "correct_answer": "Intersection and Complement",
+    "explanation": "For example, {a^n b^n c^m} intersect {a^m b^n c^n} = {a^n b^n c^n}, which is not context-free; by De Morgan's law, closure fails for complement too.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-107",
+    "topic_id": "TOC-03",
+    "subtopic": "DPDA Closure",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Unlike general CFLs, Deterministic Context-Free Languages (DCFLs) ARE closed under:",
+    "options": [
+      "Union",
+      "Intersection",
+      "Complement",
+      "Concatenation"
+    ],
+    "correct_answer": "Complement",
+    "explanation": "A DPDA can be made to halt on all inputs and flip accepting/non-accepting states, proving DCFL closure under complement (while failing union and intersection).",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-108",
+    "topic_id": "TOC-03",
+    "subtopic": "Pumping Lemma for CFL",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Which language is Context-Free (and NOT Regular)?",
+    "options": [
+      "{a^n b^n c^n | n >= 0}",
+      "{ww | w in {a,b}*}",
+      "{a^i b^j c^k | i = j or j = k}",
+      "{a^(n!) | n >= 1}"
+    ],
+    "correct_answer": "{a^i b^j c^k | i = j or j = k}",
+    "explanation": "`{a^i b^i c^k} union {a^i b^j c^j}` is the union of two CFLs, and CFLs are closed under union.",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-109",
+    "topic_id": "TOC-04",
+    "subtopic": "TM Variants",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Do multi-tape Turing Machines recognize a strictly larger class of languages than single-tape deterministic Turing Machines?",
+    "options": [
+      "Yes, strictly larger",
+      "No, they recognize the exact same class (Recursively Enumerable languages)",
+      "Only for non-binary alphabets",
+      "Only if infinite states are allowed"
+    ],
+    "correct_answer": "No, they recognize the exact same class (Recursively Enumerable languages)",
+    "explanation": "A single-tape TM can simulate k tapes sequentially with delimiter markers (with quadratic time overhead), preserving computability equivalence.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-110",
+    "topic_id": "TOC-04",
+    "subtopic": "Decidable vs RE",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "A language L is Decidable (Recursive) if and only if:",
+    "options": [
+      "L is Recursively Enumerable",
+      "Both L and its complement L_bar are Recursively Enumerable",
+      "L is accepted by an NPDA",
+      "L is finite"
+    ],
+    "correct_answer": "Both L and its complement L_bar are Recursively Enumerable",
+    "explanation": "Running recognizers for L and L_bar in parallel guarantees one of them accepts and halts on every input, deciding L.",
+    "expected_time_sec": 50,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-111",
+    "topic_id": "TOC-04",
+    "subtopic": "Halting Problem",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Which statement accurately classifies the Halting Problem HALT_TM = {<M, w> | TM M halts on w}?",
+    "options": [
+      "Decidable",
+      "Recursively Enumerable (RE) and Undecidable",
+      "Not even RE",
+      "Context-Sensitive and Decidable"
+    ],
+    "correct_answer": "Recursively Enumerable (RE) and Undecidable",
+    "explanation": "A Universal TM simulates M on w and accepts if M halts (making HALT_TM RE), while diagonalization proves no decider can halt on all inputs.",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-112",
+    "topic_id": "TOC-04",
+    "subtopic": "Non-RE Complement",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "If A_TM = {<M, w> | TM M accepts w} is RE but undecidable, what is its complement co-A_TM?",
+    "options": [
+      "Decidable",
+      "RE and Undecidable",
+      "Not Recursively Enumerable (non-RE)",
+      "Regular"
+    ],
+    "correct_answer": "Not Recursively Enumerable (non-RE)",
+    "explanation": "If co-A_TM were also RE, then A_TM would be decidable (contradiction). Hence co-A_TM is not even RE.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-113",
+    "topic_id": "TOC-04",
+    "subtopic": "DFA vs CFG Decidability",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Which decision problem is UNDECIDABLE?",
+    "options": [
+      "Emptiness of a CFG (E_CFG)",
+      "Equivalence of two DFAs (EQ_DFA)",
+      "Equivalence of two CFGs (EQ_CFG)",
+      "Membership of string w in a CFG (A_CFG)"
+    ],
+    "correct_answer": "Equivalence of two CFGs (EQ_CFG)",
+    "explanation": "E_CFG, EQ_DFA, and A_CFG (CYK algorithm) are all decidable, whereas checking whether L(G1) = L(G2) for arbitrary CFGs is undecidable.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-114",
+    "topic_id": "TOC-04",
+    "subtopic": "Mapping Reducibility",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "If language A <=_m B (A mapping-reduces to B) and A is NOT Recursively Enumerable, what can we conclude about B?",
+    "options": [
+      "B is decidable",
+      "B is RE",
+      "B is NOT Recursively Enumerable",
+      "B must be regular"
+    ],
+    "correct_answer": "B is NOT Recursively Enumerable",
+    "explanation": "Contrapositive of `B is RE => A is RE` under mapping reduction: since A <=_m B and A is non-RE, B cannot be RE either.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-115",
+    "topic_id": "TOC-05",
+    "subtopic": "Rice's Theorem Scope",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Rice's Theorem applies to:",
+    "options": [
+      "Syntactic properties of a TM's state transition table",
+      "Any non-trivial semantic property of the language L(M) recognized by a Turing Machine",
+      "Regular expressions only",
+      "Runtime space bounds of DFAs"
+    ],
+    "correct_answer": "Any non-trivial semantic property of the language L(M) recognized by a Turing Machine",
+    "explanation": "Rice's Theorem states every non-trivial property of L(M) is undecidable; syntactic properties (e.g., 'M has at least 5 states') can be decidable.",
+    "expected_time_sec": 50,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-116",
+    "topic_id": "TOC-05",
+    "subtopic": "P vs NP Definition",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "The complexity class NP is formally defined as the set of decision problems:",
+    "options": [
+      "Not solvable in polynomial time",
+      "Solvable in deterministic polynomial time or verifiable in polynomial time given a certificate",
+      "Taking exponential space",
+      "Undecidable on single-tape TMs"
+    ],
+    "correct_answer": "Solvable in deterministic polynomial time or verifiable in polynomial time given a certificate",
+    "explanation": "NP stands for Nondeterministic Polynomial time\u2014equivalently, problems whose YES-instances have polynomial-time verifiable certificates.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-117",
+    "topic_id": "TOC-05",
+    "subtopic": "Applying Rice's Theorem",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Which property of Turing Machine M is DECIDABLE (so Rice's theorem does NOT make it undecidable)?",
+    "options": [
+      "L(M) is regular",
+      "L(M) contains the string '01'",
+      "M moves its tape head left at least once when run on blank tape for <= 10 steps",
+      "L(M) is finite"
+    ],
+    "correct_answer": "M moves its tape head left at least once when run on blank tape for <= 10 steps",
+    "explanation": "A bounded 10-step simulation always terminates and inspects TM execution behavior rather than a non-trivial property of the infinite language L(M).",
+    "expected_time_sec": 90,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-118",
+    "topic_id": "TOC-05",
+    "subtopic": "NP-Complete Reduction",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Suppose problem X is in NP and a known NP-complete problem SAT reduces to X in polynomial time (SAT <=_p X). Then X is:",
+    "options": [
+      "In P automatically",
+      "NP-Complete",
+      "Co-NP only",
+      "Undecidable"
+    ],
+    "correct_answer": "NP-Complete",
+    "explanation": "SAT <=_p X proves X is NP-hard; combined with X in NP, X is NP-complete.",
+    "expected_time_sec": 75,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-119",
+    "topic_id": "TOC-05",
+    "subtopic": "Trivial Semantic Property",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Why is checking `{<M> | L(M) is either finite or infinite}` trivially decidable despite mentioning L(M)?",
+    "options": [
+      "Finite languages are always regular",
+      "Every language L(M) is either finite or infinite, making the property trivial (always true)",
+      "TMs cannot accept infinite languages",
+      "Rice's theorem only covers CFGs"
+    ],
+    "correct_answer": "Every language L(M) is either finite or infinite, making the property trivial (always true)",
+    "explanation": "Rice's theorem requires a NON-trivial property (true for some RE languages and false for others). A tautological property is decided by always outputting YES.",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-120",
+    "topic_id": "TOC-05",
+    "subtopic": "P, NP and co-NP",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "If an NP-complete problem L were discovered to belong to co-NP, what major complexity implication would follow?",
+    "options": [
+      "P = NP",
+      "NP = co-NP",
+      "NP = PSPACE",
+      "SAT becomes undecidable"
+    ],
+    "correct_answer": "NP = co-NP",
+    "explanation": "Since every problem in NP reduces to L, if L has polynomial-time NO-certificates (co-NP), every NP problem inherits co-NP membership, collapsing NP = co-NP.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-121",
+    "topic_id": "DM-01",
+    "subtopic": "Propositional Equivalences",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "The implication P -> Q is logically equivalent to:",
+    "options": [
+      "Q -> P",
+      "~Q -> ~P",
+      "~P -> ~Q",
+      "P AND Q"
+    ],
+    "correct_answer": "~Q -> ~P",
+    "explanation": "Every conditional statement P -> Q is logically equivalent to its contrapositive ~Q -> ~P (and to ~P OR Q).",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-122",
+    "topic_id": "DM-01",
+    "subtopic": "Tautologies",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Which formula is a tautology?",
+    "options": [
+      "(P AND Q) -> P",
+      "P -> (P AND Q)",
+      "(P OR Q) -> P",
+      "~(P -> Q) <-> (P -> ~Q)"
+    ],
+    "correct_answer": "(P AND Q) -> P",
+    "explanation": "Simplification: if P AND Q is true, P must be true, so (P AND Q) -> P holds under every truth assignment.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-123",
+    "topic_id": "DM-01",
+    "subtopic": "Predicate Quantifiers",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "What is the correct negation of `forall x exists y (P(x, y) -> Q(x, y))`?",
+    "options": [
+      "exists x forall y (P(x, y) AND ~Q(x, y))",
+      "forall x exists y (~P(x, y) OR ~Q(x, y))",
+      "exists x exists y (P(x, y) AND ~Q(x, y))",
+      "forall x forall y (~P(x, y) AND Q(x, y))"
+    ],
+    "correct_answer": "exists x forall y (P(x, y) AND ~Q(x, y))",
+    "explanation": "Negating pushes ~ inward: ~forall -> exists, ~exists -> forall, and ~(P -> Q) \u2261 P AND ~Q.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-124",
+    "topic_id": "DM-01",
+    "subtopic": "Inference Rules",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "From premises `(P -> Q)`, `(R -> ~Q)`, and `R`, which valid conclusion follows?",
+    "options": [
+      "P",
+      "~P",
+      "Q",
+      "P OR Q"
+    ],
+    "correct_answer": "~P",
+    "explanation": "R and (R -> ~Q) yield ~Q (Modus Ponens); ~Q and (P -> Q) yield ~P (Modus Tollens).",
+    "expected_time_sec": 75,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-125",
+    "topic_id": "DM-01",
+    "subtopic": "Predicate Scope",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Over domain Z (integers), which statement is FALSE?",
+    "options": [
+      "forall x exists y (x + y = 0)",
+      "exists y forall x (x + y = x)",
+      "exists x forall y (x * y = y)",
+      "exists y forall x (x + y = 0)"
+    ],
+    "correct_answer": "exists y forall x (x + y = 0)",
+    "explanation": "A single universal additive inverse y that cancels EVERY integer x simultaneously does not exist.",
+    "expected_time_sec": 105,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-126",
+    "topic_id": "DM-01",
+    "subtopic": "Satisfiability Count",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "How many truth assignments over variables (P, Q, R) satisfy `(P -> Q) AND (Q -> R)`?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "correct_answer": "4",
+    "explanation": "Falsifying assignments: if P=T, then Q=T and R=T (1). If P=F: Q=T forces R=T (1); Q=F allows R in {T, F} (2). Total = 1 + 1 + 2 = 4.",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-127",
+    "topic_id": "DM-02",
+    "subtopic": "Equivalence Relations",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "A binary relation R on set A is an equivalence relation if it is:",
+    "options": [
+      "Reflexive, Antisymmetric, Transitive",
+      "Reflexive, Symmetric, Transitive",
+      "Irreflexive, Symmetric, Transitive",
+      "Symmetric and Transitive only"
+    ],
+    "correct_answer": "Reflexive, Symmetric, Transitive",
+    "explanation": "Equivalence relations partition set A into disjoint equivalence classes and require reflexivity, symmetry, and transitivity.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-128",
+    "topic_id": "DM-02",
+    "subtopic": "Partial Orders",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "In a Hasse diagram of a finite poset, edges explicitly omit:",
+    "options": [
+      "Covering relations",
+      "Reflexive self-loops and transitive implied edges",
+      "Minimal elements",
+      "Maximal elements"
+    ],
+    "correct_answer": "Reflexive self-loops and transitive implied edges",
+    "explanation": "Hasse diagrams simplify posets by assuming upward orientation, suppressing self-loops and transitive edges.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-129",
+    "topic_id": "DM-02",
+    "subtopic": "Counting Relations",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "How many symmetric relations can be defined on a finite set A with |A| = 4 elements?",
+    "options": [
+      "2^4",
+      "2^8",
+      "2^10",
+      "2^16"
+    ],
+    "correct_answer": "2^10",
+    "explanation": "An n x n symmetric Boolean matrix is determined by its upper triangle + diagonal: n(n+1)/2 = 4*5/2 = 10 independent entries -> 2^10 relations.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-130",
+    "topic_id": "DM-02",
+    "subtopic": "Lattice Conditions",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "A poset (L, <=) forms a lattice if and only if:",
+    "options": [
+      "It has a unique greatest and least element",
+      "Every pair of elements {a, b} has both a least upper bound (join) and greatest lower bound (meet)",
+      "It is a total order",
+      "Every element is comparable to every other element"
+    ],
+    "correct_answer": "Every pair of elements {a, b} has both a least upper bound (join) and greatest lower bound (meet)",
+    "explanation": "Lattices require join and meet for every pair of elements; finite posets can have top/bottom without being lattices (e.g., bowtie 4-poset).",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-131",
+    "topic_id": "DM-02",
+    "subtopic": "Partitions & Stirling",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "How many equivalence relations exist on a 4-element set {1, 2, 3, 4}?",
+    "options": [
+      "10",
+      "14",
+      "15",
+      "16"
+    ],
+    "correct_answer": "15",
+    "explanation": "Equivalence relations correspond bijectively to set partitions, counted by Bell number B_4 = S(4,1)+S(4,2)+S(4,3)+S(4,4) = 1 + 7 + 6 + 1 = 15.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-132",
+    "topic_id": "DM-02",
+    "subtopic": "Boolean Lattice",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "In the divisibility poset (D_30, |) where D_30 = {1,2,3,5,6,10,15,30}, what is the complement of element 6?",
+    "options": [
+      "5",
+      "10",
+      "15",
+      "3"
+    ],
+    "correct_answer": "5",
+    "explanation": "In D_30 (isomorphic to B_3), join=lcm and meet=gcd; complement x of 6 satisfies gcd(6,x)=1 and lcm(6,x)=30, which yields x = 5.",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-133",
+    "topic_id": "DM-03",
+    "subtopic": "Pigeonhole Principle",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "What is the minimum number of students needed in a class to guarantee at least 3 were born in the same month?",
+    "options": [
+      "13",
+      "24",
+      "25",
+      "36"
+    ],
+    "correct_answer": "25",
+    "explanation": "By generalized Pigeonhole Principle: 12 months * (3 - 1) + 1 = 25 students.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-134",
+    "topic_id": "DM-03",
+    "subtopic": "Bijective Functions",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "If |A| = 5 and |B| = 5, how many bijective (one-to-one and onto) functions exist from A to B?",
+    "options": [
+      "25",
+      "120",
+      "625",
+      "3125"
+    ],
+    "correct_answer": "120",
+    "explanation": "Bijections between two sets of size n correspond to n! permutations: 5! = 120.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-135",
+    "topic_id": "DM-03",
+    "subtopic": "Onto Functions",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "How many surjective (onto) functions exist from a set A of size 4 to a set B of size 2?",
+    "options": [
+      "14",
+      "16",
+      "12",
+      "8"
+    ],
+    "correct_answer": "14",
+    "explanation": "Total functions = 2^4 = 16; subtract the 2 constant functions mapping all 4 elements to a single element -> 16 - 2 = 14.",
+    "expected_time_sec": 75,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-136",
+    "topic_id": "DM-03",
+    "subtopic": "Stars and Bars",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "How many non-negative integer solutions satisfy x1 + x2 + x3 + x4 = 10?",
+    "options": [
+      "C(13, 3) = 286",
+      "C(10, 4) = 210",
+      "C(9, 3) = 84",
+      "4^10"
+    ],
+    "correct_answer": "C(13, 3) = 286",
+    "explanation": "Stars and bars: C(n + k - 1, k - 1) = C(10 + 4 - 1, 3) = C(13, 3) = 286.",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-137",
+    "topic_id": "DM-03",
+    "subtopic": "Derangements",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Four distinct letters are placed randomly into 4 addressed envelopes. In how many arrangements does NO letter go into its own addressed envelope?",
+    "options": [
+      "8",
+      "9",
+      "10",
+      "15"
+    ],
+    "correct_answer": "9",
+    "explanation": "Derangement D_4 = 4! * (1 - 1/1! + 1/2! - 1/3! + 1/4!) = 24*(1/2 - 1/6 + 1/24) = 12 - 4 + 1 = 9.",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-138",
+    "topic_id": "DM-03",
+    "subtopic": "Inclusion-Exclusion",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "How many integers between 1 and 100 (inclusive) are divisible by neither 2, nor 3, nor 5?",
+    "options": [
+      "24",
+      "26",
+      "28",
+      "30"
+    ],
+    "correct_answer": "26",
+    "explanation": "100 - (50+33+20) + (16+10+6) - 3 = 100 - 103 + 32 - 3 = 26.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-139",
+    "topic_id": "DM-04",
+    "subtopic": "Handshaking Lemma",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "In any finite undirected simple graph, the number of vertices having odd degree is always:",
+    "options": [
+      "Odd",
+      "Even",
+      "Zero",
+      "Equal to |E|"
+    ],
+    "correct_answer": "Even",
+    "explanation": "Since sum of all degrees equals 2|E| (an even number), there must be an even count of odd-degree vertices.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-140",
+    "topic_id": "DM-04",
+    "subtopic": "Tree Properties",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "A simple connected graph with n >= 1 vertices is a tree if and only if it has:",
+    "options": [
+      "n edges",
+      "n - 1 edges",
+      "n + 1 edges",
+      "All even degrees"
+    ],
+    "correct_answer": "n - 1 edges",
+    "explanation": "Any connected graph with n vertices and n - 1 edges is guaranteed to be acyclic and therefore a tree.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-141",
+    "topic_id": "DM-04",
+    "subtopic": "Euler Circuits",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "For which n >= 3 does the complete graph K_n contain an Euler circuit?",
+    "options": [
+      "All n",
+      "Only odd n",
+      "Only even n",
+      "Only prime n"
+    ],
+    "correct_answer": "Only odd n",
+    "explanation": "A connected graph has an Euler circuit iff every vertex has even degree. In K_n, every vertex has degree n - 1, which is even iff n is odd.",
+    "expected_time_sec": 75,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-142",
+    "topic_id": "DM-04",
+    "subtopic": "Planar Euler Formula",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "A simple connected planar graph has 8 vertices and 13 edges. How many faces (including the outer infinite region) does a planar embedding divide the plane into?",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "correct_answer": "7",
+    "explanation": "By Euler's formula V - E + F = 2 => F = 2 - 8 + 13 = 7 faces.",
+    "expected_time_sec": 75,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-143",
+    "topic_id": "DM-04",
+    "subtopic": "Chromatic Number",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "What is the chromatic number of a cycle graph C_n when n >= 3 is odd vs even?",
+    "options": [
+      "Always 2",
+      "3 when n is odd, 2 when n is even",
+      "n when n is odd, 2 when even",
+      "Always 3"
+    ],
+    "correct_answer": "3 when n is odd, 2 when n is even",
+    "explanation": "Even cycles are bipartite (2-colorable), whereas any odd cycle cannot be 2-colored and requires 3 colors.",
+    "expected_time_sec": 100,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-144",
+    "topic_id": "DM-04",
+    "subtopic": "Cayley's Tree Count",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "How many distinct labeled trees can be formed on 5 vertices {1, 2, 3, 4, 5}?",
+    "options": [
+      "25",
+      "64",
+      "125",
+      "120"
+    ],
+    "correct_answer": "125",
+    "explanation": "By Cayley's formula, the number of labeled spanning trees of K_n is n^(n-2) = 5^3 = 125.",
+    "expected_time_sec": 105,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-145",
+    "topic_id": "DM-05",
+    "subtopic": "Lagrange's Theorem",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "By Lagrange's theorem, the order of any subgroup H of a finite group G of order 12 CANNOT be:",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "correct_answer": "5",
+    "explanation": "Lagrange's theorem states |H| must divide |G| = 12. Since 5 does not divide 12, no subgroup of order 5 can exist.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-146",
+    "topic_id": "DM-05",
+    "subtopic": "Boolean Minimization",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "In Boolean algebra, what does A + A'B simplify to?",
+    "options": [
+      "A + B",
+      "AB",
+      "A'",
+      "B"
+    ],
+    "correct_answer": "A + B",
+    "explanation": "Absorption/distributivity: A + A'B = (A + A')(A + B) = 1 * (A + B) = A + B.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-147",
+    "topic_id": "DM-05",
+    "subtopic": "Cyclic Generators",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "How many generators does the cyclic group (Z_12, +) possess?",
+    "options": [
+      "2",
+      "4",
+      "6",
+      "12"
+    ],
+    "correct_answer": "4",
+    "explanation": "Generators of Z_n are integers k in 0..n-1 with gcd(k, n) = 1: phi(12) = 4 (namely 1, 5, 7, 11).",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-148",
+    "topic_id": "DM-05",
+    "subtopic": "Group Identity & Inverse",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "In any group (G, *), if every element satisfies x * x = e (self-inverse), then G is necessarily:",
+    "options": [
+      "Infinite",
+      "Abelian (commutative)",
+      "Cyclic of odd order",
+      "Trivial"
+    ],
+    "correct_answer": "Abelian (commutative)",
+    "explanation": "(ab)^2 = e => abab = e. Multiplying left by a and right by b uses a^2=b^2=e to give ba = ab.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-149",
+    "topic_id": "DM-05",
+    "subtopic": "Boolean Function Count",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "How many distinct Boolean functions of 3 variables are self-dual (f(x1,x2,x3) = ~f(~x1,~x2,~x3))?",
+    "options": [
+      "16",
+      "64",
+      "256",
+      "8"
+    ],
+    "correct_answer": "16",
+    "explanation": "A 3-variable truth table has 2^3 = 8 rows split into 4 complementary pairs; choosing the output on 4 rows uniquely fixes the opposite 4 -> 2^4 = 16.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-150",
+    "topic_id": "DM-05",
+    "subtopic": "Abelian Group Isomorphism",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Up to isomorphism, how many distinct abelian groups of order 12 exist?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct_answer": "2",
+    "explanation": "12 = 2^2 * 3^1. Partitioning exponents gives Z_4 x Z_3 (\u2261 Z_12) and Z_2 x Z_2 x Z_3 (\u2261 Z_2 x Z_6) -> 2 abelian groups.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-151",
+    "topic_id": "LA-01",
+    "subtopic": "Matrix Rank",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "For an m x n matrix A, what is the maximum possible value of rank(A)?",
+    "options": [
+      "m + n",
+      "min(m, n)",
+      "max(m, n)",
+      "m * n"
+    ],
+    "correct_answer": "min(m, n)",
+    "explanation": "Row rank equals column rank, so rank cannot exceed either the number of rows m or columns n.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-152",
+    "topic_id": "LA-01",
+    "subtopic": "Determinant Scaling",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "If A is a 3 x 3 matrix with det(A) = 5, what is det(2A)?",
+    "options": [
+      "10",
+      "20",
+      "40",
+      "25"
+    ],
+    "correct_answer": "40",
+    "explanation": "For an n x n matrix, det(kA) = k^n * det(A). Here 2^3 * 5 = 8 * 5 = 40.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-153",
+    "topic_id": "LA-01",
+    "subtopic": "Rank of Outer Product",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Let u and v be two non-zero 4 x 1 column vectors. What is the rank of the 4 x 4 matrix A = u * v^T?",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "4"
+    ],
+    "correct_answer": "1",
+    "explanation": "Every column of u*v^T is a scalar multiple of u, so the column space is 1-dimensional -> rank = 1.",
+    "expected_time_sec": 75,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-154",
+    "topic_id": "LA-01",
+    "subtopic": "Idempotent Matrix Trace",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "If P is a 5 x 5 idempotent matrix (P^2 = P) with rank(P) = 3, what is trace(P)?",
+    "options": [
+      "0",
+      "2",
+      "3",
+      "5"
+    ],
+    "correct_answer": "3",
+    "explanation": "Eigenvalues of an idempotent matrix are only 0 or 1, and it is diagonalizable; hence rank(P) equals the count of 1-eigenvalues, which equals trace(P) = 3.",
+    "expected_time_sec": 90,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-155",
+    "topic_id": "LA-01",
+    "subtopic": "Rank Inequality",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "If A is 4 x 5 of rank 3 and B is 5 x 4 of rank 4, what is the guaranteed minimum possible rank of product AB?",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "correct_answer": "2",
+    "explanation": "By Sylvester's rank inequality: rank(AB) >= rank(A) + rank(B) - 5 = 3 + 4 - 5 = 2.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-156",
+    "topic_id": "LA-01",
+    "subtopic": "Skew-Symmetric Determinant",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "What is the determinant of any 5 x 5 real skew-symmetric matrix (A^T = -A)?",
+    "options": [
+      "Always 0",
+      "Always 1",
+      "Always -1",
+      "Depends on off-diagonal entries"
+    ],
+    "correct_answer": "Always 0",
+    "explanation": "det(A) = det(A^T) = det(-A) = (-1)^n * det(A). For odd n=5, det(A) = -det(A) => det(A) = 0.",
+    "expected_time_sec": 105,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-157",
+    "topic_id": "LA-02",
+    "subtopic": "Rouche-Capelli",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "A system Ax = b is consistent (has at least one solution) if and only if:",
+    "options": [
+      "det(A) = 0",
+      "rank(A) = rank([A | b])",
+      "A is square",
+      "b = 0"
+    ],
+    "correct_answer": "rank(A) = rank([A | b])",
+    "explanation": "Consistency holds iff vector b lies in the column space of A, meaning adding b does not increase the rank.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-158",
+    "topic_id": "LA-02",
+    "subtopic": "Homogeneous Systems",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "A homogeneous system Ax = 0 with n unknowns has non-trivial (non-zero) solutions if and only if:",
+    "options": [
+      "rank(A) = n",
+      "rank(A) < n",
+      "A is invertible",
+      "n is odd"
+    ],
+    "correct_answer": "rank(A) < n",
+    "explanation": "Nullity = n - rank(A) > 0 guarantees free variables and infinitely many non-zero solutions.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-159",
+    "topic_id": "LA-02",
+    "subtopic": "Parametric Consistency",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "For what value of k does the system `x + 2y = 3`, `2x + 4y = k` have infinitely many solutions?",
+    "options": [
+      "k = 3",
+      "k = 6",
+      "k != 6",
+      "No value of k"
+    ],
+    "correct_answer": "k = 6",
+    "explanation": "Second row is twice the first; rank(A)=1, so rank([A|b])=1 only when k = 2*3 = 6.",
+    "expected_time_sec": 75,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-160",
+    "topic_id": "LA-02",
+    "subtopic": "Nullity Dimension",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "A 4 x 7 matrix A has rank 4. What is the dimension of the solution space of Ax = 0?",
+    "options": [
+      "0",
+      "3",
+      "4",
+      "7"
+    ],
+    "correct_answer": "3",
+    "explanation": "By Rank-Nullity Theorem: dim(Null(A)) = n - rank(A) = 7 - 4 = 3.",
+    "expected_time_sec": 75,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-161",
+    "topic_id": "LA-02",
+    "subtopic": "Full Rank Condition",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "If A is a 3 x 3 matrix such that Ax = b has a unique solution for a particular non-zero b, then:",
+    "options": [
+      "Ax = c has a unique solution for EVERY c in R^3",
+      "Ax = 0 has infinitely many solutions",
+      "rank(A) = 2",
+      "det(A) = 0"
+    ],
+    "correct_answer": "Ax = c has a unique solution for EVERY c in R^3",
+    "explanation": "A unique solution for any single b implies Nullity(A) = 0 -> rank(A) = 3 -> A is invertible -> Ax = c has unique solution x = A^-1 c for all c.",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-162",
+    "topic_id": "LA-02",
+    "subtopic": "Overdetermined Consistency",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Given 3 equations in 2 variables represented by [A | b] where A is 3 x 2, the system has a UNIQUE solution when:",
+    "options": [
+      "rank(A) = 2 and rank([A | b]) = 3",
+      "rank(A) = 2 and rank([A | b]) = 2",
+      "rank(A) = 1 and rank([A | b]) = 1",
+      "det(A^T A) = 0"
+    ],
+    "correct_answer": "rank(A) = 2 and rank([A | b]) = 2",
+    "explanation": "rank([A|b]) = rank(A) ensures consistency, and rank(A) = n = 2 ensures zero free variables (uniqueness).",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-163",
+    "topic_id": "LA-03",
+    "subtopic": "Linear Independence",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Any set of 4 vectors in R^3 is always:",
+    "options": [
+      "Linearly independent",
+      "Linearly dependent",
+      "A basis of R^3",
+      "Orthogonal"
+    ],
+    "correct_answer": "Linearly dependent",
+    "explanation": "In an n-dimensional vector space (R^3), no linearly independent set can contain more than n = 3 vectors.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-164",
+    "topic_id": "LA-03",
+    "subtopic": "Subspace Test",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Which subset of R^2 is a valid vector subspace?",
+    "options": [
+      "{(x, y) | x + y = 1}",
+      "{(x, y) | 2x - 3y = 0}",
+      "{(x, y) | x >= 0, y >= 0}",
+      "{(x, y) | x^2 + y^2 <= 1}"
+    ],
+    "correct_answer": "{(x, y) | 2x - 3y = 0}",
+    "explanation": "A subspace must contain (0,0) and be closed under addition and arbitrary scalar multiplication; only the homogeneous line through origin satisfies this.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-165",
+    "topic_id": "LA-03",
+    "subtopic": "Four Fundamental Subspaces",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "For an m x n matrix A, which subspace is orthogonal complement to the Row Space of A?",
+    "options": [
+      "Column Space C(A)",
+      "Null Space N(A)",
+      "Left Null Space N(A^T)",
+      "Image of A^T"
+    ],
+    "correct_answer": "Null Space N(A)",
+    "explanation": "Every x in N(A) satisfies Ax = 0, meaning x is orthogonal to every row of A -> N(A) = Row(A)^perp.",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-166",
+    "topic_id": "LA-03",
+    "subtopic": "Subspace Sum Dimension",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Let U and W be two 3-dimensional subspaces of R^5. What is the minimum possible dimension of U intersect W?",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "correct_answer": "1",
+    "explanation": "dim(U + W) = dim(U) + dim(W) - dim(U intersect W) <= 5 => 3 + 3 - dim(U intersect W) <= 5 => dim(U intersect W) >= 1.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-167",
+    "topic_id": "LA-03",
+    "subtopic": "Basis Extension",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Vectors v1=(1,1,0), v2=(0,1,1), v3=(1,0,1) in R^3 are tested for basis membership. Are they linearly independent?",
+    "options": [
+      "No, v3 = v1 - v2",
+      "Yes, determinant is 2 != 0 so they form a basis of R^3",
+      "No, determinant is 0",
+      "Only over C, not R"
+    ],
+    "correct_answer": "Yes, determinant is 2 != 0 so they form a basis of R^3",
+    "explanation": "det([[1,0,1],[1,1,0],[0,1,1]]) = 1(1) + 1(1) = 2 != 0, so the three vectors span R^3 and form a basis.",
+    "expected_time_sec": 105,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-168",
+    "topic_id": "LA-03",
+    "subtopic": "Projection Matrix",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "If P = A(A^T A)^-1 A^T projects vectors onto ColumnSpace(A) of dimension k in R^m, what is the dimension of NullSpace(P)?",
+    "options": [
+      "k",
+      "m - k",
+      "0",
+      "m"
+    ],
+    "correct_answer": "m - k",
+    "explanation": "Vectors orthogonal to ColumnSpace(A) project to 0, so NullSpace(P) = C(A)^perp which has dimension m - k.",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-169",
+    "topic_id": "LA-04",
+    "subtopic": "Trace & Determinant",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "For any square matrix A, the sum of all eigenvalues (counting multiplicity) equals ____ and their product equals ____.",
+    "options": [
+      "det(A); trace(A)",
+      "trace(A); det(A)",
+      "rank(A); nullity(A)",
+      "norm(A); trace(A)"
+    ],
+    "correct_answer": "trace(A); det(A)",
+    "explanation": "By Vieta's formulas on the characteristic polynomial det(lambda*I - A), eigenvalue sum = trace(A) and product = det(A).",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-170",
+    "topic_id": "LA-04",
+    "subtopic": "Symmetric Matrix Eigenvalues",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "The eigenvalues of any real symmetric matrix (A^T = A) are always:",
+    "options": [
+      "Purely imaginary",
+      "Real, and eigenvectors for distinct eigenvalues are orthogonal",
+      "Positive only",
+      "Equal to 0 or 1"
+    ],
+    "correct_answer": "Real, and eigenvectors for distinct eigenvalues are orthogonal",
+    "explanation": "The Spectral Theorem guarantees real eigenvalues and orthogonal eigenspaces for all real symmetric matrices.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-171",
+    "topic_id": "LA-04",
+    "subtopic": "Polynomial of Eigenvalues",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "If a 3 x 3 matrix A has eigenvalues 2, -1, 3, what are the eigenvalues of A^2 + 2I?",
+    "options": [
+      "4, 1, 9",
+      "6, 3, 11",
+      "4, 3, 5",
+      "2, -1, 3"
+    ],
+    "correct_answer": "6, 3, 11",
+    "explanation": "If Ax = lambda*x, then (A^2 + 2I)x = (lambda^2 + 2)x => 2^2+2=6, (-1)^2+2=3, 3^2+2=11.",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-172",
+    "topic_id": "LA-04",
+    "subtopic": "Diagonalizability Condition",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "An n x n matrix A is diagonalizable over C if and only if:",
+    "options": [
+      "A is invertible",
+      "For every eigenvalue, algebraic multiplicity equals geometric multiplicity (n independent eigenvectors exist)",
+      "All eigenvalues are distinct only",
+      "det(A) != 0"
+    ],
+    "correct_answer": "For every eigenvalue, algebraic multiplicity equals geometric multiplicity (n independent eigenvectors exist)",
+    "explanation": "Distinct eigenvalues are sufficient but not necessary (e.g., I is diagonalizable); AM = GM for every eigenvalue is necessary and sufficient.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-173",
+    "topic_id": "LA-04",
+    "subtopic": "Cayley-Hamilton",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Matrix A = [[2, 1], [0, 2]] satisfies characteristic equation (lambda - 2)^2 = 0. Is A diagonalizable?",
+    "options": [
+      "Yes, AM = 2 and GM = 2",
+      "No, eigenvalue 2 has algebraic multiplicity 2 but geometric multiplicity 1",
+      "Yes, because det(A) = 4 != 0",
+      "No, because trace(A) = 4"
+    ],
+    "correct_answer": "No, eigenvalue 2 has algebraic multiplicity 2 but geometric multiplicity 1",
+    "explanation": "A - 2I = [[0,1],[0,0]] has rank 1 => nullity (GM) = 2 - 1 = 1 < AM(2), so A is defective and non-diagonalizable.",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-174",
+    "topic_id": "LA-04",
+    "subtopic": "Cayley-Hamilton Inverse",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Using Cayley-Hamilton theorem on A = [[3, 1], [1, 2]] (char poly: lambda^2 - 5*lambda + 5 = 0), what equals A^-1?",
+    "options": [
+      "(1/5)(5I - A)",
+      "(1/5)(A - 5I)",
+      "5I - A",
+      "(1/5)(A + 5I)"
+    ],
+    "correct_answer": "(1/5)(5I - A)",
+    "explanation": "A^2 - 5A + 5I = 0 => A(5I - A) = 5I => A^-1 = (1/5)(5I - A).",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-175",
+    "topic_id": "LA-05",
+    "subtopic": "LU Decomposition",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Without row pivoting (PA = LU), when does a square matrix A admit an LU factorization?",
+    "options": [
+      "Whenever all leading principal minors of A are non-zero",
+      "Only when A is symmetric",
+      "Only when all entries are positive",
+      "Whenever A is singular"
+    ],
+    "correct_answer": "Whenever all leading principal minors of A are non-zero",
+    "explanation": "Gaussian elimination without row swaps succeeds iff every intermediate pivot (leading principal submatrix determinant) is non-zero.",
+    "expected_time_sec": 50,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-176",
+    "topic_id": "LA-05",
+    "subtopic": "Positive Definite Test",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "A real symmetric matrix A is Positive Definite (x^T A x > 0 for all x != 0) if and only if:",
+    "options": [
+      "All eigenvalues of A are strictly positive",
+      "All entries of A are positive",
+      "det(A) > 0",
+      "trace(A) > 0"
+    ],
+    "correct_answer": "All eigenvalues of A are strictly positive",
+    "explanation": "By Sylvester's criterion / Spectral Theorem, symmetry + all eigenvalues > 0 (equivalently all leading principal minors > 0) characterizes positive definiteness.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-177",
+    "topic_id": "LA-05",
+    "subtopic": "Sylvester's Criterion",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "For symmetric matrix A = [[2, k], [k, 8]], for which values of k is A strictly positive definite?",
+    "options": [
+      "|k| < 4",
+      "|k| <= 4",
+      "k > 4",
+      "k > 0"
+    ],
+    "correct_answer": "|k| < 4",
+    "explanation": "Leading minors: D1 = 2 > 0, D2 = 16 - k^2 > 0 => k^2 < 16 => |k| < 4.",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-178",
+    "topic_id": "LA-05",
+    "subtopic": "Cholesky Factorization",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Which factorization applies specifically to symmetric positive-definite matrices A = L * L^T at half the cost of standard LU?",
+    "options": [
+      "QR Factorization",
+      "Cholesky Decomposition",
+      "Singular Value Decomposition",
+      "Schur Decomposition"
+    ],
+    "correct_answer": "Cholesky Decomposition",
+    "explanation": "Cholesky exploits symmetry and positive pivots to compute lower-triangular L such that A = L*L^T.",
+    "expected_time_sec": 75,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-179",
+    "topic_id": "LA-05",
+    "subtopic": "Gram Matrix",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "For any m x n real matrix B with linearly independent columns, the matrix A = B^T B is always:",
+    "options": [
+      "Skew-symmetric",
+      "Symmetric and Positive Definite",
+      "Singular",
+      "Orthogonal"
+    ],
+    "correct_answer": "Symmetric and Positive Definite",
+    "explanation": "For any x != 0, Bx != 0 (by independent columns), so x^T (B^T B) x = ||Bx||^2 > 0, proving A is symmetric positive definite.",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-180",
+    "topic_id": "LA-05",
+    "subtopic": "LU Cost",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "In standard LU decomposition of a dense n x n matrix, once L and U are computed in O(n^3) flops, solving Ax = b for k different RHS vectors b takes:",
+    "options": [
+      "O(k * n^3)",
+      "O(k * n^2)",
+      "O(k * n)",
+      "O(n^3 + k)"
+    ],
+    "correct_answer": "O(k * n^2)",
+    "explanation": "Forward substitution (Ly=b) and backward substitution (Ux=y) each take O(n^2) flops per RHS vector once LU factors are cached.",
+    "expected_time_sec": 105,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-181",
+    "topic_id": "CAL-01",
+    "subtopic": "Standard Limits",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "What is lim_{x -> 0} (sin(3x) / (5x))?",
+    "options": [
+      "0",
+      "3/5",
+      "5/3",
+      "1"
+    ],
+    "correct_answer": "3/5",
+    "explanation": "Using lim_{u->0} (sin u)/u = 1, rewrite (3/5) * (sin(3x)/(3x)) -> 3/5.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-182",
+    "topic_id": "CAL-01",
+    "subtopic": "Continuity vs Differentiability",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "At x = 0, the function f(x) = |x| is:",
+    "options": [
+      "Discontinuous and non-differentiable",
+      "Continuous everywhere, but NOT differentiable at x = 0",
+      "Differentiable everywhere",
+      "Undefined at x = 0"
+    ],
+    "correct_answer": "Continuous everywhere, but NOT differentiable at x = 0",
+    "explanation": "Left derivative (-1) != right derivative (+1) at x = 0, so f is continuous but not differentiable at 0.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-183",
+    "topic_id": "CAL-01",
+    "subtopic": "Exponential Indeterminate",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Evaluate lim_{x -> infinity} (1 + 3/x)^(2x).",
+    "options": [
+      "e^3",
+      "e^5",
+      "e^6",
+      "1"
+    ],
+    "correct_answer": "e^6",
+    "explanation": "lim (1 + a/x)^(bx) = e^(a*b) = e^(3*2) = e^6.",
+    "expected_time_sec": 75,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-184",
+    "topic_id": "CAL-01",
+    "subtopic": "L'Hopital's Rule",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Evaluate lim_{x -> 0} (e^x - 1 - x) / x^2.",
+    "options": [
+      "0",
+      "1/2",
+      "1",
+      "2"
+    ],
+    "correct_answer": "1/2",
+    "explanation": "0/0 indeterminate twice via L'Hopital: d/dx -> (e^x - 1)/(2x) -> e^x / 2 -> 1/2 (or directly from Taylor series).",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-185",
+    "topic_id": "CAL-01",
+    "subtopic": "Piecewise Differentiability",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Let f(x) = x^2 * sin(1/x) for x != 0, and f(0) = 0. At x = 0, f'(0) is:",
+    "options": [
+      "Does not exist",
+      "Exists and equals 0 (though f' is not continuous at 0)",
+      "Equals 1",
+      "Equals infinity"
+    ],
+    "correct_answer": "Exists and equals 0 (though f' is not continuous at 0)",
+    "explanation": "f'(0) = lim_{h->0} (h^2 sin(1/h) - 0)/h = lim_{h->0} h sin(1/h) = 0 by Squeeze Theorem.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-186",
+    "topic_id": "CAL-01",
+    "subtopic": "Zero Times Bounded Trap",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Evaluate lim_{x -> 0} (tan x - sin x) / x^3.",
+    "options": [
+      "0",
+      "1/2",
+      "1/3",
+      "1"
+    ],
+    "correct_answer": "1/2",
+    "explanation": "Taylor expansions: tan x = x + x^3/3 + ..., sin x = x - x^3/6 + ... => difference = (1/3 + 1/6)x^3 = (1/2)x^3 -> limit = 1/2.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-187",
+    "topic_id": "CAL-02",
+    "subtopic": "Rolle's Theorem",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Which condition is NOT required for Rolle's Theorem on [a, b]?",
+    "options": [
+      "f continuous on [a, b]",
+      "f differentiable on (a, b)",
+      "f(a) = f(b)",
+      "f''(x) exists on (a, b)"
+    ],
+    "correct_answer": "f''(x) exists on (a, b)",
+    "explanation": "Rolle's theorem requires continuity on [a,b], differentiability on (a,b), and f(a)=f(b) to guarantee c in (a,b) with f'(c)=0.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-188",
+    "topic_id": "CAL-02",
+    "subtopic": "Second Derivative Test",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "If f'(c) = 0 and f''(c) < 0, then x = c is a:",
+    "options": [
+      "Local minimum",
+      "Local maximum",
+      "Inflection point",
+      "Vertical asymptote"
+    ],
+    "correct_answer": "Local maximum",
+    "explanation": "Zero slope with strict downward concavity (f''(c) < 0) indicates a local maximum.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-189",
+    "topic_id": "CAL-02",
+    "subtopic": "Lagrange MVT",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "For f(x) = x^2 - 4x + 5 on [1, 5], what value c satisfies Lagrange's Mean Value Theorem?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "2.5"
+    ],
+    "correct_answer": "3",
+    "explanation": "(f(5) - f(1)) / (5 - 1) = (10 - 2) / 4 = 2. Setting f'(c) = 2c - 4 = 2 gives c = 3.",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-190",
+    "topic_id": "CAL-02",
+    "subtopic": "Global Extrema",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "What is the global maximum value of f(x) = x^3 - 3x on the closed interval [-2, 3]?",
+    "options": [
+      "2",
+      "18",
+      "0",
+      "-2"
+    ],
+    "correct_answer": "18",
+    "explanation": "Critical points: f'(x)=3x^2-3=0 => x = +-1. Evaluate f(-2)=-2, f(-1)=2, f(1)=-2, f(3)=18. Global max = 18.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-191",
+    "topic_id": "CAL-02",
+    "subtopic": "MVT Bounds",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "If f is differentiable everywhere, f(0) = 2, and f'(x) <= 5 for all x, what is the largest possible value of f(4)?",
+    "options": [
+      "18",
+      "20",
+      "22",
+      "24"
+    ],
+    "correct_answer": "22",
+    "explanation": "By MVT, (f(4) - f(0))/4 = f'(c) <= 5 => f(4) <= 2 + 4*5 = 22.",
+    "expected_time_sec": 105,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-192",
+    "topic_id": "CAL-02",
+    "subtopic": "Number of Real Roots",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "How many distinct real roots does f(x) = x^5 + 5x + 1 = 0 have?",
+    "options": [
+      "0",
+      "1",
+      "3",
+      "5"
+    ],
+    "correct_answer": "1",
+    "explanation": "f is continuous with lim (-inf -> +inf) so >=1 root (IVT). f'(x) = 5x^4 + 5 > 0 everywhere (strictly increasing), so by Rolle's theorem it has at most 1 root -> exact 1 root.",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-193",
+    "topic_id": "CAL-03",
+    "subtopic": "Maclaurin Series",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "What is the coefficient of x^3 in the Maclaurin series expansion of e^(2x)?",
+    "options": [
+      "2/3",
+      "4/3",
+      "8/3",
+      "8"
+    ],
+    "correct_answer": "4/3",
+    "explanation": "e^(2x) = sum (2x)^n / n!. For n=3: 2^3 / 3! = 8 / 6 = 4/3.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-194",
+    "topic_id": "CAL-03",
+    "subtopic": "Partial Derivatives",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "For f(x, y) = x^2 * y + sin(y), what is partial_f / partial_x?",
+    "options": [
+      "2xy + cos(y)",
+      "2xy",
+      "x^2 + cos(y)",
+      "2x"
+    ],
+    "correct_answer": "2xy",
+    "explanation": "Differentiating with respect to x treats y as constant, so sin(y) differentiates to 0.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-195",
+    "topic_id": "CAL-03",
+    "subtopic": "Directional Derivative",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "In which direction does a differentiable scalar function f(x, y) increase most rapidly at point P?",
+    "options": [
+      "Perpendicular to the gradient",
+      "Along the unit vector in the direction of grad f(P)",
+      "Opposite to grad f(P)",
+      "Along the x-axis always"
+    ],
+    "correct_answer": "Along the unit vector in the direction of grad f(P)",
+    "explanation": "Directional derivative D_u f = grad(f) . u = ||grad(f)|| cos(theta) is maximized at theta = 0 along grad(f).",
+    "expected_time_sec": 75,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-196",
+    "topic_id": "CAL-03",
+    "subtopic": "Euler's Homogeneous Theorem",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "If f(x, y) is a smooth homogeneous function of degree 3 (f(tx, ty) = t^3 f(x, y)), then x*(df/dx) + y*(df/dy) equals:",
+    "options": [
+      "f(x, y)",
+      "2 * f(x, y)",
+      "3 * f(x, y)",
+      "0"
+    ],
+    "correct_answer": "3 * f(x, y)",
+    "explanation": "By Euler's theorem on homogeneous functions of degree n, x f_x + y f_y = n * f = 3 * f(x, y).",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-197",
+    "topic_id": "CAL-03",
+    "subtopic": "2D Saddle Point",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Consider f(x, y) = x^2 - y^2 at (0, 0). Using the Hessian discriminant D = f_xx f_yy - (f_xy)^2, (0, 0) is a:",
+    "options": [
+      "Local minimum",
+      "Local maximum",
+      "Saddle point",
+      "Test is inconclusive"
+    ],
+    "correct_answer": "Saddle point",
+    "explanation": "f_xx = 2, f_yy = -2, f_xy = 0 => D = -4 < 0, confirming a saddle point.",
+    "expected_time_sec": 100,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-198",
+    "topic_id": "CAL-03",
+    "subtopic": "Euler Approximation Error",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "What is the coefficient of x^4 in the Maclaurin expansion of cos(x^2)?",
+    "options": [
+      "-1/2",
+      "1/24",
+      "-1/24",
+      "1/2"
+    ],
+    "correct_answer": "-1/2",
+    "explanation": "cos(u) = 1 - u^2/2! + u^4/4! - ... Substituting u = x^2 gives 1 - x^4/2 + x^8/24 - ..., so coefficient of x^4 is -1/2.",
+    "expected_time_sec": 110,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-199",
+    "topic_id": "CAL-04",
+    "subtopic": "Odd/Even Symmetry",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Evaluate integral from -pi to pi of (x^3 * cos(x) + sin(x)) dx.",
+    "options": [
+      "2",
+      "pi",
+      "0",
+      "-2"
+    ],
+    "correct_answer": "0",
+    "explanation": "Both x^3 cos(x) and sin(x) are odd functions; integrating any continuous odd function over symmetric [-a, a] gives 0.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-200",
+    "topic_id": "CAL-04",
+    "subtopic": "Fundamental Theorem",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "If F(x) = integral from 1 to x of (t^2 + 3) dt, what is F'(2)?",
+    "options": [
+      "4",
+      "7",
+      "11",
+      "8"
+    ],
+    "correct_answer": "7",
+    "explanation": "By FTC Part 1, F'(x) = x^2 + 3, so F'(2) = 2^2 + 3 = 7.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-201",
+    "topic_id": "CAL-04",
+    "subtopic": "King's Property",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Evaluate integral from 0 to pi/2 of sin(x) / (sin(x) + cos(x)) dx.",
+    "options": [
+      "pi/2",
+      "pi/4",
+      "1/2",
+      "1"
+    ],
+    "correct_answer": "pi/4",
+    "explanation": "Using integral_0^a f(x) dx = integral_0^a f(a - x) dx: I + I = integral_0^(pi/2) 1 dx = pi/2 => I = pi/4.",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-202",
+    "topic_id": "CAL-04",
+    "subtopic": "Leibniz Rule",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "If G(x) = integral from x to x^2 of e^(t) dt, what is G'(x)?",
+    "options": [
+      "e^(x^2) - e^x",
+      "2x * e^(x^2) - e^x",
+      "2x * e^(x^2)",
+      "e^(x^2) + e^x"
+    ],
+    "correct_answer": "2x * e^(x^2) - e^x",
+    "explanation": "Leibniz integral rule: f(b(x))*b'(x) - f(a(x))*a'(x) = e^(x^2)*(2x) - e^x*(1).",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-203",
+    "topic_id": "CAL-04",
+    "subtopic": "Gamma-Type Integration",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Evaluate integral from 0 to 1 of x * (1 - x)^5 dx.",
+    "options": [
+      "1/30",
+      "1/42",
+      "1/20",
+      "1/12"
+    ],
+    "correct_answer": "1/42",
+    "explanation": "Beta function B(2, 6) = Gamma(2)*Gamma(6)/Gamma(8) = (1!*5!)/7! = 1 / (7*6) = 1/42.",
+    "expected_time_sec": 105,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-204",
+    "topic_id": "CAL-04",
+    "subtopic": "Piecewise Absolute Integral",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Evaluate integral from 0 to 3 of |x - 1| dx.",
+    "options": [
+      "2.0",
+      "2.5",
+      "3.0",
+      "1.5"
+    ],
+    "correct_answer": "2.5",
+    "explanation": "Split at x=1: integral_0^1 (1-x) dx + integral_1^3 (x-1) dx = 0.5 + 2.0 = 2.5.",
+    "expected_time_sec": 100,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-205",
+    "topic_id": "CAL-05",
+    "subtopic": "p-Integral Convergence",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "The improper integral from 1 to infinity of (1 / x^p) dx converges if and only if:",
+    "options": [
+      "p > 1",
+      "p >= 1",
+      "p < 1",
+      "p > 0"
+    ],
+    "correct_answer": "p > 1",
+    "explanation": "For p=1 it diverges logarithmically; antiderivative x^(1-p)/(1-p) converges at infinity iff 1 - p < 0 => p > 1.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-206",
+    "topic_id": "CAL-05",
+    "subtopic": "Double Integral Order",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Double integral over [0, 2] x [0, 3] of (x + y) dy dx equals:",
+    "options": [
+      "12",
+      "15",
+      "18",
+      "9"
+    ],
+    "correct_answer": "15",
+    "explanation": "Inner over y in [0,3]: 3x + 4.5. Outer over x in [0,2]: [1.5 x^2 + 4.5x]_0^2 = 6 + 9 = 15.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-207",
+    "topic_id": "CAL-05",
+    "subtopic": "Gaussian Integral",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "What is the exact value of integral from -infinity to +infinity of e^(-x^2) dx?",
+    "options": [
+      "sqrt(pi)",
+      "pi",
+      "sqrt(pi)/2",
+      "1"
+    ],
+    "correct_answer": "sqrt(pi)",
+    "explanation": "Using polar coordinates (I^2 = int int e^(-r^2) r dr dtheta = pi), the famous Gaussian integral equals sqrt(pi).",
+    "expected_time_sec": 75,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-208",
+    "topic_id": "CAL-05",
+    "subtopic": "Polar Jacobian",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "When transforming a double integral from Cartesian (x, y) to Polar (r, theta) coordinates, the area element dx dy becomes:",
+    "options": [
+      "dr dtheta",
+      "r dr dtheta",
+      "r^2 dr dtheta",
+      "(1/r) dr dtheta"
+    ],
+    "correct_answer": "r dr dtheta",
+    "explanation": "Jacobian determinant of x=r cos(theta), y=r sin(theta) is r*(cos^2 + sin^2) = r.",
+    "expected_time_sec": 70,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-209",
+    "topic_id": "CAL-05",
+    "subtopic": "Changing Integration Order",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Evaluate integral_{y=0}^1 integral_{x=y}^1 e^(x^2) dx dy by reversing the order of integration.",
+    "options": [
+      "(e - 1) / 2",
+      "e - 1",
+      "(e + 1) / 2",
+      "e / 2"
+    ],
+    "correct_answer": "(e - 1) / 2",
+    "explanation": "Region 0 <= y <= x <= 1 flips to x in [0,1], y in [0,x]. Inner integral yields x * e^(x^2); integrating 0..1 gives [(1/2)e^(x^2)]_0^1 = (e - 1)/2.",
+    "expected_time_sec": 120,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-210",
+    "topic_id": "CAL-05",
+    "subtopic": "Divergent Symmetric Integral",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Evaluate improper integral from 0 to 1 of (1 / sqrt(x)) dx.",
+    "options": [
+      "Diverges",
+      "1",
+      "2",
+      "1/2"
+    ],
+    "correct_answer": "2",
+    "explanation": "Antiderivative is 2*sqrt(x). As x -> 0+, 2*1 - 2*0 = 2 (converges because p = 1/2 < 1 at x=0).",
+    "expected_time_sec": 100,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-211",
+    "topic_id": "PS-01",
+    "subtopic": "Probability Axioms",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "If P(A) = 0.6, P(B) = 0.5, and P(A intersect B) = 0.2, what is P(A union B)?",
+    "options": [
+      "0.8",
+      "0.9",
+      "1.1",
+      "0.7"
+    ],
+    "correct_answer": "0.9",
+    "explanation": "P(A union B) = P(A) + P(B) - P(A intersect B) = 0.6 + 0.5 - 0.2 = 0.9.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-212",
+    "topic_id": "PS-01",
+    "subtopic": "Independence vs Mutually Exclusive",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "If two events A and B have P(A) > 0 and P(B) > 0 and are mutually exclusive, then A and B are:",
+    "options": [
+      "Always independent",
+      "Always dependent (never independent)",
+      "Equally likely",
+      "Exhaustive"
+    ],
+    "correct_answer": "Always dependent (never independent)",
+    "explanation": "Mutually exclusive means P(A intersect B) = 0, whereas independence requires P(A intersect B) = P(A)P(B) > 0.",
+    "expected_time_sec": 50,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-213",
+    "topic_id": "PS-01",
+    "subtopic": "Conditional Probability",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Two fair dice are rolled. Given that the sum is at least 10, what is the probability that at least one die shows 6?",
+    "options": [
+      "1/2",
+      "2/3",
+      "5/6",
+      "4/6"
+    ],
+    "correct_answer": "5/6",
+    "explanation": "Sum >= 10 outcomes (6 total): (4,6), (6,4), (5,5), (5,6), (6,5), (6,6). Five of the six contain a 6 -> 5/6.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-214",
+    "topic_id": "PS-01",
+    "subtopic": "Multiplication Rule",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "An urn has 4 red and 6 blue balls. Two balls are drawn sequentially WITHOUT replacement. What is the probability both are red?",
+    "options": [
+      "4/25",
+      "2/15",
+      "1/5",
+      "6/25"
+    ],
+    "correct_answer": "2/15",
+    "explanation": "P(R1 and R2) = (4/10) * (3/9) = 12/90 = 2/15.",
+    "expected_time_sec": 75,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-215",
+    "topic_id": "PS-01",
+    "subtopic": "Conditional Independence",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "A fair coin is tossed 3 times. Let A = {at least 2 heads}, B = {first toss is heads}. What is P(A | B)?",
+    "options": [
+      "1/2",
+      "3/4",
+      "2/3",
+      "5/8"
+    ],
+    "correct_answer": "3/4",
+    "explanation": "Given B (first is H), remaining 2 tosses yield >=1 head in 3 of 4 outcomes (HH, HT, TH) -> 3/4.",
+    "expected_time_sec": 100,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-216",
+    "topic_id": "PS-01",
+    "subtopic": "Pairwise vs Mutual Independence",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Flip two fair coins; let E1={first H}, E2={second H}, E3={both match}. Which property holds?",
+    "options": [
+      "E1, E2, E3 are mutually independent",
+      "E1, E2, E3 are pairwise independent, but NOT mutually independent",
+      "None are independent",
+      "Only E1 and E3 are dependent"
+    ],
+    "correct_answer": "E1, E2, E3 are pairwise independent, but NOT mutually independent",
+    "explanation": "P(Ei)=1/2 and P(Ei intersect Ej)=1/4 for all pairs, yet P(E1 intersect E2 intersect E3) = P(HH) = 1/4 != (1/2)^3 = 1/8.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-217",
+    "topic_id": "PS-02",
+    "subtopic": "Law of Total Probability",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Box 1 has 2 white, 3 black balls; Box 2 has 4 white, 1 black ball. A box is picked uniformly at random and one ball drawn. What is P(white)?",
+    "options": [
+      "0.5",
+      "0.6",
+      "0.7",
+      "0.4"
+    ],
+    "correct_answer": "0.6",
+    "explanation": "P(W) = 0.5*(2/5) + 0.5*(4/5) = 0.2 + 0.4 = 0.6.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-218",
+    "topic_id": "PS-02",
+    "subtopic": "Bayes Formula",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "In Bayes' Theorem, P(H | E) = P(E | H) * P(H) / P(E), the term P(H) is called the:",
+    "options": [
+      "Likelihood",
+      "Posterior probability",
+      "Prior probability",
+      "Marginal likelihood"
+    ],
+    "correct_answer": "Prior probability",
+    "explanation": "P(H) is the prior probability before observing evidence E; P(H|E) is the posterior.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-219",
+    "topic_id": "PS-02",
+    "subtopic": "Diagnostic Test Posterior",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "A disease affects 1% of a population. A test has 99% sensitivity (P(+|D)=0.99) and 2% false-positive rate (P(+|~D)=0.02). Approximate P(D | +):",
+    "options": [
+      "~99%",
+      "~50%",
+      "~33.3%",
+      "~1%"
+    ],
+    "correct_answer": "~33.3%",
+    "explanation": "P(D|+) = (0.01*0.99) / (0.01*0.99 + 0.99*0.02) = 0.0099 / (0.0099 + 0.0198) = 1/3 \u2248 33.3%.",
+    "expected_time_sec": 90,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-220",
+    "topic_id": "PS-02",
+    "subtopic": "Sequential Urn Bayes",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Using the two boxes from earlier (Box 1: 2W/3B, Box 2: 4W/1B, uniform box choice), given that the drawn ball is white, what is the probability it came from Box 2?",
+    "options": [
+      "1/3",
+      "1/2",
+      "2/3",
+      "4/5"
+    ],
+    "correct_answer": "2/3",
+    "explanation": "P(Box2 | W) = (0.5 * 4/5) / (0.5*2/5 + 0.5*4/5) = 0.4 / 0.6 = 2/3.",
+    "expected_time_sec": 85,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-221",
+    "topic_id": "PS-02",
+    "subtopic": "Spam Filter Likelihood",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "60% of emails are spam. Word 'offer' appears in 70% of spam and 10% of non-spam. Word 'urgent' (conditionally independent given class) appears in 50% of spam and 20% of non-spam. Given an email contains BOTH words, what is P(Spam)?",
+    "options": [
+      "0.963",
+      "0.850",
+      "0.750",
+      "0.900"
+    ],
+    "correct_answer": "0.963",
+    "explanation": "P(both|S)*P(S) = 0.6*0.7*0.5 = 0.21; P(both|~S)*P(~S) = 0.4*0.1*0.2 = 0.008. P(S|both) = 0.21 / 0.218 \u2248 0.963.",
+    "expected_time_sec": 120,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-222",
+    "topic_id": "PS-02",
+    "subtopic": "Biased Coin Identification",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "A bag contains 2 fair coins and 1 two-headed coin. One coin is drawn at random and flipped TWICE, producing HH. What is the probability it is the two-headed coin?",
+    "options": [
+      "1/3",
+      "1/2",
+      "2/3",
+      "4/5"
+    ],
+    "correct_answer": "2/3",
+    "explanation": "P(HH|fair)=1/4, P(HH|2H)=1. Posterior = (1/3 * 1) / (2/3 * 1/4 + 1/3 * 1) = (1/3) / (1/6 + 1/3) = 2/3.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-223",
+    "topic_id": "PS-03",
+    "subtopic": "Valid CDF",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "Which property must EVERY valid cumulative distribution function F(x) satisfy?",
+    "options": [
+      "F(x) is non-increasing",
+      "F(x) is non-decreasing, right-continuous, with lim_{-inf} = 0 and lim_{+inf} = 1",
+      "F(x) is always strictly continuous",
+      "F(x) integrates to 1"
+    ],
+    "correct_answer": "F(x) is non-decreasing, right-continuous, with lim_{-inf} = 0 and lim_{+inf} = 1",
+    "explanation": "These four axioms define valid CDFs for discrete, continuous, and mixed random variables alike.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-224",
+    "topic_id": "PS-03",
+    "subtopic": "PDF Normalization",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "If continuous RV X has PDF f(x) = c*x^2 on [0, 2] and 0 elsewhere, what is c?",
+    "options": [
+      "1/8",
+      "3/8",
+      "3/4",
+      "1/4"
+    ],
+    "correct_answer": "3/8",
+    "explanation": "Integral_0^2 c x^2 dx = c * (8/3) = 1 => c = 3/8.",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-225",
+    "topic_id": "PS-03",
+    "subtopic": "Continuous Point Probability",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "For ANY continuous random variable X with bounded PDF f(x), what is P(X = 2.5)?",
+    "options": [
+      "f(2.5)",
+      "0",
+      "F(2.5)",
+      "Undefined"
+    ],
+    "correct_answer": "0",
+    "explanation": "Probability for a continuous RV is the area under the PDF over an interval; a single point has zero width and probability 0.",
+    "expected_time_sec": 70,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-226",
+    "topic_id": "PS-03",
+    "subtopic": "PDF from CDF",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "If X has CDF F(x) = 1 - e^(-3x) for x >= 0, what is P(1 <= X <= 2)?",
+    "options": [
+      "e^(-3) - e^(-6)",
+      "1 - e^(-3)",
+      "e^(-6)",
+      "3e^(-3)"
+    ],
+    "correct_answer": "e^(-3) - e^(-6)",
+    "explanation": "P(1 <= X <= 2) = F(2) - F(1) = (1 - e^-6) - (1 - e^-3) = e^-3 - e^-6.",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-227",
+    "topic_id": "PS-03",
+    "subtopic": "Transformation of RV",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "If X is Uniform(0, 1), what is the PDF of Y = -ln(X) for y > 0?",
+    "options": [
+      "e^(-y) (Exponential with rate 1)",
+      "1/y",
+      "y * e^(-y)",
+      "e^(-y^2)"
+    ],
+    "correct_answer": "e^(-y) (Exponential with rate 1)",
+    "explanation": "F_Y(y) = P(-ln X <= y) = P(X >= e^-y) = 1 - e^-y => f_Y(y) = dF/dy = e^-y.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-228",
+    "topic_id": "PS-03",
+    "subtopic": "Memoryless Check",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "For PDF f(x) = 2x on [0, 1], what is the median m satisfying P(X <= m) = 0.5?",
+    "options": [
+      "0.5",
+      "1 / sqrt(2)",
+      "sqrt(2) / 4",
+      "0.25"
+    ],
+    "correct_answer": "1 / sqrt(2)",
+    "explanation": "F(m) = integral_0^m 2x dx = m^2 = 0.5 => m = 1/sqrt(2).",
+    "expected_time_sec": 100,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-229",
+    "topic_id": "PS-04",
+    "subtopic": "Binomial Mean & Variance",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "For a Binomial(n=100, p=0.2) random variable, what are its mean and variance?",
+    "options": [
+      "Mean=20, Var=16",
+      "Mean=20, Var=20",
+      "Mean=16, Var=20",
+      "Mean=80, Var=16"
+    ],
+    "correct_answer": "Mean=20, Var=16",
+    "explanation": "E[X] = np = 20; Var(X) = np(1-p) = 20 * 0.8 = 16.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-230",
+    "topic_id": "PS-04",
+    "subtopic": "Poisson Distribution",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "For a Poisson(lambda = 3) random variable, what is P(X = 0)?",
+    "options": [
+      "0",
+      "3 * e^(-3)",
+      "e^(-3)",
+      "1 - e^(-3)"
+    ],
+    "correct_answer": "e^(-3)",
+    "explanation": "P(X=k) = e^(-lambda) lambda^k / k!. For k=0, P(X=0) = e^(-3).",
+    "expected_time_sec": 45,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-231",
+    "topic_id": "PS-04",
+    "subtopic": "Exponential Memoryless",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "A server's uptime follows Exponential(mean = 10 hours). Given it has already run 15 hours without failing, what is the expected REMAINING uptime?",
+    "options": [
+      "5 hours",
+      "10 hours",
+      "15 hours",
+      "25 hours"
+    ],
+    "correct_answer": "10 hours",
+    "explanation": "By the memoryless property of the Exponential distribution, remaining lifetime has the exact same Exponential(mean=10) distribution.",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-232",
+    "topic_id": "PS-04",
+    "subtopic": "Normal Standardization",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "If X ~ Normal(mu=50, sigma^2=25), what is P(45 <= X <= 55)?",
+    "options": [
+      "~68.27%",
+      "~95.45%",
+      "~99.73%",
+      "~50.0%"
+    ],
+    "correct_answer": "~68.27%",
+    "explanation": "sigma = sqrt(25) = 5, so [45, 55] is [mu - 1*sigma, mu + 1*sigma], which holds ~68.27% by the empirical rule.",
+    "expected_time_sec": 75,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-233",
+    "topic_id": "PS-04",
+    "subtopic": "Sum of Independent Poissons",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "If X ~ Poisson(2) and Y ~ Poisson(3) are independent, what is the distribution of X + Y and E[(X + Y)^2]?",
+    "options": [
+      "Poisson(5), E[(X+Y)^2] = 30",
+      "Poisson(5), E[(X+Y)^2] = 25",
+      "Poisson(6), E[(X+Y)^2] = 36",
+      "Binomial(5, 0.5), E=30"
+    ],
+    "correct_answer": "Poisson(5), E[(X+Y)^2] = 30",
+    "explanation": "Sum of independent Poissons is Poisson(2+3=5). Var=5, Mean=5 => E[Z^2] = Var(Z) + (E[Z])^2 = 5 + 25 = 30.",
+    "expected_time_sec": 115,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-234",
+    "topic_id": "PS-04",
+    "subtopic": "Geometric Mean",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "A fair die is rolled repeatedly until the first '6' appears. What is the expected number of rolls and variance?",
+    "options": [
+      "Mean=6, Var=30",
+      "Mean=6, Var=36",
+      "Mean=5, Var=25",
+      "Mean=3, Var=6"
+    ],
+    "correct_answer": "Mean=6, Var=30",
+    "explanation": "Geometric(p=1/6): E[X] = 1/p = 6; Var(X) = (1-p)/p^2 = (5/6)/(1/36) = 30.",
+    "expected_time_sec": 105,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-235",
+    "topic_id": "PS-05",
+    "subtopic": "Linearity of Expectation",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "For ANY two random variables X and Y (even if dependent), E[3X - 2Y + 5] equals:",
+    "options": [
+      "3E[X] - 2E[Y] + 5",
+      "3E[X] - 2E[Y] only if independent",
+      "9E[X] + 4E[Y] + 5",
+      "3E[X] + 2E[Y]"
+    ],
+    "correct_answer": "3E[X] - 2E[Y] + 5",
+    "explanation": "Linearity of expectation always holds regardless of dependence or independence between X and Y.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-236",
+    "topic_id": "PS-05",
+    "subtopic": "Variance Scaling",
+    "difficulty": "easy",
+    "question_type": "MCQ",
+    "prompt": "If Var(X) = 4, what is Var(3X + 7)?",
+    "options": [
+      "12",
+      "19",
+      "36",
+      "43"
+    ],
+    "correct_answer": "36",
+    "explanation": "Adding a constant doesn't change variance, and scaling multiplies variance by the square: 3^2 * 4 = 36.",
+    "expected_time_sec": 40,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-237",
+    "topic_id": "PS-05",
+    "subtopic": "Variance of Sum",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "If Var(X) = 4, Var(Y) = 9, and Cov(X, Y) = 2, what is Var(X - Y)?",
+    "options": [
+      "9",
+      "13",
+      "17",
+      "5"
+    ],
+    "correct_answer": "9",
+    "explanation": "Var(X - Y) = Var(X) + Var(Y) - 2*Cov(X, Y) = 4 + 9 - 2*(2) = 9.",
+    "expected_time_sec": 80,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-238",
+    "topic_id": "PS-05",
+    "subtopic": "Uncorrelated vs Independent",
+    "difficulty": "medium",
+    "question_type": "MCQ",
+    "prompt": "Let X ~ Uniform(-1, 1) and Y = X^2. What is Cov(X, Y)?",
+    "options": [
+      "0 (uncorrelated, yet strongly dependent)",
+      "1/3",
+      "1/2",
+      "-1/3"
+    ],
+    "correct_answer": "0 (uncorrelated, yet strongly dependent)",
+    "explanation": "E[X]=0 and E[XY]=E[X^3]=0 by odd symmetry => Cov(X,Y) = 0, even though Y is a deterministic function of X.",
+    "expected_time_sec": 90,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-239",
+    "topic_id": "PS-05",
+    "subtopic": "Central Limit Theorem",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "Let X_1,...,X_100 be i.i.d. with mean 10 and variance 25. Using CLT, approximate the standard deviation of the sample mean X_bar = (1/100) sum X_i:",
+    "options": [
+      "0.25",
+      "0.5",
+      "2.5",
+      "5.0"
+    ],
+    "correct_answer": "0.5",
+    "explanation": "Var(X_bar) = sigma^2 / n = 25 / 100 = 0.25 => SD(X_bar) = sqrt(0.25) = 0.5.",
+    "expected_time_sec": 105,
+    "source_origin": "curated_dataset_note"
+  },
+  {
+    "question_id": "Q-240",
+    "topic_id": "PS-05",
+    "subtopic": "Chebyshev's Inequality",
+    "difficulty": "hard",
+    "question_type": "MCQ",
+    "prompt": "A random variable X has mean 50 and standard deviation 5 (distribution unknown). By Chebyshev's inequality, P(|X - 50| >= 15) is at most:",
+    "options": [
+      "1/3",
+      "1/9",
+      "4/9",
+      "1/25"
+    ],
+    "correct_answer": "1/9",
+    "explanation": "15 = 3 * sigma (k = 3). Chebyshev guarantees P(|X - mu| >= k*sigma) <= 1 / k^2 = 1 / 9.",
+    "expected_time_sec": 105,
+    "source_origin": "curated_dataset_note"
+  }
+]

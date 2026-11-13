@@ -1,0 +1,28 @@
+# Python virtual environment & bytecode caches
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Environment variables & secrets (keep .env.example tracked)
+.env
+.env.local
+
+# Local SQLite databases & runtime generated artifacts
+*.db
+*.sqlite
+*.sqlite3
+backend/faiss_indices/
+backend/uploads/
+
+# Frontend dependencies & Vite build outputs
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# OS & editor metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

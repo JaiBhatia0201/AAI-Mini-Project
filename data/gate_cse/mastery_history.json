@@ -1,0 +1,511 @@
+{
+  "aarav_weekly_progression": [
+    {
+      "week": "Week 0 (Diagnostic)",
+      "overall_mastery": 51.2,
+      "estimated_score_out_of_100": 48.5,
+      "probability_accuracy": 35.0,
+      "cn_accuracy": 40.0,
+      "dbms_accuracy": 74.0
+    },
+    {
+      "week": "Week 1",
+      "overall_mastery": 57.8,
+      "estimated_score_out_of_100": 55.0,
+      "probability_accuracy": 48.0,
+      "cn_accuracy": 44.0,
+      "dbms_accuracy": 81.0
+    },
+    {
+      "week": "Week 2",
+      "overall_mastery": 63.4,
+      "estimated_score_out_of_100": 62.5,
+      "probability_accuracy": 62.0,
+      "cn_accuracy": 39.0,
+      "dbms_accuracy": 84.0
+    }
+  ],
+  "topic_mastery_snapshots": [
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "DBMS-01",
+      "mastery_score": 88.0,
+      "retention_score": 0.2989,
+      "stability_days": 11.59,
+      "review_count": 2,
+      "status": "mastered",
+      "last_practiced_at": "2026-10-31T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "DBMS-02",
+      "mastery_score": 84.0,
+      "retention_score": 0.1854,
+      "stability_days": 8.31,
+      "review_count": 1,
+      "status": "learning",
+      "last_practiced_at": "2026-10-31T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "DBMS-03",
+      "mastery_score": 81.0,
+      "retention_score": 0.2919,
+      "stability_days": 8.12,
+      "review_count": 1,
+      "status": "mastered",
+      "last_practiced_at": "2026-11-04T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "DBMS-04",
+      "mastery_score": 78.0,
+      "retention_score": 0.6852,
+      "stability_days": 7.94,
+      "review_count": 1,
+      "status": "learning",
+      "last_practiced_at": "2026-11-11T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "DBMS-05",
+      "mastery_score": 72.0,
+      "retention_score": 0.2924,
+      "stability_days": 4.88,
+      "review_count": 0,
+      "status": "learning",
+      "last_practiced_at": "2026-11-08T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "OS-01",
+      "mastery_score": 86.0,
+      "retention_score": 0.4548,
+      "stability_days": 11.42,
+      "review_count": 2,
+      "status": "mastered",
+      "last_practiced_at": "2026-11-05T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "OS-02",
+      "mastery_score": 79.0,
+      "retention_score": 0.3678,
+      "stability_days": 8.0,
+      "review_count": 1,
+      "status": "learning",
+      "last_practiced_at": "2026-11-06T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "OS-03",
+      "mastery_score": 74.0,
+      "retention_score": 0.6769,
+      "stability_days": 7.69,
+      "review_count": 1,
+      "status": "learning",
+      "last_practiced_at": "2026-11-11T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "OS-04",
+      "mastery_score": 82.0,
+      "retention_score": 0.3762,
+      "stability_days": 8.18,
+      "review_count": 1,
+      "status": "mastered",
+      "last_practiced_at": "2026-11-06T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "OS-05",
+      "mastery_score": 68.0,
+      "retention_score": 0.3467,
+      "stability_days": 4.72,
+      "review_count": 0,
+      "status": "learning",
+      "last_practiced_at": "2026-11-09T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "CN-01",
+      "mastery_score": 61.0,
+      "retention_score": 0.2067,
+      "stability_days": 4.44,
+      "review_count": 0,
+      "status": "learning",
+      "last_practiced_at": "2026-11-07T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "CN-02",
+      "mastery_score": 56.0,
+      "retention_score": 0.2429,
+      "stability_days": 4.24,
+      "review_count": 0,
+      "status": "weak",
+      "last_practiced_at": "2026-11-08T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "CN-03",
+      "mastery_score": 41.0,
+      "retention_score": 0.4386,
+      "stability_days": 3.64,
+      "review_count": 0,
+      "status": "weak",
+      "last_practiced_at": "2026-11-11T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "CN-04",
+      "mastery_score": 34.0,
+      "retention_score": 0.4095,
+      "stability_days": 3.36,
+      "review_count": 0,
+      "status": "weak",
+      "last_practiced_at": "2026-11-11T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "CN-05",
+      "mastery_score": 38.0,
+      "retention_score": 0.321,
+      "stability_days": 3.52,
+      "review_count": 0,
+      "status": "unstarted",
+      "last_practiced_at": "2026-11-10T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "TOC-01",
+      "mastery_score": 52.0,
+      "retention_score": 0.2936,
+      "stability_days": 4.08,
+      "review_count": 0,
+      "status": "weak",
+      "last_practiced_at": "2026-11-09T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "TOC-02",
+      "mastery_score": 44.0,
+      "retention_score": 0.4503,
+      "stability_days": 3.76,
+      "review_count": 0,
+      "status": "weak",
+      "last_practiced_at": "2026-11-11T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "TOC-03",
+      "mastery_score": 40.0,
+      "retention_score": 0.0622,
+      "stability_days": 3.6,
+      "review_count": 0,
+      "status": "unstarted",
+      "last_practiced_at": "2026-11-04T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "TOC-04",
+      "mastery_score": 35.0,
+      "retention_score": 0.005,
+      "stability_days": 3.4,
+      "review_count": 0,
+      "status": "unstarted",
+      "last_practiced_at": "2026-10-27T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "TOC-05",
+      "mastery_score": 35.0,
+      "retention_score": 0.005,
+      "stability_days": 3.4,
+      "review_count": 0,
+      "status": "unstarted",
+      "last_practiced_at": "2026-10-27T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "DM-01",
+      "mastery_score": 82.0,
+      "retention_score": 0.2308,
+      "stability_days": 8.18,
+      "review_count": 1,
+      "status": "mastered",
+      "last_practiced_at": "2026-11-02T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "DM-02",
+      "mastery_score": 76.0,
+      "retention_score": 0.316,
+      "stability_days": 7.81,
+      "review_count": 1,
+      "status": "learning",
+      "last_practiced_at": "2026-11-05T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "DM-03",
+      "mastery_score": 71.0,
+      "retention_score": 0.3933,
+      "stability_days": 7.5,
+      "review_count": 1,
+      "status": "learning",
+      "last_practiced_at": "2026-11-07T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "DM-04",
+      "mastery_score": 66.0,
+      "retention_score": 0.3404,
+      "stability_days": 4.64,
+      "review_count": 0,
+      "status": "learning",
+      "last_practiced_at": "2026-11-09T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "DM-05",
+      "mastery_score": 58.0,
+      "retention_score": 0.0784,
+      "stability_days": 4.32,
+      "review_count": 0,
+      "status": "weak",
+      "last_practiced_at": "2026-11-03T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "LA-01",
+      "mastery_score": 80.0,
+      "retention_score": 0.2554,
+      "stability_days": 8.06,
+      "review_count": 1,
+      "status": "mastered",
+      "last_practiced_at": "2026-11-03T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "LA-02",
+      "mastery_score": 77.0,
+      "retention_score": 0.6832,
+      "stability_days": 7.87,
+      "review_count": 1,
+      "status": "learning",
+      "last_practiced_at": "2026-11-11T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "LA-03",
+      "mastery_score": 69.0,
+      "retention_score": 0.3498,
+      "stability_days": 4.76,
+      "review_count": 0,
+      "status": "learning",
+      "last_practiced_at": "2026-11-09T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "LA-04",
+      "mastery_score": 64.0,
+      "retention_score": 0.2683,
+      "stability_days": 4.56,
+      "review_count": 0,
+      "status": "learning",
+      "last_practiced_at": "2026-11-08T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "LA-05",
+      "mastery_score": 55.0,
+      "retention_score": 0.0357,
+      "stability_days": 4.2,
+      "review_count": 0,
+      "status": "weak",
+      "last_practiced_at": "2026-10-31T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "CAL-01",
+      "mastery_score": 74.0,
+      "retention_score": 0.2723,
+      "stability_days": 7.69,
+      "review_count": 1,
+      "status": "learning",
+      "last_practiced_at": "2026-11-04T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "CAL-02",
+      "mastery_score": 68.0,
+      "retention_score": 0.1836,
+      "stability_days": 4.72,
+      "review_count": 0,
+      "status": "learning",
+      "last_practiced_at": "2026-11-06T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "CAL-03",
+      "mastery_score": 62.0,
+      "retention_score": 0.2096,
+      "stability_days": 4.48,
+      "review_count": 0,
+      "status": "learning",
+      "last_practiced_at": "2026-11-07T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "CAL-04",
+      "mastery_score": 65.0,
+      "retention_score": 0.2713,
+      "stability_days": 4.6,
+      "review_count": 0,
+      "status": "learning",
+      "last_practiced_at": "2026-11-08T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "CAL-05",
+      "mastery_score": 54.0,
+      "retention_score": 0.0439,
+      "stability_days": 4.16,
+      "review_count": 0,
+      "status": "weak",
+      "last_practiced_at": "2026-11-01T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "PS-01",
+      "mastery_score": 62.0,
+      "retention_score": 0.6492,
+      "stability_days": 6.94,
+      "review_count": 1,
+      "status": "learning",
+      "last_practiced_at": "2026-11-11T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "PS-02",
+      "mastery_score": 54.0,
+      "retention_score": 0.1462,
+      "stability_days": 4.16,
+      "review_count": 0,
+      "status": "weak",
+      "last_practiced_at": "2026-11-06T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "PS-03",
+      "mastery_score": 48.0,
+      "retention_score": 0.0468,
+      "stability_days": 3.92,
+      "review_count": 0,
+      "status": "weak",
+      "last_practiced_at": "2026-11-02T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "PS-04",
+      "mastery_score": 45.0,
+      "retention_score": 0.0193,
+      "stability_days": 3.8,
+      "review_count": 0,
+      "status": "unstarted",
+      "last_practiced_at": "2026-10-30T10:00:00+00:00"
+    },
+    {
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "topic_id": "PS-05",
+      "mastery_score": 42.0,
+      "retention_score": 0.0075,
+      "stability_days": 3.68,
+      "review_count": 0,
+      "status": "unstarted",
+      "last_practiced_at": "2026-10-27T10:00:00+00:00"
+    }
+  ],
+  "sample_adaptations": [
+    {
+      "adaptation_id": "ADP-001",
+      "student_id": "stu_aarav",
+      "syllabus_id": "gate_cse_flagship_2026",
+      "trigger_assessment_id": "ASM-004",
+      "weak_topics": [
+        "CN-04",
+        "CN-03",
+        "TOC-02"
+      ],
+      "root_cause_blockers": [
+        "CN-03 (41%) blocking CN-04 (34%)"
+      ],
+      "summary": "Detected weakness in Routing Protocols (34%) caused by upstream CIDR/Subnetting gap (41%). Inserted prerequisite revision before Routing practice and scheduled follow-up re-test.",
+      "changes": [
+        {
+          "action": "insert",
+          "task_type": "revision",
+          "topic_id": "CN-03",
+          "day_offset": 1,
+          "reason": "Root-cause prerequisite blocker for CN-04"
+        },
+        {
+          "action": "insert",
+          "task_type": "practice",
+          "topic_id": "CN-04",
+          "day_offset": 2,
+          "reason": "Mastery 34% < 60% threshold"
+        },
+        {
+          "action": "insert",
+          "task_type": "assessment",
+          "topic_id": "CN-04",
+          "day_offset": 3,
+          "reason": "Verify remediation before advancing to CN-05"
+        }
+      ],
+      "created_at": "2026-11-11T10:00:00+00:00"
+    }
+  ]
+}

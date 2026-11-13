@@ -1,0 +1,774 @@
+[
+  {
+    "assessment_id": "ASM-001",
+    "student_id": "stu_aarav",
+    "syllabus_id": "gate_cse_flagship_2026",
+    "title": "Initial GATE CSE Diagnostic",
+    "assessment_type": "diagnostic",
+    "score": 60.0,
+    "max_score": 100.0,
+    "accuracy": 60.0,
+    "time_taken_sec": 946,
+    "created_at": "2026-10-27T10:00:00+00:00",
+    "question_attempts": [
+      {
+        "question_id": "Q-001",
+        "topic_id": "DBMS-01",
+        "difficulty": "easy",
+        "selected_answer": "A discriminator combined with the primary key of its identifying owner entity",
+        "is_correct": true,
+        "time_taken_sec": 40,
+        "created_at": "2026-10-27T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-002",
+        "topic_id": "DBMS-01",
+        "difficulty": "easy",
+        "selected_answer": "Projection (pi)",
+        "is_correct": true,
+        "time_taken_sec": 40,
+        "created_at": "2026-10-27T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-013",
+        "topic_id": "DBMS-03",
+        "difficulty": "easy",
+        "selected_answer": "Transitive functional dependencies of non-prime attributes on a candidate key",
+        "is_correct": true,
+        "time_taken_sec": 49,
+        "created_at": "2026-10-27T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-014",
+        "topic_id": "DBMS-03",
+        "difficulty": "easy",
+        "selected_answer": "Reflexivity",
+        "is_correct": false,
+        "time_taken_sec": 44,
+        "created_at": "2026-10-27T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-031",
+        "topic_id": "OS-01",
+        "difficulty": "easy",
+        "selected_answer": "Thread stack and CPU registers",
+        "is_correct": true,
+        "time_taken_sec": 34,
+        "created_at": "2026-10-27T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-032",
+        "topic_id": "OS-01",
+        "difficulty": "easy",
+        "selected_answer": "Shortest Job First (SJF)",
+        "is_correct": true,
+        "time_taken_sec": 38,
+        "created_at": "2026-10-27T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-049",
+        "topic_id": "OS-04",
+        "difficulty": "easy",
+        "selected_answer": "External fragmentation",
+        "is_correct": true,
+        "time_taken_sec": 45,
+        "created_at": "2026-10-27T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-050",
+        "topic_id": "OS-04",
+        "difficulty": "easy",
+        "selected_answer": "12",
+        "is_correct": false,
+        "time_taken_sec": 45,
+        "created_at": "2026-10-27T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-061",
+        "topic_id": "CN-01",
+        "difficulty": "easy",
+        "selected_answer": "Transport Layer",
+        "is_correct": true,
+        "time_taken_sec": 48,
+        "created_at": "2026-10-27T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-062",
+        "topic_id": "CN-01",
+        "difficulty": "easy",
+        "selected_answer": "After every 4 consecutive 1s",
+        "is_correct": false,
+        "time_taken_sec": 54,
+        "created_at": "2026-10-27T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-073",
+        "topic_id": "CN-03",
+        "difficulty": "easy",
+        "selected_answer": "64",
+        "is_correct": false,
+        "time_taken_sec": 62,
+        "created_at": "2026-10-27T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-074",
+        "topic_id": "CN-03",
+        "difficulty": "easy",
+        "selected_answer": "255.255.240.0",
+        "is_correct": false,
+        "time_taken_sec": 62,
+        "created_at": "2026-10-27T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-091",
+        "topic_id": "TOC-01",
+        "difficulty": "easy",
+        "selected_answer": "2",
+        "is_correct": false,
+        "time_taken_sec": 56,
+        "created_at": "2026-10-27T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-092",
+        "topic_id": "TOC-01",
+        "difficulty": "easy",
+        "selected_answer": "2^n",
+        "is_correct": true,
+        "time_taken_sec": 56,
+        "created_at": "2026-10-27T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-121",
+        "topic_id": "DM-01",
+        "difficulty": "easy",
+        "selected_answer": "~Q -> ~P",
+        "is_correct": true,
+        "time_taken_sec": 36,
+        "created_at": "2026-10-27T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-122",
+        "topic_id": "DM-01",
+        "difficulty": "easy",
+        "selected_answer": "(P AND Q) -> P",
+        "is_correct": true,
+        "time_taken_sec": 40,
+        "created_at": "2026-10-27T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-211",
+        "topic_id": "PS-01",
+        "difficulty": "easy",
+        "selected_answer": "0.8",
+        "is_correct": false,
+        "time_taken_sec": 52,
+        "created_at": "2026-10-27T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-212",
+        "topic_id": "PS-01",
+        "difficulty": "easy",
+        "selected_answer": "Always independent",
+        "is_correct": false,
+        "time_taken_sec": 65,
+        "created_at": "2026-10-27T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-151",
+        "topic_id": "LA-01",
+        "difficulty": "easy",
+        "selected_answer": "min(m, n)",
+        "is_correct": true,
+        "time_taken_sec": 38,
+        "created_at": "2026-10-27T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-152",
+        "topic_id": "LA-01",
+        "difficulty": "easy",
+        "selected_answer": "40",
+        "is_correct": true,
+        "time_taken_sec": 42,
+        "created_at": "2026-10-27T10:00:00+00:00"
+      }
+    ]
+  },
+  {
+    "assessment_id": "ASM-002",
+    "student_id": "stu_aarav",
+    "syllabus_id": "gate_cse_flagship_2026",
+    "title": "DBMS Queries & Normalization Quiz",
+    "assessment_type": "topic_quiz",
+    "score": 77.78,
+    "max_score": 100.0,
+    "accuracy": 77.78,
+    "time_taken_sec": 568,
+    "created_at": "2026-10-31T10:00:00+00:00",
+    "question_attempts": [
+      {
+        "question_id": "Q-007",
+        "topic_id": "DBMS-02",
+        "difficulty": "easy",
+        "selected_answer": "HAVING",
+        "is_correct": true,
+        "time_taken_sec": 36,
+        "created_at": "2026-10-31T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-008",
+        "topic_id": "DBMS-02",
+        "difficulty": "easy",
+        "selected_answer": "2",
+        "is_correct": true,
+        "time_taken_sec": 40,
+        "created_at": "2026-10-31T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-009",
+        "topic_id": "DBMS-02",
+        "difficulty": "medium",
+        "selected_answer": "Evaluates to UNKNOWN for every row, returning zero rows",
+        "is_correct": true,
+        "time_taken_sec": 76,
+        "created_at": "2026-10-31T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-010",
+        "topic_id": "DBMS-02",
+        "difficulty": "medium",
+        "selected_answer": "Every value in t comes from the domain of constants in P or attributes of relations referenced in P",
+        "is_correct": true,
+        "time_taken_sec": 81,
+        "created_at": "2026-10-31T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-011",
+        "topic_id": "DBMS-02",
+        "difficulty": "hard",
+        "selected_answer": "SELECT dept FROM Emp WHERE AVG(sal) > (SELECT AVG(sal) FROM Emp)",
+        "is_correct": false,
+        "time_taken_sec": 99,
+        "created_at": "2026-10-31T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-013",
+        "topic_id": "DBMS-03",
+        "difficulty": "easy",
+        "selected_answer": "Transitive functional dependencies of non-prime attributes on a candidate key",
+        "is_correct": true,
+        "time_taken_sec": 42,
+        "created_at": "2026-10-31T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-014",
+        "topic_id": "DBMS-03",
+        "difficulty": "easy",
+        "selected_answer": "Transitivity",
+        "is_correct": true,
+        "time_taken_sec": 38,
+        "created_at": "2026-10-31T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-015",
+        "topic_id": "DBMS-03",
+        "difficulty": "medium",
+        "selected_answer": "3",
+        "is_correct": true,
+        "time_taken_sec": 80,
+        "created_at": "2026-10-31T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-016",
+        "topic_id": "DBMS-03",
+        "difficulty": "medium",
+        "selected_answer": "R1 union R2 = R only",
+        "is_correct": false,
+        "time_taken_sec": 76,
+        "created_at": "2026-10-31T10:00:00+00:00"
+      }
+    ]
+  },
+  {
+    "assessment_id": "ASM-003",
+    "student_id": "stu_aarav",
+    "syllabus_id": "gate_cse_flagship_2026",
+    "title": "OS Synchronization & Probability Quiz",
+    "assessment_type": "topic_quiz",
+    "score": 75.0,
+    "max_score": 100.0,
+    "accuracy": 75.0,
+    "time_taken_sec": 1023,
+    "created_at": "2026-11-06T10:00:00+00:00",
+    "question_attempts": [
+      {
+        "question_id": "Q-037",
+        "topic_id": "OS-02",
+        "difficulty": "easy",
+        "selected_answer": "Mutual Exclusion, Progress, Bounded Waiting",
+        "is_correct": true,
+        "time_taken_sec": 42,
+        "created_at": "2026-11-06T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-038",
+        "topic_id": "OS-02",
+        "difficulty": "easy",
+        "selected_answer": "-1",
+        "is_correct": true,
+        "time_taken_sec": 42,
+        "created_at": "2026-11-06T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-039",
+        "topic_id": "OS-02",
+        "difficulty": "medium",
+        "selected_answer": "Mutual exclusion can be violated if both processes enter simultaneously",
+        "is_correct": true,
+        "time_taken_sec": 85,
+        "created_at": "2026-11-06T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-040",
+        "topic_id": "OS-02",
+        "difficulty": "medium",
+        "selected_answer": "Buffer overflow",
+        "is_correct": false,
+        "time_taken_sec": 80,
+        "created_at": "2026-11-06T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-049",
+        "topic_id": "OS-04",
+        "difficulty": "easy",
+        "selected_answer": "External fragmentation",
+        "is_correct": true,
+        "time_taken_sec": 38,
+        "created_at": "2026-11-06T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-050",
+        "topic_id": "OS-04",
+        "difficulty": "easy",
+        "selected_answer": "20",
+        "is_correct": true,
+        "time_taken_sec": 38,
+        "created_at": "2026-11-06T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-051",
+        "topic_id": "OS-04",
+        "difficulty": "medium",
+        "selected_answer": "120 ns",
+        "is_correct": true,
+        "time_taken_sec": 72,
+        "created_at": "2026-11-06T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-052",
+        "topic_id": "OS-04",
+        "difficulty": "medium",
+        "selected_answer": "A single flat table would require gigabytes of contiguous RAM per process even when most virtual address space is unused",
+        "is_correct": true,
+        "time_taken_sec": 68,
+        "created_at": "2026-11-06T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-211",
+        "topic_id": "PS-01",
+        "difficulty": "easy",
+        "selected_answer": "0.9",
+        "is_correct": true,
+        "time_taken_sec": 42,
+        "created_at": "2026-11-06T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-212",
+        "topic_id": "PS-01",
+        "difficulty": "easy",
+        "selected_answer": "Always dependent (never independent)",
+        "is_correct": true,
+        "time_taken_sec": 52,
+        "created_at": "2026-11-06T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-213",
+        "topic_id": "PS-01",
+        "difficulty": "medium",
+        "selected_answer": "1/2",
+        "is_correct": false,
+        "time_taken_sec": 89,
+        "created_at": "2026-11-06T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-214",
+        "topic_id": "PS-01",
+        "difficulty": "medium",
+        "selected_answer": "2/15",
+        "is_correct": true,
+        "time_taken_sec": 78,
+        "created_at": "2026-11-06T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-217",
+        "topic_id": "PS-02",
+        "difficulty": "easy",
+        "selected_answer": "0.6",
+        "is_correct": true,
+        "time_taken_sec": 51,
+        "created_at": "2026-11-06T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-218",
+        "topic_id": "PS-02",
+        "difficulty": "easy",
+        "selected_answer": "Likelihood",
+        "is_correct": false,
+        "time_taken_sec": 46,
+        "created_at": "2026-11-06T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-219",
+        "topic_id": "PS-02",
+        "difficulty": "medium",
+        "selected_answer": "~33.3%",
+        "is_correct": true,
+        "time_taken_sec": 103,
+        "created_at": "2026-11-06T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-220",
+        "topic_id": "PS-02",
+        "difficulty": "medium",
+        "selected_answer": "1/3",
+        "is_correct": false,
+        "time_taken_sec": 97,
+        "created_at": "2026-11-06T10:00:00+00:00"
+      }
+    ]
+  },
+  {
+    "assessment_id": "ASM-004",
+    "student_id": "stu_aarav",
+    "syllabus_id": "gate_cse_flagship_2026",
+    "title": "Week 2 Comprehensive Assessment (20 Qs)",
+    "assessment_type": "weekly_test",
+    "score": 60.0,
+    "max_score": 100.0,
+    "accuracy": 60.0,
+    "time_taken_sec": 1311,
+    "created_at": "2026-11-11T10:00:00+00:00",
+    "question_attempts": [
+      {
+        "question_id": "Q-019",
+        "topic_id": "DBMS-04",
+        "difficulty": "easy",
+        "selected_answer": "Durability",
+        "is_correct": true,
+        "time_taken_sec": 36,
+        "created_at": "2026-11-11T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-020",
+        "topic_id": "DBMS-04",
+        "difficulty": "easy",
+        "selected_answer": "Acyclic (contains no directed cycles)",
+        "is_correct": true,
+        "time_taken_sec": 40,
+        "created_at": "2026-11-11T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-021",
+        "topic_id": "DBMS-04",
+        "difficulty": "medium",
+        "selected_answer": "Holding all exclusive (write) locks until the transaction commits or aborts",
+        "is_correct": true,
+        "time_taken_sec": 72,
+        "created_at": "2026-11-11T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-043",
+        "topic_id": "OS-03",
+        "difficulty": "easy",
+        "selected_answer": "Bounded Waiting",
+        "is_correct": true,
+        "time_taken_sec": 40,
+        "created_at": "2026-11-11T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-044",
+        "topic_id": "OS-03",
+        "difficulty": "easy",
+        "selected_answer": "Deadlock may exist (necessary, not sufficient)",
+        "is_correct": true,
+        "time_taken_sec": 50,
+        "created_at": "2026-11-11T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-045",
+        "topic_id": "OS-03",
+        "difficulty": "medium",
+        "selected_answer": "11",
+        "is_correct": false,
+        "time_taken_sec": 85,
+        "created_at": "2026-11-11T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-073",
+        "topic_id": "CN-03",
+        "difficulty": "easy",
+        "selected_answer": "64",
+        "is_correct": false,
+        "time_taken_sec": 60,
+        "created_at": "2026-11-11T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-074",
+        "topic_id": "CN-03",
+        "difficulty": "easy",
+        "selected_answer": "255.255.248.0",
+        "is_correct": true,
+        "time_taken_sec": 60,
+        "created_at": "2026-11-11T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-075",
+        "topic_id": "CN-03",
+        "difficulty": "medium",
+        "selected_answer": "192.168.16.0/23",
+        "is_correct": false,
+        "time_taken_sec": 114,
+        "created_at": "2026-11-11T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-079",
+        "topic_id": "CN-04",
+        "difficulty": "easy",
+        "selected_answer": "Bellman-Ford algorithm",
+        "is_correct": false,
+        "time_taken_sec": 65,
+        "created_at": "2026-11-11T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-080",
+        "topic_id": "CN-04",
+        "difficulty": "easy",
+        "selected_answer": "Bandwidth; 255",
+        "is_correct": false,
+        "time_taken_sec": 65,
+        "created_at": "2026-11-11T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-081",
+        "topic_id": "CN-04",
+        "difficulty": "medium",
+        "selected_answer": "Broadcasts full topology graphs every second",
+        "is_correct": false,
+        "time_taken_sec": 123,
+        "created_at": "2026-11-11T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-082",
+        "topic_id": "CN-04",
+        "difficulty": "medium",
+        "selected_answer": "By checking whether its own AS number already appears in the AS-PATH attribute",
+        "is_correct": true,
+        "time_taken_sec": 116,
+        "created_at": "2026-11-11T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-097",
+        "topic_id": "TOC-02",
+        "difficulty": "easy",
+        "selected_answer": "(0+1)*11(0+1)*",
+        "is_correct": true,
+        "time_taken_sec": 58,
+        "created_at": "2026-11-11T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-098",
+        "topic_id": "TOC-02",
+        "difficulty": "easy",
+        "selected_answer": "Union and Intersection only",
+        "is_correct": false,
+        "time_taken_sec": 58,
+        "created_at": "2026-11-11T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-099",
+        "topic_id": "TOC-02",
+        "difficulty": "medium",
+        "selected_answer": "Necessary and sufficient condition for regularity",
+        "is_correct": false,
+        "time_taken_sec": 104,
+        "created_at": "2026-11-11T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-211",
+        "topic_id": "PS-01",
+        "difficulty": "easy",
+        "selected_answer": "0.9",
+        "is_correct": true,
+        "time_taken_sec": 38,
+        "created_at": "2026-11-11T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-212",
+        "topic_id": "PS-01",
+        "difficulty": "easy",
+        "selected_answer": "Always dependent (never independent)",
+        "is_correct": true,
+        "time_taken_sec": 47,
+        "created_at": "2026-11-11T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-157",
+        "topic_id": "LA-02",
+        "difficulty": "easy",
+        "selected_answer": "rank(A) = rank([A | b])",
+        "is_correct": true,
+        "time_taken_sec": 40,
+        "created_at": "2026-11-11T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-158",
+        "topic_id": "LA-02",
+        "difficulty": "easy",
+        "selected_answer": "rank(A) < n",
+        "is_correct": true,
+        "time_taken_sec": 40,
+        "created_at": "2026-11-11T10:00:00+00:00"
+      }
+    ]
+  },
+  {
+    "assessment_id": "ASM-005",
+    "student_id": "stu_meera",
+    "syllabus_id": "gate_cse_flagship_2026",
+    "title": "Meera Initial Diagnostic",
+    "assessment_type": "diagnostic",
+    "score": 61.54,
+    "max_score": 100.0,
+    "accuracy": 61.54,
+    "time_taken_sec": 849,
+    "created_at": "2026-11-09T10:00:00+00:00",
+    "question_attempts": [
+      {
+        "question_id": "Q-211",
+        "topic_id": "PS-01",
+        "difficulty": "easy",
+        "selected_answer": "0.8",
+        "is_correct": false,
+        "time_taken_sec": 52,
+        "created_at": "2026-11-09T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-212",
+        "topic_id": "PS-01",
+        "difficulty": "easy",
+        "selected_answer": "Always dependent (never independent)",
+        "is_correct": true,
+        "time_taken_sec": 65,
+        "created_at": "2026-11-09T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-213",
+        "topic_id": "PS-01",
+        "difficulty": "medium",
+        "selected_answer": "1/2",
+        "is_correct": false,
+        "time_taken_sec": 110,
+        "created_at": "2026-11-09T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-214",
+        "topic_id": "PS-01",
+        "difficulty": "medium",
+        "selected_answer": "4/25",
+        "is_correct": false,
+        "time_taken_sec": 97,
+        "created_at": "2026-11-09T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-217",
+        "topic_id": "PS-02",
+        "difficulty": "easy",
+        "selected_answer": "0.5",
+        "is_correct": false,
+        "time_taken_sec": 62,
+        "created_at": "2026-11-09T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-218",
+        "topic_id": "PS-02",
+        "difficulty": "easy",
+        "selected_answer": "Likelihood",
+        "is_correct": false,
+        "time_taken_sec": 56,
+        "created_at": "2026-11-09T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-219",
+        "topic_id": "PS-02",
+        "difficulty": "medium",
+        "selected_answer": "~33.3%",
+        "is_correct": true,
+        "time_taken_sec": 125,
+        "created_at": "2026-11-09T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-001",
+        "topic_id": "DBMS-01",
+        "difficulty": "easy",
+        "selected_answer": "A discriminator combined with the primary key of its identifying owner entity",
+        "is_correct": true,
+        "time_taken_sec": 40,
+        "created_at": "2026-11-09T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-002",
+        "topic_id": "DBMS-01",
+        "difficulty": "easy",
+        "selected_answer": "Projection (pi)",
+        "is_correct": true,
+        "time_taken_sec": 40,
+        "created_at": "2026-11-09T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-003",
+        "topic_id": "DBMS-01",
+        "difficulty": "medium",
+        "selected_answer": "4",
+        "is_correct": true,
+        "time_taken_sec": 67,
+        "created_at": "2026-11-09T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-181",
+        "topic_id": "CAL-01",
+        "difficulty": "easy",
+        "selected_answer": "3/5",
+        "is_correct": true,
+        "time_taken_sec": 34,
+        "created_at": "2026-11-09T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-182",
+        "topic_id": "CAL-01",
+        "difficulty": "easy",
+        "selected_answer": "Continuous everywhere, but NOT differentiable at x = 0",
+        "is_correct": true,
+        "time_taken_sec": 38,
+        "created_at": "2026-11-09T10:00:00+00:00"
+      },
+      {
+        "question_id": "Q-183",
+        "topic_id": "CAL-01",
+        "difficulty": "medium",
+        "selected_answer": "e^6",
+        "is_correct": true,
+        "time_taken_sec": 63,
+        "created_at": "2026-11-09T10:00:00+00:00"
+      }
+    ]
+  }
+]
