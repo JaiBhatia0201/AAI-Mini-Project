@@ -1,0 +1,1 @@
+"""Backend domain services (seeding, auth/RBAC, LLM client, and retrieval)."""
