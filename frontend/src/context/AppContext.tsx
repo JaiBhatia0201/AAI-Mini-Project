@@ -92,6 +92,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
           targetSyllabusId || me.student_profile?.active_syllabus_id || list[0].id;
         const chosen = list.find((s) => s.id === preferredId) || list[0];
         setActiveSyllabus(chosen);
+        setLatestSimulation((prev) => (prev && prev.syllabus_id !== chosen.id ? null : prev));
 
         const graph = await api.getSyllabusGraph(chosen.id);
         setActiveGraph(graph);

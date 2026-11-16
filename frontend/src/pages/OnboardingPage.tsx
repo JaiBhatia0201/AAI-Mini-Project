@@ -205,7 +205,7 @@ export function OnboardingPage() {
         </p>
       </div>
 
-      {error && <AlertBanner tone="rose" title="PDF Validation" message={error} />}
+      {error && <AlertBanner tone="rose" title="Onboarding Error" message={error} />}
 
       <Card>
         <div className="mb-5 grid gap-3 sm:grid-cols-2">

@@ -40,7 +40,7 @@ router = APIRouter(prefix="/api/workflows", tags=["Workflows"])
 
 
 @router.post("/onboard-syllabus", response_model=OnboardSyllabusResponse)
-async def onboard_syllabus(
+def onboard_syllabus(
     onboard_mode: Literal["pdf_upload", "seeded_gate"] = Form("pdf_upload"),
     title: str | None = Form(None),
     exam_name: str | None = Form(None),
@@ -63,7 +63,7 @@ async def onboard_syllabus(
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail="Please attach a text-selectable syllabus PDF when onboard_mode is 'pdf_upload'.",
             )
-        pdf_bytes = await file.read()
+        pdf_bytes = file.file.read()
         raw_name = Path(file.filename or "syllabus.pdf").name
         safe_filename = raw_name or "syllabus.pdf"
 
@@ -88,6 +88,12 @@ async def onboard_syllabus(
         raise HTTPException(
             status_code=422,
             detail=str(exc),
+        ) from exc
+    except Exception as exc:  # noqa: BLE001
+        db.rollback()
+        raise HTTPException(
+            status_code=500,
+            detail=f"Onboarding failed ({type(exc).__name__}): {exc}",
         ) from exc
 
     # Save valid uploaded PDF copy safely in backend/uploads only AFTER validation passes

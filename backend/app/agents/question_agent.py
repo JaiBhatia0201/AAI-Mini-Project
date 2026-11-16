@@ -78,7 +78,12 @@ def _generate_fallback_questions_for_topic(topic: SyllabusTopic, existing_count:
     return created
 
 
-def ensure_topic_questions(db: Session, topic: SyllabusTopic, min_count: int = 3) -> str:
+def ensure_topic_questions(
+    db: Session,
+    topic: SyllabusTopic,
+    min_count: int = 3,
+    allow_llm: bool = True,
+) -> str:
     """Generate LLM or grounded-fallback questions when an uploaded topic lacks enough items."""
     existing = (
         db.query(Question)
@@ -90,25 +95,36 @@ def ensure_topic_questions(db: Session, topic: SyllabusTopic, min_count: int = 3
 
     needed = min_count - existing
     subtopics = json.loads(topic.subtopics_json or "[]")
-    llm_res = invoke_llm_json(
-        system_prompt="Generate rigorous multiple-choice exam questions with 4 distinct options and a concise explanation.",
-        user_prompt=(
-            f"Topic: {topic.title} ({topic.unit})\nSubtopics: {subtopics}\n"
-            f"Syllabus excerpt: {topic.raw_excerpt[:900]}\n"
-            f'Generate {needed} MCQs (mix of easy/medium/hard) as JSON: '
-            '{"questions": [{"subtopic": "...", "difficulty": "easy|medium|hard", '
-            '"prompt": "...", "options": ["A", "B", "C", "D"], "correct_answer": "exact option string", '
-            '"explanation": "...", "expected_time_sec": 60}]}'
-        ),
+    llm_res = (
+        invoke_llm_json(
+            system_prompt="Generate rigorous multiple-choice exam questions with 4 distinct options and a concise explanation.",
+            user_prompt=(
+                f"Topic: {topic.title} ({topic.unit})\nSubtopics: {subtopics}\n"
+                f"Syllabus excerpt: {topic.raw_excerpt[:900]}\n"
+                f'Generate {needed} MCQs (mix of easy/medium/hard) as JSON: '
+                '{"questions": [{"subtopic": "...", "difficulty": "easy|medium|hard", '
+                '"prompt": "...", "options": ["A", "B", "C", "D"], "correct_answer": "exact option string", '
+                '"explanation": "...", "expected_time_sec": 60}]}'
+            ),
+        )
+        if allow_llm
+        else None
     )
 
-    if llm_res.used_llm and isinstance(llm_res.parsed, dict) and llm_res.parsed.get("questions"):
+    if llm_res and llm_res.used_llm and isinstance(llm_res.parsed, dict) and isinstance(llm_res.parsed.get("questions"), list):
         new_rows: list[Question] = []
         for q in llm_res.parsed["questions"][:needed]:
-            opts = [str(o) for o in (q.get("options") or [])]
+            if not isinstance(q, dict) or not q.get("prompt"):
+                continue
+            raw_opts = q.get("options")
+            opts = [str(o) for o in raw_opts] if isinstance(raw_opts, list) else []
             ans = str(q.get("correct_answer") or "")
             if len(opts) >= 2 and ans in opts:
                 diff = str(q.get("difficulty") or "medium").lower()
+                try:
+                    exp_sec = int(q.get("expected_time_sec") or 60)
+                except (TypeError, ValueError):
+                    exp_sec = 60
                 new_rows.append(
                     Question(
                         syllabus_id=topic.syllabus_id,
@@ -120,7 +136,7 @@ def ensure_topic_questions(db: Session, topic: SyllabusTopic, min_count: int = 3
                         options_json=json.dumps(opts),
                         correct_answer=ans,
                         explanation=str(q.get("explanation") or ""),
-                        expected_time_sec=int(q.get("expected_time_sec") or 60),
+                        expected_time_sec=exp_sec,
                         source_origin="llm_generated_summary",
                         is_generated=True,
                     )
@@ -156,9 +172,9 @@ def select_calibrated_questions(
 
     exec_mode = "deterministic"
     sample_targets = topics[: min(len(topics), 6)] if topic_id is None else topics
-    for t in sample_targets:
-        mode = ensure_topic_questions(db, t, min_count=3)
-        if mode in {"llm", "fallback"}:
+    for idx, t in enumerate(sample_targets):
+        mode = ensure_topic_questions(db, t, min_count=3, allow_llm=(topic_id is not None or idx < 2))
+        if mode == "llm" or (mode == "fallback" and exec_mode != "llm"):
             exec_mode = mode
 
     query = db.query(Question).filter_by(syllabus_id=syllabus_id)

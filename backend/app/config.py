@@ -14,19 +14,25 @@ def _resolve_provider(
     gemini_key: str,
     openai_key: str,
     offline_fallback: str,
+    groq_key: str = "",
 ) -> str:
     """Resolve an auto/explicit provider setting into an active provider name."""
     mode = configured.strip().lower()
+    has_groq = bool(groq_key.strip())
     has_gemini = bool(gemini_key.strip())
     has_openai = bool(openai_key.strip())
 
     if mode in {"none", "local", "offline"}:
         return offline_fallback
+    if mode == "groq":
+        return "groq" if has_groq else offline_fallback
     if mode == "gemini":
         return "gemini" if has_gemini else offline_fallback
     if mode == "openai":
         return "openai" if has_openai else offline_fallback
     if mode == "auto":
+        if has_groq:
+            return "groq"
         if has_gemini:
             return "gemini"
         if has_openai:
@@ -58,6 +64,8 @@ class Settings(BaseSettings):
 
     # LLM Providers
     llm_provider: str = "auto"
+    groq_api_key: str = ""
+    groq_model: str = "openai/gpt-oss-120b"
     gemini_api_key: str = ""
     gemini_model: str = "gemini-2.5-flash"
     openai_api_key: str = ""
@@ -112,12 +120,13 @@ class Settings(BaseSettings):
 
     @property
     def effective_llm_provider(self) -> str:
-        """Return active LLM backend ('gemini', 'openai', or 'none' for offline fallback)."""
+        """Return active LLM backend ('groq', 'gemini', 'openai', or 'none' for offline fallback)."""
         return _resolve_provider(
             self.llm_provider,
             self.gemini_api_key,
             self.openai_api_key,
             offline_fallback="none",
+            groq_key=self.groq_api_key,
         )
 
     

@@ -22,7 +22,7 @@ def _set_sqlite_pragma(dbapi_connection, connection_record) -> None:
 
 def build_sqlite_engine(database_url: str) -> Engine:
     """Create a configured SQLAlchemy Engine for the given database URL."""
-    connect_args = {"check_same_thread": False} if database_url.startswith("sqlite") else {}
+    connect_args = {"check_same_thread": False, "timeout": 30} if database_url.startswith("sqlite") else {}
     return create_engine(database_url, connect_args=connect_args, future=True)
 
 

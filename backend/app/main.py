@@ -69,7 +69,7 @@ def health_check() -> dict[str, str]:
     emb_provider = cfg.effective_embedding_provider
     return {
         "status": "ok",
-        "llm_mode": "llm" if llm_provider in {"gemini", "openai"} else "fallback",
+        "llm_mode": "llm" if llm_provider in {"groq", "gemini", "openai"} else "fallback",
         "llm_provider": llm_provider,
         "retrieval_mode": "api_faiss" if emb_provider in {"gemini", "openai"} else "tfidf_fallback",
     }

@@ -51,6 +51,8 @@ def test_brand_new_student_end_to_end_and_rbac(api_client):
     client, SessionCls = api_client
 
     # 1. Health check reports honest active/fallback mode
+    from app.config import get_settings
+
     health = client.get("/api/health")
     assert health.status_code == 200
     assert health.json()["status"] == "ok"
@@ -58,6 +60,7 @@ def test_brand_new_student_end_to_end_and_rbac(api_client):
     assert health.json()["retrieval_mode"] in {"api_faiss", "tfidf_fallback"}
     if health.json()["llm_provider"] == "none":
         assert health.json()["llm_mode"] == "fallback"
+    if get_settings().effective_embedding_provider == "local":
         assert health.json()["retrieval_mode"] == "tfidf_fallback"
 
     # 2. Register brand-new student (not in dataset)

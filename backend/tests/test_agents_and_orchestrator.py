@@ -139,7 +139,8 @@ def test_custom_pdf_onboard_diagnostic_teach_assess_and_simulation(db_session: S
     assert onboard["topics_count"] >= 3
     assert len(onboard["diagnostic_questions"]) >= 3
     assert len(onboard["traces"]) >= 5
-    assert "University ML Midsem" in onboard["coaching_message"]
+    assert onboard["coaching_message"]
+    assert "40.0" in onboard["coaching_message"] and "100" in onboard["coaching_message"]
 
     # Complete diagnostic (mix of correct + incorrect on first topics)
     topics = db_session.query(SyllabusTopic).filter_by(syllabus_id=syl_id).order_by(SyllabusTopic.order_index).all()

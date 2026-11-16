@@ -54,7 +54,7 @@ def run_coaching_agent(db: Session, state: TutorState) -> TutorState:
         f"(Projected: {pred['projected_estimated_score']} / {pred['max_score']}, Target: {pred['target_score']})\n"
         f"Band: {pred['readiness_band']}, Streak: {streak} days, "
         f"Weak topics: {weak_count}, Forgetting alerts: {alert_count}, Root blockers: {blockers}\n"
-        "Write 2-3 encouraging, concrete sentences referencing ONLY those exact numbers and recommending the immediate next step."
+        f"Mention {exam_name} and write 2-3 encouraging, concrete sentences referencing ONLY those exact numbers and recommending the immediate next step."
     )
     llm_res = invoke_llm_text(
         system_prompt="You are a supportive academic coach. Cite exact provided metrics; never invent scores or ranks.",

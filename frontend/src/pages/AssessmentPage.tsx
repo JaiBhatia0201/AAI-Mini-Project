@@ -26,15 +26,17 @@ export function AssessmentPage() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const activeSyllabusId = activeSyllabus?.id;
+
   const loadHistory = useCallback(async () => {
-    if (!activeSyllabus) return;
+    if (!activeSyllabusId) return;
     try {
-      const rows = await api.assessmentHistory(activeSyllabus.id);
+      const rows = await api.assessmentHistory(activeSyllabusId);
       setHistory(rows);
     } catch {
       // ignore initial history load error
     }
-  }, [activeSyllabus]);
+  }, [activeSyllabusId]);
 
   useEffect(() => {
     setActiveQuiz(null);

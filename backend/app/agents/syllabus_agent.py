@@ -188,12 +188,13 @@ def run_syllabus_agent(db: Session, state: TutorState) -> TutorState:
     days_remaining = int(state.get("days_remaining") or 60)
 
     llm_prompt = (
-        "Extract a structured prerequisite-aware syllabus DAG JSON from this syllabus text. "
+        "Extract 8 to 16 major prerequisite-aware topics and dependency edges as JSON from this syllabus text. "
+        "Keep each raw_excerpt under 120 characters (verbatim from the text) and subtopics concise (2-4 items). "
         'Return JSON: {"topics": [{"topic_code": "TOP-01", "subject": "...", "unit": "...", '
-        '"title": "...", "subtopics": ["..."], "raw_excerpt": "exact quote from text", '
+        '"title": "...", "subtopics": ["..."], "raw_excerpt": "short quote from text", '
         '"difficulty": "easy|medium|hard", "exam_weightage": 2.0, "estimated_hours": 3.0}], '
         '"prerequisite_edges": [{"prerequisite_code": "TOP-01", "dependent_code": "TOP-02"}]}.\n\n'
-        f"Syllabus Text:\n{full_text[:10000]}"
+        f"Syllabus Text:\n{full_text[:6000]}"
     )
     llm_res = invoke_llm_json(
         system_prompt="You are a precise academic curriculum parser. Only cite excerpts present in the input text.",
@@ -204,14 +205,24 @@ def run_syllabus_agent(db: Session, state: TutorState) -> TutorState:
     raw_edges: list[tuple[str, str, str]] = []
     exec_mode = "fallback"
 
-    if llm_res.used_llm and isinstance(llm_res.parsed, dict) and llm_res.parsed.get("topics"):
-        raw_topics = llm_res.parsed["topics"]
+    if llm_res.used_llm and isinstance(llm_res.parsed, dict) and isinstance(llm_res.parsed.get("topics"), list):
+        raw_topics = [item for item in llm_res.parsed["topics"] if isinstance(item, dict)]
         seen_codes: set[str] = set()
         for idx, item in enumerate(raw_topics[:30], start=1):
             code = str(item.get("topic_code") or f"TOP-{idx:02d}")[:40]
             if code in seen_codes:
                 code = f"TOP-{idx:02d}"
             seen_codes.add(code)
+            try:
+                weightage = float(item.get("exam_weightage") or 2.0)
+            except (TypeError, ValueError):
+                weightage = 2.0
+            try:
+                est_hours = float(item.get("estimated_hours") or 3.0)
+            except (TypeError, ValueError):
+                est_hours = 3.0
+            raw_subs = item.get("subtopics")
+            subtopics = [str(s) for s in raw_subs][:6] if isinstance(raw_subs, list) else []
             topics_spec.append(
                 {
                     "topic_code": code,
@@ -219,22 +230,28 @@ def run_syllabus_agent(db: Session, state: TutorState) -> TutorState:
                     "category": "Uploaded Syllabus",
                     "unit": str(item.get("unit") or "Unit 1")[:180],
                     "title": str(item.get("title") or f"Topic {idx}")[:200],
-                    "subtopics": [str(s) for s in (item.get("subtopics") or [])][:6],
+                    "subtopics": subtopics,
                     "raw_excerpt": str(item.get("raw_excerpt") or full_text[:450])[:800],
                     "source_origin": "extracted_pdf_excerpt",
                     "difficulty": str(item.get("difficulty") or "medium").lower(),
-                    "exam_weightage": float(item.get("exam_weightage") or 2.0),
-                    "estimated_hours": float(item.get("estimated_hours") or 3.0),
+                    "exam_weightage": weightage,
+                    "estimated_hours": est_hours,
                     "order_index": idx,
                 }
             )
-        for edge in llm_res.parsed.get("prerequisite_edges", []):
-            src_c = str(edge.get("prerequisite_code", ""))
-            dst_c = str(edge.get("dependent_code", ""))
-            if src_c in seen_codes and dst_c in seen_codes and src_c != dst_c:
-                raw_edges.append((src_c, dst_c, "llm_extracted"))
-        exec_mode = "llm"
-    else:
+        raw_edge_list = llm_res.parsed.get("prerequisite_edges")
+        if isinstance(raw_edge_list, list):
+            for edge in raw_edge_list:
+                if not isinstance(edge, dict):
+                    continue
+                src_c = str(edge.get("prerequisite_code", ""))
+                dst_c = str(edge.get("dependent_code", ""))
+                if src_c in seen_codes and dst_c in seen_codes and src_c != dst_c:
+                    raw_edges.append((src_c, dst_c, "llm_extracted"))
+        if topics_spec:
+            exec_mode = "llm"
+
+    if not topics_spec:
         topics_spec, raw_edges = _parse_syllabus_fallback(full_text, title=title, exam_name=exam_name)
 
     order_lookup = {t["topic_code"]: t["order_index"] for t in topics_spec}

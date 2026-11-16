@@ -62,8 +62,8 @@ Mini-Project/
 
 ### 1. Configure Environment Variables
 Copy `.env.example` to `.env` in the repository root if `.env` does not already exist:
-- Leave `GEMINI_API_KEY` and `OPENAI_API_KEY` blank to run **100% offline** using deterministic rules, PDF excerpts, and local TF-IDF retrieval.
-- Set either `GEMINI_API_KEY` or `OPENAI_API_KEY` (keeping `LLM_PROVIDER=auto` and `EMBEDDING_PROVIDER=auto`) to enable live LLM tutoring/parsing and API embedding FAISS retrieval.
+- Leave API keys blank to run **100% offline** using deterministic rules, PDF excerpts, and local TF-IDF retrieval.
+- Set `GROQ_API_KEY` (default model `openai/gpt-oss-120b`), `GEMINI_API_KEY`, or `OPENAI_API_KEY` (with `LLM_PROVIDER=auto` or explicit provider name) to enable live LLM tutoring/parsing.
 
 ### 2. Backend Setup (Python Virtual Environment)
 From the repository root (`Mini-Project/`):

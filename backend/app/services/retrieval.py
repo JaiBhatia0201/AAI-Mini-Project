@@ -1,8 +1,10 @@
 """Modular per-syllabus retrieval: online API FAISS or honest offline TF-IDF/SVD fallback."""
 
 from dataclasses import dataclass
+import hashlib
 import json
 from pathlib import Path
+import time
 from typing import Any, Protocol
 import faiss
 import numpy as np
@@ -13,6 +15,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from app.config import get_settings
 
 SVD_DIM = 32
+_EMBED_COOLDOWN_UNTIL: dict[tuple[str, str], float] = {}
 
 
 @dataclass
@@ -228,15 +231,31 @@ class APIFaissRetrievalProvider:
         self._fallback = LocalTfidfRetrievalProvider(index_dir=self.index_dir)
         self._cache: dict[str, tuple[faiss.IndexFlatIP, list[RetrievalDocument]]] = {}
 
+    def _cooldown_key(self) -> tuple[str, str]:
+        settings = get_settings()
+        secret = settings.gemini_api_key if self.provider_name == "gemini" else settings.openai_api_key
+        return (self.provider_name, hashlib.sha256(secret.encode("utf-8")).hexdigest()[:12])
+
+    def _in_cooldown(self) -> bool:
+        if self._embedder is not None:
+            return False
+        return time.monotonic() < _EMBED_COOLDOWN_UNTIL.get(self._cooldown_key(), 0.0)
+
+    def _trip_cooldown(self) -> None:
+        if self._embedder is None:
+            _EMBED_COOLDOWN_UNTIL[self._cooldown_key()] = time.monotonic() + 120.0
+
     def _get_embedder(self):
         if self._embedder is not None:
             return self._embedder
+        if self._in_cooldown():
+            return None
         settings = get_settings()
         if self.provider_name == "gemini":
             from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
             self._embedder = GoogleGenerativeAIEmbeddings(
-                model="models/text-embedding-004",
+                model="models/gemini-embedding-001",
                 google_api_key=settings.gemini_api_key,
             )
             return self._embedder
@@ -283,6 +302,7 @@ class APIFaissRetrievalProvider:
             self._cache[syllabus_id] = (index, scoped_docs)
             return "api_embeddings_faiss"
         except Exception:  # noqa: BLE001
+            self._trip_cooldown()
             return self._fallback.index_syllabus_documents(syllabus_id, scoped_docs)
 
     def search(
@@ -325,6 +345,7 @@ class APIFaissRetrievalProvider:
                 if 0 <= i < len(docs)
             ]
         except Exception:  # noqa: BLE001
+            self._trip_cooldown()
             return self._fallback.search(syllabus_id, query, top_k=top_k)
 
 

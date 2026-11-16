@@ -10,7 +10,19 @@ from app.services.llm_client import invoke_llm_json
 from app.services.retrieval import RetrievalDocument, get_retrieval_provider
 
 
-def _ensure_topic_resources(db: Session, topic: SyllabusTopic) -> tuple[list[LearningResource], str]:
+def _as_text(val: object, default: str) -> str:
+    if isinstance(val, str) and val.strip():
+        return val.strip()
+    if isinstance(val, (list, dict)):
+        return json.dumps(val, ensure_ascii=False)
+    return default
+
+
+def _ensure_topic_resources(
+    db: Session,
+    topic: SyllabusTopic,
+    allow_llm: bool = True,
+) -> tuple[list[LearningResource], str]:
     """Ensure uploaded PDF topics also get grounded notes, flashcards, and search queries."""
     existing = (
         db.query(LearningResource)
@@ -22,27 +34,36 @@ def _ensure_topic_resources(db: Session, topic: SyllabusTopic) -> tuple[list[Lea
 
     subtopics = json.loads(topic.subtopics_json or "[]")
     excerpt = (topic.raw_excerpt or f"{topic.title}: {', '.join(subtopics)}").strip()
-    llm_res = invoke_llm_json(
-        system_prompt="You synthesize concise educational study notes and curated academic search references.",
-        user_prompt=(
-            f"Topic: {topic.title}\nUnit: {topic.unit}\nSubtopics: {subtopics}\nExcerpt: {excerpt[:900]}\n"
-            'Return JSON: {"notes_summary": "...", "flashcard_qa": "Q: ... | A: ...", '
-            '"video_query": "best lecture query terms", "textbook_ref": "standard textbook chapter"}'
-        ),
+    llm_res = (
+        invoke_llm_json(
+            system_prompt="You synthesize concise educational study notes and curated academic search references.",
+            user_prompt=(
+                f"Topic: {topic.title}\nUnit: {topic.unit}\nSubtopics: {subtopics}\nExcerpt: {excerpt[:900]}\n"
+                'Return JSON: {"notes_summary": "...", "flashcard_qa": "Q: ... | A: ...", '
+                '"video_query": "best lecture query terms", "textbook_ref": "standard textbook chapter"}'
+            ),
+        )
+        if allow_llm
+        else None
     )
 
-    if llm_res.used_llm and isinstance(llm_res.parsed, dict):
-        data = llm_res.parsed
+    sub_txt = ", ".join(subtopics) if subtopics else topic.title
+    default_notes = f"Core study guide for {topic.title} ({topic.unit}): Focus on {sub_txt}. Excerpt: {excerpt[:280]}"
+    default_flash = f"Q: What are the key concepts in {topic.title}? | A: {sub_txt}. {excerpt[:180]}"
+
+    if llm_res and llm_res.used_llm and isinstance(llm_res.parsed, dict):
+        parsed = llm_res.parsed
+        notes_text = _as_text(parsed.get("notes_summary"), default_notes)
+        flash_text = _as_text(parsed.get("flashcard_qa"), default_flash)
+        video_query = _as_text(parsed.get("video_query"), f"{topic.subject} {topic.title} lecture")
+        textbook_ref = _as_text(parsed.get("textbook_ref"), f"{topic.subject} reference notes on {topic.title}")
         source_origin = "llm_generated_summary"
         exec_mode = "llm"
     else:
-        sub_txt = ", ".join(subtopics) if subtopics else topic.title
-        data = {
-            "notes_summary": f"Core study guide for {topic.title} ({topic.unit}): Focus on {sub_txt}. Excerpt: {excerpt[:280]}",
-            "flashcard_qa": f"Q: What are the key concepts in {topic.title}? | A: {sub_txt}. {excerpt[:180]}",
-            "video_query": f"{topic.subject} {topic.title} lecture",
-            "textbook_ref": f"{topic.subject} reference notes on {topic.title}",
-        }
+        notes_text = default_notes
+        flash_text = default_flash
+        video_query = f"{topic.subject} {topic.title} lecture"
+        textbook_ref = f"{topic.subject} reference notes on {topic.title}"
         source_origin = topic.source_origin or "extracted_pdf_excerpt"
         exec_mode = "fallback"
 
@@ -53,8 +74,8 @@ def _ensure_topic_resources(db: Session, topic: SyllabusTopic) -> tuple[list[Lea
             modality="notes",
             title=f"Study Notes: {topic.title}",
             source_ref=topic.unit,
-            url_or_content=data["notes_summary"],
-            summary=data["notes_summary"][:280],
+            url_or_content=notes_text,
+            summary=notes_text[:280],
             source_origin=source_origin,
             created_by_agent="Agent 3",
         ),
@@ -64,8 +85,8 @@ def _ensure_topic_resources(db: Session, topic: SyllabusTopic) -> tuple[list[Lea
             modality="flashcard",
             title=f"Quick Flashcard: {topic.title}",
             source_ref=topic.unit,
-            url_or_content=data["flashcard_qa"],
-            summary=data["flashcard_qa"][:220],
+            url_or_content=flash_text,
+            summary=flash_text[:220],
             source_origin=source_origin,
             created_by_agent="Agent 3",
         ),
@@ -75,8 +96,8 @@ def _ensure_topic_resources(db: Session, topic: SyllabusTopic) -> tuple[list[Lea
             modality="search_query",
             title=f"Recommended Lecture Search: {topic.title}",
             source_ref="Academic Video / Textbook Query",
-            url_or_content=str(data.get("video_query") or topic.title),
-            summary=str(data.get("textbook_ref") or excerpt[:180]),
+            url_or_content=video_query,
+            summary=textbook_ref[:220],
             source_origin=source_origin,
             created_by_agent="Agent 3",
         ),
@@ -93,13 +114,19 @@ def run_resource_agent(db: Session, state: TutorState) -> TutorState:
     target_topic_id = state.get("topic_id")
 
     topics = db.query(SyllabusTopic).filter_by(syllabus_id=syllabus_id).order_by(SyllabusTopic.order_index).all()
+    llm_topics = 0
     if target_topic_id:
         for t in topics:
             if t.id == target_topic_id:
-                _ensure_topic_resources(db, t)
+                _, mode = _ensure_topic_resources(db, t, allow_llm=True)
+                if mode == "llm":
+                    llm_topics += 1
     else:
-        for t in topics:
-            _ensure_topic_resources(db, t)
+        for idx, t in enumerate(topics):
+            # Cap live LLM calls during bulk syllabus onboarding to fit free-tier TPM limits cleanly
+            _, mode = _ensure_topic_resources(db, t, allow_llm=(idx < 2))
+            if mode == "llm":
+                llm_topics += 1
 
     all_resources = db.query(LearningResource).filter_by(syllabus_id=syllabus_id).all()
     docs: list[RetrievalDocument] = []
@@ -136,9 +163,9 @@ def run_resource_agent(db: Session, state: TutorState) -> TutorState:
         state=state,
         agent_number=3,
         agent_name="Resource Discovery Agent",
-        execution_mode="fallback" if "fallback" in retrieval_mode else "llm",
+        execution_mode="llm" if (llm_topics > 0 or "fallback" not in retrieval_mode) else "fallback",
         started_at=started,
         input_summary=f"syllabus={syllabus_id}, docs={len(docs)}",
-        output_summary=f"Indexed {len(docs)} documents ({retrieval_mode})",
+        output_summary=f"Indexed {len(docs)} documents ({retrieval_mode}, llm_topics={llm_topics})",
     )
     return state

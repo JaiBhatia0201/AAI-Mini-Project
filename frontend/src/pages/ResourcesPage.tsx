@@ -15,16 +15,18 @@ export function ResourcesPage() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const activeSyllabusId = activeSyllabus?.id;
+
   useEffect(() => {
-    if (!activeSyllabus) return;
+    if (!activeSyllabusId) return;
     api
-      .listResources(activeSyllabus.id)
+      .listResources(activeSyllabusId)
       .then((rows) => {
         setResources(rows);
         setHits([]);
       })
       .catch((err) => setError(err instanceof ApiError ? err.message : "Unable to load resources."));
-  }, [activeSyllabus]);
+  }, [activeSyllabusId]);
 
   if (!activeSyllabus) {
     return (

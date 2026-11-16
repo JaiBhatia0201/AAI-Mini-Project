@@ -121,12 +121,19 @@ def run_teaching_agent(db: Session, state: TutorState) -> TutorState:
         confidence_status = "fallback_grounded"
         exec_mode = "fallback"
 
+    raw_cards = data.get("flashcards")
+    clean_cards: list[dict[str, str]] = []
+    if isinstance(raw_cards, list):
+        for card in raw_cards:
+            if isinstance(card, dict) and card.get("front") and card.get("back"):
+                clean_cards.append({"front": str(card["front"]), "back": str(card["back"])})
+
     state["lesson_payload"] = {
         "topic_id": topic.id,
         "explanation": str(data["explanation"]),
         "analogy": str(data.get("analogy") or ""),
         "prerequisite_path": prereq_path,
-        "flashcards": list(data.get("flashcards") or []),
+        "flashcards": clean_cards or res_flashcards,
         "source_origin": source_origin,
         "confidence_status": confidence_status,
     }
