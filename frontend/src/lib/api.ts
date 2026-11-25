@@ -202,7 +202,12 @@ export const api = {
       body: JSON.stringify(payload),
     }),
 
-  askTutor: (payload: { syllabus_id: string; topic_id: string; question?: string }) =>
+  askTutor: (payload: {
+    syllabus_id: string;
+    topic_id?: string | null;
+    question?: string;
+    force_web?: boolean;
+  }) =>
     request<TutorLessonResponse>("/api/tutor/ask", {
       method: "POST",
       body: JSON.stringify(payload),

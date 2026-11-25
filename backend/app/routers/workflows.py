@@ -169,6 +169,7 @@ def teach_and_practice(
             syllabus_id=syl.id,
             topic_id=payload.topic_id,
             tutor_question=payload.question,
+            force_web=payload.force_web,
         )
     except ValueError as exc:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc)) from exc
@@ -187,6 +188,9 @@ def teach_and_practice(
         ],
         source_origin=lesson["source_origin"],
         confidence_status=lesson["confidence_status"],
+        is_out_of_syllabus=bool(lesson.get("is_out_of_syllabus", False)),
+        web_retrieval_mode=lesson.get("web_retrieval_mode"),
+        web_sources=list(lesson.get("web_sources") or []),
         traces=[serialize_trace(t) for t in (result.get("traces") or [])],
     )
 

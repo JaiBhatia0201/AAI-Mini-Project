@@ -16,7 +16,7 @@ import type {
   PlannerOverviewOut,
   StudentAnalyticsOut,
 } from "../types/api";
-import { AlertBanner, Badge, Button, Card, StatCard } from "../components/ui/Primitives";
+import { AlertBanner, Badge, Button, Card, FormattedText, StatCard } from "../components/ui/Primitives";
 
 export function DashboardPage() {
   const {
@@ -291,14 +291,21 @@ export function DashboardPage() {
           </div>
 
           {latestSimulation ? (
-            <div className="space-y-2 rounded-lg border border-amber-200 bg-white p-3 text-xs">
-              <div className="font-semibold text-amber-900">{latestSimulation.coaching_message}</div>
+            <div className="space-y-2.5 rounded-lg border border-amber-200 bg-white p-3 text-xs">
+              <div className="font-medium text-amber-950 leading-relaxed">
+                <FormattedText text={latestSimulation.coaching_message} inline />
+              </div>
+              {latestSimulation.adaptation && latestSimulation.adaptation.changes.length > 0 && (
+                <div className="rounded bg-amber-50 px-2.5 py-1.5 text-[11px] font-medium text-amber-900">
+                  Previewed schedule shifts: <strong>{latestSimulation.adaptation.changes.length}</strong> task(s) would be adjusted.
+                </div>
+              )}
               {activeAlerts.length > 0 ? (
-                <ul className="space-y-1 text-slate-700">
+                <ul className="space-y-1.5 text-slate-700">
                   {activeAlerts.slice(0, 4).map((a) => (
-                    <li key={a.topic_id} className="flex justify-between tabular-nums">
+                    <li key={a.topic_id} className="flex items-center justify-between gap-2 tabular-nums">
                       <span className="truncate font-medium">{a.title}</span>
-                      <span className="text-rose-700 font-semibold">
+                      <span className="shrink-0 whitespace-nowrap rounded bg-rose-50 px-1.5 py-0.5 text-rose-700 font-semibold">
                         {(a.retention_score * 100).toFixed(0)}% ret
                       </span>
                     </li>

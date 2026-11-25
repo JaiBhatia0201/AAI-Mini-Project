@@ -18,6 +18,7 @@ import type {
 
 export type NavTab =
   | "dashboard"
+  | "report_card"
   | "onboarding"
   | "tutor"
   | "graph"
@@ -35,11 +36,13 @@ interface AppContextValue {
   activeSyllabus: SyllabusOut | null;
   activeGraph: SyllabusGraphOut | null;
   activeTab: NavTab;
+  selectedTutorTopicId: string | null;
   loadingAuth: boolean;
   loadingWorkspace: boolean;
   latestSimulation: DailyCheckResponse | null;
   pendingDiagnostic: OnboardSyllabusResponse | null;
   setActiveTab: (tab: NavTab) => void;
+  setSelectedTutorTopicId: (topicId: string | null) => void;
   setLatestSimulation: (sim: DailyCheckResponse | null) => void;
   setPendingDiagnostic: (diag: OnboardSyllabusResponse | null) => void;
   onAuthenticated: (token: string, loggedUser: UserOut) => Promise<void>;
@@ -57,6 +60,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [activeSyllabus, setActiveSyllabus] = useState<SyllabusOut | null>(null);
   const [activeGraph, setActiveGraph] = useState<SyllabusGraphOut | null>(null);
   const [activeTab, setActiveTab] = useState<NavTab>("dashboard");
+  const [selectedTutorTopicId, setSelectedTutorTopicId] = useState<string | null>(null);
   const [loadingAuth, setLoadingAuth] = useState(true);
   const [loadingWorkspace, setLoadingWorkspace] = useState(false);
   const [latestSimulation, setLatestSimulation] = useState<DailyCheckResponse | null>(null);
@@ -169,11 +173,13 @@ export function AppProvider({ children }: { children: ReactNode }) {
         activeSyllabus,
         activeGraph,
         activeTab,
+        selectedTutorTopicId,
         loadingAuth,
         loadingWorkspace,
         latestSimulation,
         pendingDiagnostic,
         setActiveTab,
+        setSelectedTutorTopicId,
         setLatestSimulation,
         setPendingDiagnostic,
         onAuthenticated,

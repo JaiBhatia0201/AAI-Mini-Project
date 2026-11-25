@@ -39,8 +39,9 @@ class TutorState(TypedDict, total=False):
     retrieval_mode: str
 
     # Teaching & practice
-    topic_id: str
+    topic_id: str | None
     tutor_question: str | None
+    force_web: bool
     lesson_payload: dict[str, Any]
     practice_questions: list[dict[str, Any]]
 

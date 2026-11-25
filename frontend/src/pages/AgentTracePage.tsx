@@ -3,7 +3,7 @@ import { Activity, RefreshCw } from "lucide-react";
 import { api, ApiError } from "../lib/api";
 import { useApp } from "../context/AppContext";
 import type { TraceRecordOut } from "../types/api";
-import { AlertBanner, Badge, Button, Card } from "../components/ui/Primitives";
+import { AlertBanner, Badge, Button, Card, FormattedText } from "../components/ui/Primitives";
 
 export function AgentTracePage() {
   const { activeSyllabus, latestSimulation } = useApp();
@@ -88,7 +88,8 @@ export function AgentTracePage() {
                   <span className="font-semibold text-slate-700">In:</span> {t.input_summary}
                 </div>
                 <div className="rounded bg-slate-50 p-2 border border-slate-100">
-                  <span className="font-semibold text-slate-700">Out:</span> {t.output_summary}
+                  <span className="font-semibold text-slate-700">Out:</span>{" "}
+                  <FormattedText text={t.output_summary} inline />
                 </div>
               </div>
             </Card>

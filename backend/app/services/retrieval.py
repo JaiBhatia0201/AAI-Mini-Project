@@ -47,6 +47,9 @@ class RetrievalHit:
 class RetrievalProvider(Protocol):
     """Protocol decoupling search callers from online FAISS vs offline TF-IDF backends."""
 
+    def has_index(self, syllabus_id: str) -> str | None:
+        """Return active retrieval mode if an index already exists for syllabus_id, else None."""
+
     def index_syllabus_documents(
         self,
         syllabus_id: str,
@@ -89,6 +92,13 @@ class LocalTfidfRetrievalProvider:
     def _faiss_path(self, syllabus_id: str) -> Path:
         self.index_dir.mkdir(parents=True, exist_ok=True)
         return self.index_dir / f"local_svd_{_safe_syllabus_slug(syllabus_id)}.index"
+
+    def has_index(self, syllabus_id: str) -> str | None:
+        if syllabus_id in self._stores and self._stores[syllabus_id].get("docs"):
+            return str(self._stores[syllabus_id].get("mode", "lexical_tfidf_fallback"))
+        if self._meta_path(syllabus_id).exists():
+            return "svd_tfidf_faiss_fallback" if self._faiss_path(syllabus_id).exists() else "lexical_tfidf_fallback"
+        return None
 
     def index_syllabus_documents(
         self,
@@ -276,6 +286,13 @@ class APIFaissRetrievalProvider:
     def _meta_path(self, syllabus_id: str) -> Path:
         self.index_dir.mkdir(parents=True, exist_ok=True)
         return self.index_dir / f"syllabus_{_safe_syllabus_slug(syllabus_id)}_meta.json"
+
+    def has_index(self, syllabus_id: str) -> str | None:
+        if syllabus_id in self._cache:
+            return "api_embeddings_faiss"
+        if self._index_path(syllabus_id).exists() and self._meta_path(syllabus_id).exists():
+            return "api_embeddings_faiss"
+        return self._fallback.has_index(syllabus_id)
 
     def index_syllabus_documents(
         self,

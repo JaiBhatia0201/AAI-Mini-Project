@@ -1,6 +1,7 @@
 import { type ReactNode } from "react";
 import {
   Activity,
+  Award,
   BarChart3,
   BookOpen,
   CalendarDays,
@@ -21,6 +22,7 @@ import { AlertBanner, Badge, Button, cn } from "../ui/Primitives";
 
 const STUDENT_NAV: Array<{ id: NavTab; label: string; icon: typeof LayoutDashboard }> = [
   { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { id: "report_card", label: "Report Card", icon: Award },
   { id: "onboarding", label: "Upload / New Syllabus", icon: FilePlus2 },
   { id: "tutor", label: "AI Study Tutor", icon: MessageSquareText },
   { id: "graph", label: "Knowledge Graph", icon: GitFork },
@@ -34,6 +36,7 @@ const STUDENT_NAV: Array<{ id: NavTab; label: string; icon: typeof LayoutDashboa
 
 const PARENT_NAV: Array<{ id: NavTab; label: string; icon: typeof LayoutDashboard }> = [
   { id: "parent", label: "Parent / Teacher View", icon: Users },
+  { id: "report_card", label: "Report Card (RO)", icon: Award },
   { id: "analytics", label: "Progress & Decay", icon: BarChart3 },
   { id: "graph", label: "Syllabus Graph (RO)", icon: GitFork },
   { id: "planner", label: "Roadmap (RO)", icon: CalendarDays },
@@ -62,7 +65,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
       {/* Persistent Top Workspace Bar */}
-      <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur">
+      <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur print:hidden">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3">
           <div className="flex items-center gap-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-600 text-white shadow-xs">
@@ -140,7 +143,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
       <div className="mx-auto flex w-full max-w-7xl flex-1 gap-6 px-4 py-6">
         {/* Desktop Sidebar */}
-        <aside className="hidden w-60 shrink-0 lg:block">
+        <aside className="hidden w-60 shrink-0 lg:block print:hidden">
           <nav className="sticky top-22 space-y-1 rounded-xl border border-slate-200 bg-white p-2 shadow-xs">
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -204,9 +207,9 @@ export function AppShell({ children }: { children: ReactNode }) {
             <AlertBanner
               tone="amber"
               title="Non-Destructive Demo Simulation Active"
-              message={`Previewing hypothetical forgetting & adaptation state (+${
+              message={`Previewing hypothetical forgetting & adaptation state (${
                 latestSimulation.decay_alerts.length
-              } decay alert(s)). SQLite mastery & study plans remain untouched.`}
+              } projected decay alert(s)). SQLite mastery & study plans remain untouched.`}
               action={
                 <Button
                   variant="secondary"

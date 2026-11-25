@@ -1,14 +1,15 @@
 import { useEffect, useState, type FormEvent } from "react";
-import { Library, Search, Sparkles } from "lucide-react";
+import { ChevronDown, ChevronUp, ExternalLink, Library, Search, Sparkles } from "lucide-react";
 import { api, ApiError } from "../lib/api";
 import { useApp } from "../context/AppContext";
 import type { LearningResourceOut, RetrievalSearchHit } from "../types/api";
-import { AlertBanner, Badge, Button, Card, ProvenanceBadge } from "../components/ui/Primitives";
+import { AlertBanner, Badge, Button, Card, FormattedText, ProvenanceBadge } from "../components/ui/Primitives";
 
 export function ResourcesPage() {
   const { user, activeSyllabus } = useApp();
   const [resources, setResources] = useState<LearningResourceOut[]>([]);
   const [modality, setModality] = useState<string>("all");
+  const [expandedId, setExpandedId] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [hits, setHits] = useState<RetrievalSearchHit[]>([]);
   const [retrievalMode, setRetrievalMode] = useState<string>("");
@@ -137,22 +138,72 @@ export function ResourcesPage() {
         ))}
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        {visible.map((res) => (
-          <Card key={res.id} className="space-y-2.5">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <Badge tone="indigo" className="capitalize">{res.modality.replace("_", " ")}</Badge>
-              <ProvenanceBadge origin={res.source_origin} />
-            </div>
-            <h3 className="text-sm font-bold text-slate-900">{res.title}</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">{res.summary || res.url_or_content}</p>
-            <div className="flex items-center justify-between pt-1 text-[11px] text-slate-500">
-              <span>Source: {res.source_ref || "Syllabus Unit"}</span>
-              <span>By {res.created_by_agent}</span>
-            </div>
-          </Card>
-        ))}
-      </div>
+      {visible.length === 0 ? (
+        <Card className="p-8 text-center text-sm text-slate-500">
+          No <strong>{modality === "all" ? "" : `${modality.replace("_", " ")} `}</strong>resources found for this syllabus yet.
+        </Card>
+      ) : (
+        <div className="grid gap-4 md:grid-cols-2">
+          {visible.map((res) => {
+            const rawContent = (res.url_or_content || "").trim();
+            const isUrl = /^https?:\/\//i.test(rawContent);
+            const isJsonArray = rawContent.startsWith("[") && rawContent.endsWith("]");
+            const hasExpandableNotes = !isUrl && !isJsonArray && rawContent.length > (res.summary || "").length + 20;
+            const isExpanded = expandedId === res.id;
+
+            return (
+              <Card key={res.id} className="space-y-2.5 flex flex-col justify-between">
+                <div className="space-y-2.5">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <Badge tone="indigo" className="capitalize">{res.modality.replace("_", " ")}</Badge>
+                    <ProvenanceBadge origin={res.source_origin} />
+                  </div>
+                  <h3 className="text-sm font-bold text-slate-900">{res.title}</h3>
+                  {isExpanded ? (
+                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
+                      <FormattedText text={rawContent} />
+                    </div>
+                  ) : (
+                    <div className="text-xs text-slate-600 leading-relaxed">
+                      <FormattedText text={res.summary || rawContent} inline />
+                    </div>
+                  )}
+                </div>
+
+                <div className="space-y-2 pt-1">
+                  <div className="flex flex-wrap items-center gap-2">
+                    {isUrl && (
+                      <a
+                        href={rawContent}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-indigo-200 bg-indigo-50 px-2.5 py-1 text-xs font-semibold text-indigo-700 hover:bg-indigo-100"
+                      >
+                        <ExternalLink className="h-3.5 w-3.5" />
+                        <span>Open Resource Link</span>
+                      </a>
+                    )}
+                    {hasExpandableNotes && (
+                      <button
+                        type="button"
+                        onClick={() => setExpandedId(isExpanded ? null : res.id)}
+                        className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-semibold text-slate-700 hover:bg-slate-100 cursor-pointer"
+                      >
+                        {isExpanded ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
+                        <span>{isExpanded ? "Show Summary" : "Read Full Notes"}</span>
+                      </button>
+                    )}
+                  </div>
+                  <div className="flex items-center justify-between text-[11px] text-slate-500">
+                    <span className="truncate pr-2">Source: {res.source_ref || "Syllabus Unit"}</span>
+                    <span className="shrink-0">By {res.created_by_agent}</span>
+                  </div>
+                </div>
+              </Card>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

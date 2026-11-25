@@ -25,7 +25,8 @@ function masteryTone(score: number, status: string): { bg: string; border: strin
 }
 
 export function KnowledgeGraphPage() {
-  const { user, activeSyllabus, activeGraph, refreshWorkspace, setActiveTab } = useApp();
+  const { user, activeSyllabus, activeGraph, refreshWorkspace, setActiveTab, setSelectedTutorTopicId } = useApp();
+  const [crucialOnly, setCrucialOnly] = useState(true);
   const [selectedTopic, setSelectedTopic] = useState<SyllabusTopicOut | null>(null);
   const [selectedEdge, setSelectedEdge] = useState<TopicPrerequisiteOut | null>(null);
   const [busy, setBusy] = useState(false);
@@ -33,12 +34,61 @@ export function KnowledgeGraphPage() {
 
   const isStudent = user?.role === "student";
 
-  const { nodes, edges } = useMemo(() => {
-    if (!activeGraph) return { nodes: [] as Node[], edges: [] as Edge[] };
-    const topics = activeGraph.topics;
-    const prereqs = activeGraph.prerequisites;
+  const { nodes, edges, crucialCount, totalCount } = useMemo(() => {
+    if (!activeGraph) {
+      return { nodes: [] as Node[], edges: [] as Edge[], crucialCount: 0, totalCount: 0 };
+    }
+    const allTopics = activeGraph.topics;
+    const allPrereqs = activeGraph.prerequisites;
 
-    // Group cleanly into columns by topological level derived from prerequisite edges
+    // Identify crucial topics: weak (<60%), fading retention (<0.65), weak prerequisite blockers (<65%),
+    // and top high-weightage exam topics (capped to keep large 40-topic graphs clean and readable).
+    const weakIds = new Set(
+      allTopics.filter((t) => t.mastery_score < 60 || t.status === "weak").map((t) => t.id),
+    );
+    const topicById = Object.fromEntries(allTopics.map((t) => [t.id, t]));
+    const blockerIds = new Set<string>();
+    for (const e of allPrereqs) {
+      if (weakIds.has(e.dependent_topic_id)) {
+        const pre = topicById[e.prerequisite_topic_id];
+        if (pre && pre.mastery_score < 65) {
+          blockerIds.add(pre.id);
+        }
+      }
+    }
+
+    const scoredCrucial = allTopics
+      .map((t) => {
+        const isBlocker = blockerIds.has(t.id);
+        const isWeak = weakIds.has(t.id);
+        const isDecaying = t.retention_score < 0.65;
+        const score =
+          (isBlocker ? 100 : 0) +
+          (isWeak ? 60 : 0) +
+          (isDecaying ? 25 : 0) +
+          t.exam_weightage * 5 +
+          (100 - t.mastery_score) * 0.2;
+        return { topic: t, isCrucial: isBlocker || isWeak || isDecaying || t.exam_weightage >= 4.0, score };
+      })
+      .sort((a, b) => b.score - a.score);
+
+    const maxCrucial = Math.min(14, allTopics.length);
+    const picked = scoredCrucial.filter((x) => x.isCrucial).slice(0, maxCrucial);
+    const crucialSet = new Set(
+      (picked.length >= 4 ? picked : scoredCrucial.slice(0, Math.min(8, allTopics.length))).map(
+        (x) => x.topic.id,
+      ),
+    );
+
+    const topics = crucialOnly && allTopics.length > 8
+      ? allTopics.filter((t) => crucialSet.has(t.id))
+      : allTopics;
+    const visibleIds = new Set(topics.map((t) => t.id));
+    const prereqs = allPrereqs.filter(
+      (e) => visibleIds.has(e.prerequisite_topic_id) && visibleIds.has(e.dependent_topic_id),
+    );
+
+    // Group cleanly into columns by topological level derived from visible prerequisite edges
     const depth: Record<string, number> = {};
     for (const t of topics) depth[t.id] = 0;
     for (let iter = 0; iter < topics.length; iter += 1) {
@@ -61,12 +111,12 @@ export function KnowledgeGraphPage() {
       const tone = masteryTone(t.mastery_score, t.status);
       return {
         id: t.id,
-        position: { x: col * 270 + 20, y: row * 125 + 20 },
+        position: { x: col * 275 + 24, y: row * 112 + 24 },
         data: {
           label: `${t.topic_code}: ${t.title} (${Math.round(t.mastery_score)}%)`,
         },
         style: {
-          width: 225,
+          width: 230,
           borderRadius: 12,
           border: `2px solid ${tone.border}`,
           background: tone.bg,
@@ -95,8 +145,13 @@ export function KnowledgeGraphPage() {
       };
     });
 
-    return { nodes: builtNodes, edges: builtEdges };
-  }, [activeGraph]);
+    return {
+      nodes: builtNodes,
+      edges: builtEdges,
+      crucialCount: crucialSet.size,
+      totalCount: allTopics.length,
+    };
+  }, [activeGraph, crucialOnly]);
 
   if (!activeSyllabus || !activeGraph) {
     return (
@@ -149,8 +204,27 @@ export function KnowledgeGraphPage() {
             <span className="font-semibold text-emerald-700">Green &ge; 80%</span>. Dashed amber links need student verification.
           </p>
         </div>
-        <div className="flex items-center gap-2">
-          <Badge tone="indigo">{activeGraph.topics.length} Topics</Badge>
+        <div className="flex flex-wrap items-center gap-2">
+          <div className="inline-flex rounded-lg border border-slate-200 bg-white p-0.5 text-xs font-semibold">
+            <button
+              type="button"
+              onClick={() => setCrucialOnly(true)}
+              className={`rounded-md px-2.5 py-1 transition cursor-pointer ${
+                crucialOnly ? "bg-indigo-600 text-white" : "text-slate-600 hover:bg-slate-100"
+              }`}
+            >
+              Crucial Only ({crucialCount})
+            </button>
+            <button
+              type="button"
+              onClick={() => setCrucialOnly(false)}
+              className={`rounded-md px-2.5 py-1 transition cursor-pointer ${
+                !crucialOnly ? "bg-indigo-600 text-white" : "text-slate-600 hover:bg-slate-100"
+              }`}
+            >
+              All Topics ({totalCount})
+            </button>
+          </div>
           <Badge tone={reviewEdges.length > 0 ? "amber" : "teal"}>
             {reviewEdges.length} Edge(s) Need Review
           </Badge>
@@ -163,9 +237,12 @@ export function KnowledgeGraphPage() {
         <Card className="lg:col-span-8 p-2 overflow-hidden">
           <div className="h-[520px] w-full rounded-lg bg-slate-50">
             <ReactFlow
+              key={`${activeSyllabus.id}-${crucialOnly ? "crucial" : "all"}`}
               nodes={nodes}
               edges={edges}
               fitView
+              fitViewOptions={{ padding: 0.2 }}
+              minZoom={0.25}
               onNodeClick={(_, node) => {
                 setSelectedEdge(null);
                 setSelectedTopic(topicMap[node.id] || null);
@@ -178,7 +255,12 @@ export function KnowledgeGraphPage() {
             >
               <Background color="#cbd5e1" gap={18} />
               <Controls />
-              <MiniMap nodeStrokeWidth={3} zoomable pannable />
+              <MiniMap
+                style={{ width: 120, height: 78 }}
+                nodeStrokeWidth={3}
+                zoomable
+                pannable
+              />
             </ReactFlow>
           </div>
         </Card>
@@ -210,7 +292,13 @@ export function KnowledgeGraphPage() {
                   {selectedTopic.raw_excerpt || "No PDF excerpt saved."}
                 </div>
                 {isStudent && (
-                  <Button className="w-full text-xs" onClick={() => setActiveTab("tutor")}>
+                  <Button
+                    className="w-full text-xs"
+                    onClick={() => {
+                      setSelectedTutorTopicId(selectedTopic.id);
+                      setActiveTab("tutor");
+                    }}
+                  >
                     Open in AI Study Tutor
                   </Button>
                 )}

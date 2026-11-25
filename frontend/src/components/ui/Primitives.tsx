@@ -52,6 +52,9 @@ export function Badge({
 }
 
 export function ProvenanceBadge({ origin }: { origin: string }) {
+  if (origin === "live_web_search") {
+    return <Badge tone="emerald">Live Internet Search</Badge>;
+  }
   if (origin === "llm_generated_summary") {
     return <Badge tone="indigo">LLM Synthesized</Badge>;
   }
@@ -148,11 +151,142 @@ export function AlertBanner({
   };
   return (
     <div className={cn("flex flex-wrap items-center justify-between gap-3 rounded-xl border px-4 py-3 text-sm", styles[tone])}>
-      <div>
+      <div className="min-w-0 flex-1">
         {title && <span className="mr-2 font-semibold">{title}:</span>}
-        <span>{message}</span>
+        <FormattedText text={message} inline />
       </div>
       {action}
     </div>
   );
+}
+
+function renderInlineMarkdown(text: string): ReactNode[] {
+  const cleaned = text.replace(/\b(?:syl_[a-z0-9]+|gate_cse_[a-z0-9_]+)::/gi, "");
+  const tokens = cleaned.split(/(\*\*[^*]+\*\*|`[^`]+`|\*[^*\n]+\*)/g);
+  return tokens.map((tok, idx) => {
+    if (tok.startsWith("**") && tok.endsWith("**") && tok.length > 4) {
+      return (
+        <strong key={idx} className="font-semibold text-slate-900">
+          {tok.slice(2, -2)}
+        </strong>
+      );
+    }
+    if (tok.startsWith("`") && tok.endsWith("`") && tok.length > 2) {
+      return (
+        <code key={idx} className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[0.9em] text-indigo-800">
+          {tok.slice(1, -1)}
+        </code>
+      );
+    }
+    if (tok.startsWith("*") && tok.endsWith("*") && tok.length > 2) {
+      return (
+        <em key={idx} className="italic">
+          {tok.slice(1, -1)}
+        </em>
+      );
+    }
+    return tok;
+  });
+}
+
+export function FormattedText({
+  text,
+  className = "",
+  inline = false,
+}: {
+  text: string;
+  className?: string;
+  inline?: boolean;
+}) {
+  if (!text) return null;
+  if (inline) {
+    return <span className={className}>{renderInlineMarkdown(text)}</span>;
+  }
+
+  const parts = text.split(/(```[\s\S]*?```)/g);
+  const blocks: ReactNode[] = [];
+
+  parts.forEach((part, pIdx) => {
+    if (part.startsWith("```") && part.endsWith("```")) {
+      const codeBody = part.replace(/^```[a-zA-Z0-9_-]*\n?/, "").replace(/\n?```$/, "");
+      blocks.push(
+        <pre
+          key={`code-${pIdx}`}
+          className="overflow-x-auto rounded-lg border border-slate-200 bg-slate-900 p-3 font-mono text-xs leading-relaxed text-slate-100"
+        >
+          <code>{codeBody}</code>
+        </pre>,
+      );
+      return;
+    }
+
+    const lines = part.split(/\r?\n/);
+    let listItems: string[] = [];
+    let orderedList = false;
+
+    const flushList = (keySuffix: string) => {
+      if (listItems.length === 0) return;
+      const Tag = orderedList ? "ol" : "ul";
+      blocks.push(
+        <Tag
+          key={`list-${pIdx}-${keySuffix}`}
+          className={cn(
+            "space-y-1.5 pl-5 text-sm leading-relaxed text-slate-700",
+            orderedList ? "list-decimal" : "list-disc",
+          )}
+        >
+          {listItems.map((item, i) => (
+            <li key={i}>{renderInlineMarkdown(item)}</li>
+          ))}
+        </Tag>,
+      );
+      listItems = [];
+    };
+
+    lines.forEach((rawLine, lIdx) => {
+      const line = rawLine.trim();
+      if (!line) {
+        flushList(`blank-${lIdx}`);
+        return;
+      }
+
+      const headingMatch = line.match(/^(#{1,4})\s+(.*)$/);
+      if (headingMatch) {
+        flushList(`h-${lIdx}`);
+        blocks.push(
+          <h4 key={`h-${pIdx}-${lIdx}`} className="pt-1 text-sm font-bold text-slate-900">
+            {renderInlineMarkdown(headingMatch[2])}
+          </h4>,
+        );
+        return;
+      }
+
+      const bulletMatch = line.match(/^[-*•]\s+(.*)$/);
+      if (bulletMatch) {
+        if (listItems.length > 0 && orderedList) flushList(`switch-u-${lIdx}`);
+        orderedList = false;
+        listItems.push(bulletMatch[1]);
+        return;
+      }
+
+      const numMatch = line.match(/^\d+[.)]\s+(.*)$/);
+      if (numMatch) {
+        if (listItems.length > 0 && !orderedList) flushList(`switch-o-${lIdx}`);
+        orderedList = true;
+        listItems.push(numMatch[1]);
+        return;
+      }
+
+      flushList(`p-${lIdx}`);
+      blocks.push(
+        <p key={`p-${pIdx}-${lIdx}`} className="text-sm leading-relaxed text-slate-700">
+          {renderInlineMarkdown(line)}
+        </p>,
+      );
+    });
+
+    flushList("end");
+  });
+
+  return <div className={cn("space-y-2.5", className)}>{blocks}</div>;
 }

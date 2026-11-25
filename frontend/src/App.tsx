@@ -9,6 +9,7 @@ import { KnowledgeGraphPage } from "./pages/KnowledgeGraphPage";
 import { OnboardingPage } from "./pages/OnboardingPage";
 import { ParentDashboardPage } from "./pages/ParentDashboardPage";
 import { PlannerPage } from "./pages/PlannerPage";
+import { ReportCardPage } from "./pages/ReportCardPage";
 import { ResourcesPage } from "./pages/ResourcesPage";
 import { TutorPage } from "./pages/TutorPage";
 
@@ -30,6 +31,7 @@ function MainWorkspace() {
   return (
     <AppShell>
       {activeTab === "dashboard" && <DashboardPage />}
+      {activeTab === "report_card" && <ReportCardPage />}
       {activeTab === "onboarding" && <OnboardingPage />}
       {activeTab === "tutor" && <TutorPage />}
       {activeTab === "graph" && <KnowledgeGraphPage />}

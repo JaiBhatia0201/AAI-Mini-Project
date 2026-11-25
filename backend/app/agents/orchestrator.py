@@ -223,10 +223,11 @@ def run_study_session(
     *,
     student_id: str,
     syllabus_id: str,
-    topic_id: str,
+    topic_id: str | None = None,
     tutor_question: str | None = None,
+    force_web: bool = False,
 ) -> TutorState:
-    """Flow C: Grounded style-adapted lesson + calibrated topic practice MCQs + coaching."""
+    """Flow C: Grounded style-adapted lesson (or live web FAISS answer) + calibrated practice + coaching."""
     state: TutorState = {
         "run_id": f"run_{uuid4().hex[:12]}",
         "workflow_name": "teach_and_practice",
@@ -234,6 +235,7 @@ def run_study_session(
         "syllabus_id": syllabus_id,
         "topic_id": topic_id,
         "tutor_question": tutor_question,
+        "force_web": force_web,
         "persist": True,
         "is_simulation": False,
         "traces": [],

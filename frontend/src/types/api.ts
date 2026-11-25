@@ -201,6 +201,14 @@ export interface ResourceDiscoverResponse {
   resources: LearningResourceOut[];
 }
 
+export interface WebSourceOut {
+  title: string;
+  url: string;
+  snippet: string;
+  score: number;
+  provider: string;
+}
+
 export interface TutorLessonResponse {
   run_id: string;
   topic_id: string;
@@ -211,6 +219,9 @@ export interface TutorLessonResponse {
   practice_questions: QuestionOut[];
   source_origin: string;
   confidence_status: string;
+  is_out_of_syllabus?: boolean;
+  web_retrieval_mode?: string | null;
+  web_sources?: WebSourceOut[];
   traces: TraceRecordOut[];
 }
 

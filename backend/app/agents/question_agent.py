@@ -229,6 +229,22 @@ def run_question_agent(
     started = time.perf_counter()
     syllabus_id = state["syllabus_id"]
     student_id = state["student_id"]
+
+    # Skip staging unrelated syllabus MCQs when Agent 5 answered an out-of-syllabus web query
+    if mode != "diagnostic" and (state.get("lesson_payload") or {}).get("is_out_of_syllabus"):
+        state["practice_questions"] = []
+        record_trace(
+            db=db,
+            state=state,
+            agent_number=6,
+            agent_name="Question Generator Agent",
+            execution_mode="deterministic",
+            started_at=started,
+            input_summary=f"mode={mode}, out_of_syllabus=True",
+            output_summary="Skipped syllabus MCQ staging for out-of-syllabus live web answer",
+        )
+        return state
+
     topic_id = state.get("topic_id") if mode != "diagnostic" else None
     count = 10 if mode == "diagnostic" else 5
 

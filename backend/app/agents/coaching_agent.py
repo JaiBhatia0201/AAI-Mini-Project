@@ -44,7 +44,14 @@ def run_coaching_agent(db: Session, state: TutorState) -> TutorState:
 
     weak_count = len(state.get("weak_topics") or [])
     alert_count = len(state.get("decay_alerts") or [])
-    blockers = state.get("root_cause_blockers") or []
+    raw_blockers = state.get("root_cause_blockers") or []
+    topic_lookup = {t.id: t for t in topics}
+    blockers = [
+        f"{topic_lookup[b].topic_code}: {topic_lookup[b].title}"
+        if b in topic_lookup
+        else (b.split("::", 1)[-1] if "::" in b else b)
+        for b in raw_blockers
+    ]
     exam_name = syllabus.exam_name if syllabus else "your exam"
     streak = int(profile.study_streak if profile else 0)
 
@@ -52,12 +59,15 @@ def run_coaching_agent(db: Session, state: TutorState) -> TutorState:
         f"Exam: {exam_name}\n"
         f"Estimated Current Score: {pred['current_estimated_score']} / {pred['max_score']} "
         f"(Projected: {pred['projected_estimated_score']} / {pred['max_score']}, Target: {pred['target_score']})\n"
-        f"Band: {pred['readiness_band']}, Streak: {streak} days, "
-        f"Weak topics: {weak_count}, Forgetting alerts: {alert_count}, Root blockers: {blockers}\n"
-        f"Mention {exam_name} and write 2-3 encouraging, concrete sentences referencing ONLY those exact numbers and recommending the immediate next step."
+        f"Readiness Band: {pred['readiness_band']}\n"
+        f"Positive Study Consistency Streak: {streak} consecutive active day(s)\n"
+        f"Weak topics count: {weak_count}, Forgetting alerts count: {alert_count}\n"
+        f"Priority prerequisite topics to review first: {blockers[:3] if blockers else 'None'}\n"
+        f"Mention {exam_name} and write 2-3 clear, encouraging, human-readable sentences referencing ONLY those exact numbers "
+        f"and recommending the immediate next step. Do NOT include raw markdown stars (**), internal IDs, or call the study streak negative."
     )
     llm_res = invoke_llm_text(
-        system_prompt="You are a supportive academic coach. Cite exact provided metrics; never invent scores or ranks.",
+        system_prompt="You are a supportive academic coach. Write clean, readable plain English citing exact provided metrics; never invent scores, ranks, or internal IDs.",
         user_prompt=prompt,
     )
 

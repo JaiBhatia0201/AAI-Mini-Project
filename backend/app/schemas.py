@@ -159,8 +159,17 @@ class ResourceDiscoverRequest(BaseModel):
 
 class TutorLessonRequest(BaseModel):
     syllabus_id: str
-    topic_id: str
+    topic_id: str | None = None
     question: str | None = None
+    force_web: bool = False
+
+
+class WebSourceOut(BaseModel):
+    title: str
+    url: str
+    snippet: str
+    score: float = 0.0
+    provider: str = "web"
 
 
 class TutorLessonResponse(BaseModel):
@@ -173,6 +182,9 @@ class TutorLessonResponse(BaseModel):
     practice_questions: list[QuestionOut] = Field(default_factory=list)
     source_origin: str
     confidence_status: str
+    is_out_of_syllabus: bool = False
+    web_retrieval_mode: str | None = None
+    web_sources: list[WebSourceOut] = Field(default_factory=list)
     traces: list[TraceRecordOut] = Field(default_factory=list)
 
 

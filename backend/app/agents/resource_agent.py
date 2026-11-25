@@ -22,7 +22,7 @@ def _ensure_topic_resources(
     db: Session,
     topic: SyllabusTopic,
     allow_llm: bool = True,
-) -> tuple[list[LearningResource], str]:
+) -> tuple[list[LearningResource], str, bool]:
     """Ensure uploaded PDF topics also get grounded notes, flashcards, and search queries."""
     existing = (
         db.query(LearningResource)
@@ -30,7 +30,7 @@ def _ensure_topic_resources(
         .all()
     )
     if existing:
-        return existing, "deterministic"
+        return existing, "deterministic", False
 
     subtopics = json.loads(topic.subtopics_json or "[]")
     excerpt = (topic.raw_excerpt or f"{topic.title}: {', '.join(subtopics)}").strip()
@@ -104,29 +104,63 @@ def _ensure_topic_resources(
     ]
     db.add_all(created)
     db.flush()
-    return created, exec_mode
+    return created, exec_mode, True
 
 
 def run_resource_agent(db: Session, state: TutorState) -> TutorState:
-    """Synthesize missing custom resources and rebuild the isolated syllabus search index."""
+    """Synthesize missing custom resources and rebuild (or reuse cached) isolated syllabus index."""
     started = time.perf_counter()
     syllabus_id = state["syllabus_id"]
     target_topic_id = state.get("topic_id")
 
+    if state.get("force_web") or (state.get("workflow_name") == "teach_and_practice" and not target_topic_id):
+        record_trace(
+            db=db,
+            state=state,
+            agent_number=3,
+            agent_name="Resource Discovery Agent",
+            execution_mode="deterministic",
+            started_at=started,
+            input_summary=f"syllabus={syllabus_id}, mode=live_web",
+            output_summary="Skipped syllabus re-indexing for general out-of-syllabus web query",
+        )
+        return state
+
     topics = db.query(SyllabusTopic).filter_by(syllabus_id=syllabus_id).order_by(SyllabusTopic.order_index).all()
     llm_topics = 0
+    created_any = False
     if target_topic_id:
         for t in topics:
             if t.id == target_topic_id:
-                _, mode = _ensure_topic_resources(db, t, allow_llm=True)
+                _, mode, was_created = _ensure_topic_resources(db, t, allow_llm=True)
+                created_any = created_any or was_created
                 if mode == "llm":
                     llm_topics += 1
     else:
         for idx, t in enumerate(topics):
             # Cap live LLM calls during bulk syllabus onboarding to fit free-tier TPM limits cleanly
-            _, mode = _ensure_topic_resources(db, t, allow_llm=(idx < 2))
+            _, mode, was_created = _ensure_topic_resources(db, t, allow_llm=(idx < 2))
+            created_any = created_any or was_created
             if mode == "llm":
                 llm_topics += 1
+
+    provider = get_retrieval_provider()
+
+    # Optimization: reuse existing per-syllabus index on topic study/search when no new resources were added
+    cached_mode = provider.has_index(syllabus_id) if (target_topic_id and not created_any) else None
+    if cached_mode is not None:
+        state["retrieval_mode"] = cached_mode
+        record_trace(
+            db=db,
+            state=state,
+            agent_number=3,
+            agent_name="Resource Discovery Agent",
+            execution_mode="deterministic",
+            started_at=started,
+            input_summary=f"syllabus={syllabus_id}, topic={target_topic_id}",
+            output_summary=f"Cache hit: reused existing syllabus index ({cached_mode}, skipped redundant re-indexing)",
+        )
+        return state
 
     all_resources = db.query(LearningResource).filter_by(syllabus_id=syllabus_id).all()
     docs: list[RetrievalDocument] = []
@@ -154,7 +188,6 @@ def run_resource_agent(db: Session, state: TutorState) -> TutorState:
             )
         )
 
-    provider = get_retrieval_provider()
     retrieval_mode = provider.index_syllabus_documents(syllabus_id, docs)
     state["retrieval_mode"] = retrieval_mode
 
